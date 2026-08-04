@@ -260,15 +260,35 @@ const NOT_FOR = [
 const FAQS = [
   {
     q: "Will this replace my existing staff?",
-    a: "Our goal is to empower your team, not replace them. Vektiss handles the initial capture, qualification, and follow-up, freeing your staff to focus on high-value conversations and closing deals. It extends your capacity without adding immediate payroll.",
+    a: (
+      <>
+        Our goal is to <Hl>empower your team, not replace them</Hl>. Vektiss handles the initial
+        capture, qualification, and follow-up, freeing your staff to focus on high-value
+        conversations and closing deals. It <Hl>extends your capacity</Hl> without adding immediate
+        payroll.
+      </>
+    ),
   },
   {
     q: "Is this just another chatbot?",
-    a: "No. While it includes chat capabilities, Vektiss builds a full-spectrum AI communication system integrated across phone, text, and email. It's an intelligent, adaptive system that learns from your business, not a generic, scripted bot.",
+    a: (
+      <>
+        <Hl>No.</Hl> While it includes chat capabilities, Vektiss builds a{" "}
+        <Hl>full-spectrum AI communication system</Hl> integrated across phone, text, and email.
+        It's an intelligent, adaptive system that learns from your business, not a generic, scripted
+        bot.
+      </>
+    ),
   },
   {
     q: "How long does setup take and what's involved?",
-    a: "We handle everything. After an initial deep dive into your operations, our team custom-builds and integrates your AI system. We monitor, optimize, and provide ongoing support, ensuring seamless operation and continuous improvement.",
+    a: (
+      <>
+        <Hl>We handle everything.</Hl> After an initial deep dive into your operations, our team
+        custom-builds and integrates your AI system. We monitor, optimize, and provide{" "}
+        <Hl>ongoing support</Hl>, ensuring seamless operation and continuous improvement.
+      </>
+    ),
   },
 ];
 
@@ -276,17 +296,32 @@ const STEPS = [
   {
     n: "Step 1",
     t: 'Click "Apply Now" and tell us about your business.',
-    d: "Share some details about your current lead flow, challenges, and goals through our simple form.",
+    d: (
+      <>
+        Share some details about your <Hl>current lead flow</Hl>, challenges, and goals through our
+        simple form.
+      </>
+    ),
   },
   {
     n: "Step 2",
     t: "We'll schedule a personalized demo.",
-    d: "See firsthand how a custom Vektiss AI system can integrate with your operations and start capturing your missed opportunities.",
+    d: (
+      <>
+        See firsthand how a custom Vektiss AI system integrates with your operations and starts{" "}
+        <Hl>capturing your missed opportunities</Hl>.
+      </>
+    ),
   },
   {
     n: "Step 3",
     t: "Launch your custom AI system.",
-    d: "Begin experiencing the freedom and confidence of a business that never misses a lead, allowing you to scale without constant personal oversight.",
+    d: (
+      <>
+        Begin experiencing the freedom and confidence of a business that{" "}
+        <Hl>never misses a lead</Hl>, allowing you to scale without constant personal oversight.
+      </>
+    ),
   },
 ];
 
