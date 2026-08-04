@@ -678,20 +678,19 @@ function Funnel() {
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="surface-card p-5">
-            <p className="eyebrow mb-2">Most tools</p>
-            <h3 className="text-2xl font-bold tracking-tight">Hand you the pieces</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              You become the expert, builder, and manager — while still running the business.
-            </p>
-          </div>
-          <div className="surface-card border-l-4 border-primary p-5">
-            <p className="eyebrow mb-2">Vektiss</p>
-            <h3 className="text-2xl font-bold tracking-tight">Builds the machine for you</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Custom system, fully managed, tailored to how you already operate.
-            </p>
-          </div>
+          <PremiumIconCard
+            icon={Layers}
+            label="Most tools"
+            title="Hand you the pieces"
+            description="You become the expert, builder, and manager — while still running the business."
+          />
+          <PremiumIconCard
+            icon={Zap}
+            label="Vektiss"
+            title="Builds the machine for you"
+            description="Custom system, fully managed, tailored to how you already operate."
+            tone="accent"
+          />
         </div>
 
         <PullQuote>
@@ -699,27 +698,28 @@ function Funnel() {
         </PullQuote>
 
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="surface-card p-5">
-            <Layers className="mb-3 size-8 text-primary" />
-            <h3 className="text-xl font-bold tracking-tight">Tailored to you</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              An AI communication system built around your existing workflows.
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <User className="mb-3 size-8 text-primary" />
-            <h3 className="text-xl font-bold tracking-tight">Empowers your team</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Not replacing people — <Mark>extending their reach beyond human limitations</Mark>.
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <ShieldCheck className="mb-3 size-8 text-primary" />
-            <h3 className="text-xl font-bold tracking-tight">Always-on coverage</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Capture serious opportunities without requiring 24/7 availability.
-            </p>
-          </div>
+          <PremiumIconCard
+            icon={Layers}
+            label="Tailored"
+            title="Tailored to you"
+            description="An AI communication system built around your existing workflows."
+          />
+          <PremiumIconCard
+            icon={User}
+            label="Empowering"
+            title="Empowers your team"
+            description={
+              <>
+                Not replacing people — <Mark>extending their reach beyond human limitations</Mark>.
+              </>
+            }
+          />
+          <PremiumIconCard
+            icon={ShieldCheck}
+            label="Reliable"
+            title="Always-on coverage"
+            description="Capture serious opportunities without requiring 24/7 availability."
+          />
         </div>
 
         <p className="rule-accent">
