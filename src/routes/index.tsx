@@ -168,16 +168,16 @@ function PremiumIconCard({
   };
   const t = toneStyles[tone];
   return (
-    <div className={`group rounded-[var(--radius-2xl)] border p-6 transition-colors ${t.card}`}>
-      <div className="mb-5 flex items-center gap-3">
+    <div className={`group rounded-[var(--radius-2xl)] border p-5 transition-colors sm:p-6 ${t.card}`}>
+      <div className="mb-4 flex items-center gap-3 sm:mb-5">
         <Icon className={`size-[18px] shrink-0 ${t.icon}`} strokeWidth={1.25} />
         <span aria-hidden className={`h-px flex-1 ${t.rule}`} />
         {label ? (
-          <span className={`eyebrow text-[0.7rem] ${t.label}`}>{label}</span>
+          <span className={`eyebrow text-[0.65rem] sm:text-[0.7rem] ${t.label}`}>{label}</span>
         ) : null}
       </div>
-      <h3 className={`text-xl font-bold tracking-tight ${t.title}`}>{title}</h3>
-      <p className={`mt-2 text-base leading-snug ${t.desc}`}>{description}</p>
+      <h3 className={`text-lg font-bold tracking-tight sm:text-xl ${t.title}`}>{title}</h3>
+      <p className={`mt-2 text-sm leading-snug sm:text-base ${t.desc}`}>{description}</p>
     </div>
   );
 }
