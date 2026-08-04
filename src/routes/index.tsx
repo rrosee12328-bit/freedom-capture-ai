@@ -535,7 +535,7 @@ function Funnel() {
       {/* HERO */}
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:py-24">
+        <div className="relative mx-auto max-w-4xl px-6 py-12 text-center lg:py-16">
           <p className="eyebrow mb-4 text-primary-foreground/70">For established service businesses</p>
           <h1 className="text-3xl leading-[1.05] font-extrabold sm:text-4xl lg:text-5xl">
             Stop Feeling Trapped By Your Success:{" "}
@@ -553,17 +553,9 @@ function Funnel() {
               Managed implementation · Custom workflow design · Ongoing optimization
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* VSL */}
-      <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
-          <p className="eyebrow mb-4">See it in action</p>
-          <h2 className="text-3xl leading-[1.1] font-bold sm:text-4xl">
-            Watch How Vektiss Voice Works
-          </h2>
-          <div className="surface-card mx-auto mt-8 max-w-3xl overflow-hidden p-0">
+          {/* VSL */}
+          <div className="surface-card mx-auto mt-10 max-w-3xl overflow-hidden p-0">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/600055/0c670976-e711-43b7-bce8-76a61e91d32c?autoplay=false&preload=true&responsive=true"
