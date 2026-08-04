@@ -7,6 +7,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
+import { trackPixel } from "@/lib/meta-pixel";
 
 type Option = { label: string; points: number; disqualify?: boolean };
 
@@ -245,7 +246,11 @@ export function ApplyDialog({
       setError("We couldn't save your application. Please try again.");
       return;
     }
-    setStatus(disqualified || score <= 6 ? "not-qualified" : score >= 12 ? "qualified" : "review");
+    const nextStatus =
+      disqualified || score <= 6 ? "not-qualified" : score >= 12 ? "qualified" : "review";
+    trackPixel("Lead");
+    if (nextStatus === "qualified") trackPixel("Schedule");
+    setStatus(nextStatus);
   }
 
   return (
