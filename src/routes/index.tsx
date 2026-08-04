@@ -636,7 +636,7 @@ function Funnel() {
         </p>
       </Section>
 
-      <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tinted>
+      <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tone="dark">
         <p className="lead-para">
           The biggest myth in business growth is that{" "}
           <Uline>demand automatically translates to revenue</Uline>. <Hl>It doesn't.</Hl> Not if
@@ -653,18 +653,21 @@ function Funnel() {
             label="After hours"
             title="Nobody answers."
             description="They call the next business. Your empty office becomes a silent opportunity drain."
+            tone="accent"
           />
           <PremiumIconCard
             icon={Users}
             label="Team swamped"
             title="Slow follow-up"
             description="Slow follow-up reads as no follow-up. Perception is reality for a serious lead."
+            tone="accent"
           />
           <PremiumIconCard
             icon={CalendarX}
             label="Weekends"
             title="Demand keeps arriving"
             description="Demand keeps arriving. Capacity doesn't. Every closed day costs you."
+            tone="accent"
           />
         </div>
         <p>
@@ -676,7 +679,7 @@ function Funnel() {
         </p>
       </Section>
 
-      <Section eyebrow="Why this is different" title="Why This Time Is Different">
+      <Section eyebrow="Why this is different" title="Why This Time Is Different" tone="accent">
         <p className="lead-para">
           Most solutions out there give you tools and then expect you to become an expert in
           building and managing complex systems. They hand you the pieces and wish you luck. But
