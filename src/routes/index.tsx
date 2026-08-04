@@ -112,15 +112,15 @@ function Callouts({ items }: { items: { k: string; label: string; node: React.Re
   return (
     <div className="grid gap-px overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-border sm:grid-cols-3">
       {items.map((i, idx) => (
-        <div key={i.k} className="bg-card p-6">
-          <div className="mb-4 flex items-center gap-2">
-            <span className="eyebrow text-primary">
+        <div key={i.k} className="bg-card p-5 sm:p-6">
+          <div className="mb-3 flex items-center gap-2 sm:mb-4">
+            <span className="eyebrow text-primary text-xs sm:text-sm">
               {String(idx + 1).padStart(2, "0")}
             </span>
             <span aria-hidden className="h-px flex-1 bg-border" />
           </div>
-          <p className="eyebrow mb-2 text-muted-foreground">{i.label}</p>
-          <p className="text-lg leading-snug font-semibold text-foreground">{i.node}</p>
+          <p className="eyebrow mb-2 text-muted-foreground text-xs sm:text-sm">{i.label}</p>
+          <p className="text-base leading-snug font-semibold text-foreground sm:text-lg">{i.node}</p>
         </div>
       ))}
     </div>
