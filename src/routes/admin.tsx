@@ -144,6 +144,7 @@ function AdminDashboard() {
               name="email"
               type="email"
               required
+              defaultValue="rrose@vektiss.com"
               placeholder="Admin email"
               className="w-full rounded-lg border border-border bg-background p-3"
             />
