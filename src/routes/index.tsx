@@ -533,7 +533,7 @@ function Funnel() {
       </header>
 
       {/* HERO */}
-      <section className="relative overflow-hidden invert-surface">
+      <section className="relative invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
         <div className="relative mx-auto max-w-5xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:py-16">
           <div className="relative mx-auto inline-block">
@@ -545,7 +545,7 @@ function Funnel() {
 
             <h1 className="font-bricolage relative text-4xl font-extrabold leading-[1] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               <span className="block">Stop Losing</span>
-              <span className="relative inline-block bg-gradient-to-r from-primary to-[oklch(0.5_0.15_260)] bg-clip-text px-2 pb-3 pt-2 italic leading-[1.35] text-transparent">
+              <span className="relative block bg-gradient-to-r from-primary to-[oklch(0.5_0.15_260)] bg-clip-text px-2 pb-8 pt-2 italic leading-[1.5] text-transparent">
                 High-Value
               </span>
               <span className="block">Clients to</span>
