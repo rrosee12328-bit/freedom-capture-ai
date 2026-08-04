@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ApplyDialog } from "@/components/ApplyDialog";
 
 const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
 const DESCRIPTION =
@@ -18,16 +20,23 @@ export const Route = createFileRoute("/")({
   component: Funnel,
 });
 
-const APPLY_URL = "https://vektiss.com/apply";
-
-function Cta({ label = "Learn More", block = false }: { label?: string; block?: boolean }) {
+function Cta({
+  label = "Apply Now",
+  block = false,
+  onClick,
+}: {
+  label?: string;
+  block?: boolean;
+  onClick: () => void;
+}) {
   return (
-    <a
-      href={APPLY_URL}
+    <button
+      type="button"
+      onClick={onClick}
       className={`inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-cta)] transition-transform hover:-translate-y-0.5 ${block ? "w-full sm:w-auto" : ""}`}
     >
       {label}
-    </a>
+    </button>
   );
 }
 
@@ -126,7 +135,7 @@ const FAQS = [
 const STEPS = [
   {
     n: "Step 1",
-    t: 'Click "Learn More" and tell us about your business.',
+    t: 'Click "Apply Now" and tell us about your business.',
     d: "Share some details about your current lead flow, challenges, and goals through our simple form.",
   },
   {
@@ -142,17 +151,21 @@ const STEPS = [
 ];
 
 function Funnel() {
+  const [open, setOpen] = useState(false);
+  const openForm = () => setOpen(true);
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <ApplyDialog open={open} onOpenChange={setOpen} />
       <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <span className="font-mono text-sm font-medium tracking-[0.2em] uppercase">Vektiss</span>
-          <a
-            href={APPLY_URL}
+          <button
+            type="button"
+            onClick={openForm}
             className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground"
           >
-            Learn More
-          </a>
+            Apply Now
+          </button>
         </div>
       </header>
 
@@ -189,7 +202,7 @@ function Funnel() {
             there to watch it.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
-            <Cta />
+            <Cta onClick={openForm} />
             <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
               Managed implementation · Custom workflow design · Ongoing optimization
             </p>
@@ -358,7 +371,7 @@ function Funnel() {
             going to your competition.
           </p>
           <div className="mt-8">
-            <Cta />
+            <Cta onClick={openForm} />
           </div>
           <p className="mt-6 text-lg text-background/70">
             Don't let your hard-earned demand turn into missed opportunities.
@@ -379,7 +392,7 @@ function Funnel() {
             biggest burden.
           </p>
           <div className="mt-10 text-center">
-            <Cta />
+            <Cta onClick={openForm} />
           </div>
         </div>
       </section>
