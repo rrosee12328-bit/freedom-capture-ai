@@ -187,10 +187,14 @@
 
 @utility eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--primary);
+
+  @media (min-width: 640px) {
+    font-size: 0.85rem;
+  }
 }
 
 @utility surface-card {
