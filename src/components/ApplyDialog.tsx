@@ -292,7 +292,7 @@ export function ApplyDialog({
                   <Field label="Can we count on you to attend your scheduled consultation? *">
                     <Choice options={COMMITMENT} value={a['commitment']} onChange={set("commitment")} />
                   </Field>
-                  <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-card p-4 text-sm leading-relaxed text-muted-foreground">
+                  <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-card p-3 text-xs leading-relaxed text-muted-foreground sm:p-4 sm:text-sm">
                     <input
                       type="checkbox"
                       checked={consent}
