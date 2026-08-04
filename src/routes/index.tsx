@@ -824,22 +824,34 @@ function Funnel() {
               <figcaption className="text-base font-semibold text-black">— Kairos Security&nbsp;</figcaption>
             </figure>
 
-            {[2, 3].map((i) => (
-              <figure key={i} className="surface-card flex flex-col gap-5 p-8">
-                <div className="flex items-center gap-3">
-                  <span aria-hidden className="h-px w-8 bg-primary" />
-                  <span className="eyebrow">{String(i).padStart(2, "0")}</span>
-                </div>
-                <blockquote className="text-lg leading-relaxed font-medium text-black">
-                  [Insert client result or testimonial #{i} here — focus on quantifiable results
-                  like increased captured leads, improved response times, or specific revenue
-                  recovery.]
-                </blockquote>
-                <figcaption className="text-base font-semibold text-black">
-                  Name, Title — Company
-                </figcaption>
-              </figure>
-            ))}
+            <figure className="surface-card flex flex-col gap-5 p-8">
+              <div className="flex items-center gap-3">
+                <span aria-hidden className="h-px w-8 bg-primary" />
+                <span className="eyebrow">02</span>
+              </div>
+              <blockquote className="text-lg leading-relaxed font-medium text-black">
+                “Since adding Vektiss Voice, our customers can call anytime and get the help they
+                need, including updates on their vehicle. It has made communication smoother and
+                helped our shop stay focused on the repairs.”
+              </blockquote>
+              <figcaption className="text-base font-semibold text-black">
+                — J&J Elite Auto Repair
+              </figcaption>
+            </figure>
+
+            <figure className="surface-card flex flex-col gap-5 p-8">
+              <div className="flex items-center gap-3">
+                <span aria-hidden className="h-px w-8 bg-primary" />
+                <span className="eyebrow">03</span>
+              </div>
+              <blockquote className="text-lg leading-relaxed font-medium text-black">
+                [Insert client result or testimonial #3 here — focus on quantifiable results like
+                increased captured leads, improved response times, or specific revenue recovery.]
+              </blockquote>
+              <figcaption className="text-base font-semibold text-black">
+                Name, Title — Company
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
