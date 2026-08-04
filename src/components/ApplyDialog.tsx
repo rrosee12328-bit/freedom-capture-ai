@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 
 type Option = { label: string; points: number; disqualify?: boolean };
 
@@ -136,25 +137,26 @@ export function ApplyDialog({
   const [a, setA] = useState<Answers>({});
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<null | "qualified" | "review" | "not-qualified">(null);
 
   const set = (k: string) => (v: string) => setA((p) => ({ ...p, [k]: v }));
 
   const score = useMemo(() => {
     return (
-      (find(CALLS, a['calls'])?.points ?? 0) +
-      (find(VALUE, a['value'])?.points ?? 0) +
-      (find(TIMELINE, a['timeline'])?.points ?? 0) +
-      (find(INVESTMENT, a['investment'])?.points ?? 0) +
-      (find(AUTHORITY, a['authority'])?.points ?? 0) +
-      (find(COMMITMENT, a['commitment'])?.points ?? 0)
+      (find(CALLS, a["calls"])?.points ?? 0) +
+      (find(VALUE, a["value"])?.points ?? 0) +
+      (find(TIMELINE, a["timeline"])?.points ?? 0) +
+      (find(INVESTMENT, a["investment"])?.points ?? 0) +
+      (find(AUTHORITY, a["authority"])?.points ?? 0) +
+      (find(COMMITMENT, a["commitment"])?.points ?? 0)
     );
   }, [a]);
 
   const disqualified =
-    !!find(INVESTMENT, a['investment'])?.disqualify ||
-    !!find(AUTHORITY, a['authority'])?.disqualify ||
-    !!find(COMMITMENT, a['commitment'])?.disqualify;
+    !!find(INVESTMENT, a["investment"])?.disqualify ||
+    !!find(AUTHORITY, a["authority"])?.disqualify ||
+    !!find(COMMITMENT, a["commitment"])?.disqualify;
 
   function reset() {
     setA({});
@@ -163,25 +165,31 @@ export function ApplyDialog({
     setError(null);
   }
 
-  function submit() {
+  async function submit() {
     setError(null);
-    if (!a['name']?.trim() || !a['email']?.trim() || !a['phone']?.trim() || !a['business']?.trim() || !a['type']?.trim()) {
+    if (
+      !a["name"]?.trim() ||
+      !a["email"]?.trim() ||
+      !a["phone"]?.trim() ||
+      !a["business"]?.trim() ||
+      !a["type"]?.trim()
+    ) {
       setError("Please complete all required fields.");
       return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a['email'] ?? "")) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a["email"] ?? "")) {
       setError("Please enter a valid business email.");
       return;
     }
-    if (!a['calls'] || !a['value'] || !a['challenge']) {
+    if (!a["calls"] || !a["value"] || !a["challenge"]) {
       setError("Please answer every question.");
       return;
     }
-    if (a['challenge'] === "Other" && !a['challengeOther']?.trim()) {
+    if (a["challenge"] === "Other" && !a["challengeOther"]?.trim()) {
       setError("Please tell us what is currently happening.");
       return;
     }
-    if (!a['timeline'] || !a['investment'] || !a['authority'] || !a['commitment']) {
+    if (!a["timeline"] || !a["investment"] || !a["authority"] || !a["commitment"]) {
       setError("Please answer every question.");
       return;
     }
@@ -189,21 +197,54 @@ export function ApplyDialog({
       setError("Please agree to be contacted so we can follow up on your application.");
       return;
     }
-    const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
+    const params =
+      typeof window !== "undefined"
+        ? new URLSearchParams(window.location.search)
+        : new URLSearchParams();
+    if (!isSupabaseConfigured || !supabase) {
+      setError("Applications are temporarily unavailable. Please try again shortly.");
+      return;
+    }
+    const qualificationStatus = disqualified
+      ? "Not Currently Qualified"
+      : score >= 12
+        ? "Qualified"
+        : score >= 7
+          ? "Needs Review"
+          : "Not Currently Qualified";
     const submission = {
-      submittedAt: new Date().toISOString(),
-      ...a,
+      name: a["name"].trim(),
+      email: a["email"].trim().toLowerCase(),
+      phone: a["phone"].trim(),
+      business_name: a["business"].trim(),
+      website: a["website"]?.trim() || null,
+      business_type: a["type"].trim(),
+      monthly_calls: a["calls"],
+      client_value: a["value"],
+      challenge: a["challenge"],
+      challenge_other: a["challengeOther"]?.trim() || null,
+      timeline: a["timeline"],
+      investment_readiness: a["investment"],
+      purchasing_authority: a["authority"],
+      consultation_commitment: a["commitment"],
       consent,
-      score,
-      status: disqualified ? "Not Currently Qualified" : score >= 12 ? "Qualified" : score >= 7 ? "Needs Review" : "Not Currently Qualified",
-      leadSource: typeof document !== "undefined" ? document.referrer || "direct" : "direct",
+      qualification_score: score,
+      qualification_status: qualificationStatus,
+      lead_source: typeof document !== "undefined" ? document.referrer || "direct" : "direct",
       utm_source: params.get("utm_source"),
       utm_medium: params.get("utm_medium"),
       utm_campaign: params.get("utm_campaign"),
       utm_content: params.get("utm_content"),
       utm_term: params.get("utm_term"),
     };
-    console.info("Vektiss application", submission);
+    setSubmitting(true);
+    const { error: insertError } = await supabase.from("leads").insert(submission);
+    setSubmitting(false);
+    if (insertError) {
+      console.error("Lead submission failed", insertError);
+      setError("We couldn't save your application. Please try again.");
+      return;
+    }
     setStatus(disqualified || score <= 6 ? "not-qualified" : score >= 12 ? "qualified" : "review");
   }
 
@@ -236,86 +277,131 @@ export function ApplyDialog({
           {status === null ? (
             <>
               <div className="space-y-5">
-                  <Field label="Full name *">
-                    <input className={inputCls} value={a['name'] ?? ""} onChange={(e) => set("name")(e.target.value)} maxLength={100} />
-                  </Field>
-                  <Field label="Business email *">
-                    <input type="email" className={inputCls} value={a['email'] ?? ""} onChange={(e) => set("email")(e.target.value)} maxLength={255} />
-                  </Field>
-                  <Field label="Phone number *">
-                    <input type="tel" className={inputCls} value={a['phone'] ?? ""} onChange={(e) => set("phone")(e.target.value)} maxLength={30} />
-                  </Field>
-                  <Field label="Business name *">
-                    <input className={inputCls} value={a['business'] ?? ""} onChange={(e) => set("business")(e.target.value)} maxLength={120} />
-                  </Field>
-                  <Field label="Website URL">
-                    <input type="url" placeholder="https://" className={inputCls} value={a['website'] ?? ""} onChange={(e) => set("website")(e.target.value)} maxLength={255} />
-                  </Field>
-                  <Field label="What type of business do you operate? *">
-                    <input className={inputCls} value={a['type'] ?? ""} onChange={(e) => set("type")(e.target.value)} maxLength={120} />
-                  </Field>
+                <Field label="Full name *">
+                  <input
+                    className={inputCls}
+                    value={a["name"] ?? ""}
+                    onChange={(e) => set("name")(e.target.value)}
+                    maxLength={100}
+                  />
+                </Field>
+                <Field label="Business email *">
+                  <input
+                    type="email"
+                    className={inputCls}
+                    value={a["email"] ?? ""}
+                    onChange={(e) => set("email")(e.target.value)}
+                    maxLength={255}
+                  />
+                </Field>
+                <Field label="Phone number *">
+                  <input
+                    type="tel"
+                    className={inputCls}
+                    value={a["phone"] ?? ""}
+                    onChange={(e) => set("phone")(e.target.value)}
+                    maxLength={30}
+                  />
+                </Field>
+                <Field label="Business name *">
+                  <input
+                    className={inputCls}
+                    value={a["business"] ?? ""}
+                    onChange={(e) => set("business")(e.target.value)}
+                    maxLength={120}
+                  />
+                </Field>
+                <Field label="Website URL">
+                  <input
+                    type="url"
+                    placeholder="https://"
+                    className={inputCls}
+                    value={a["website"] ?? ""}
+                    onChange={(e) => set("website")(e.target.value)}
+                    maxLength={255}
+                  />
+                </Field>
+                <Field label="What type of business do you operate? *">
+                  <input
+                    className={inputCls}
+                    value={a["type"] ?? ""}
+                    onChange={(e) => set("type")(e.target.value)}
+                    maxLength={120}
+                  />
+                </Field>
               </div>
 
               <div className="space-y-7">
-                  <Field label="Approximately how many calls or leads does your business receive each month? *">
-                    <Choice options={CALLS} value={a['calls']} onChange={set("calls")} />
-                  </Field>
-                  <Field label="What is one new client typically worth to your business? *">
-                    <Choice options={VALUE} value={a['value']} onChange={set("value")} />
-                  </Field>
-                  <Field label="What is your biggest challenge right now? *">
-                    <Choice options={CHALLENGE} value={a['challenge']} onChange={set("challenge")} />
-                  </Field>
-                  {a['challenge'] === "Other" ? (
-                    <Field label="Tell us what is currently happening *">
-                      <textarea
-                        rows={4}
-                        maxLength={1000}
-                        className={inputCls}
-                        value={a['challengeOther'] ?? ""}
-                        onChange={(e) => set("challengeOther")(e.target.value)}
-                      />
-                    </Field>
-                  ) : null}
-              </div>
-
-              <div className="space-y-7">
-                  <Field label="How soon are you looking to improve this? *">
-                    <Choice options={TIMELINE} value={a['timeline']} onChange={set("timeline")} />
-                  </Field>
-                  <Field label="Are you prepared to invest in a professionally built and managed AI communication system? *">
-                    <Choice options={INVESTMENT} value={a['investment']} onChange={set("investment")} />
-                  </Field>
-                  <Field label="Are you involved in the final purchasing decision? *">
-                    <Choice options={AUTHORITY} value={a['authority']} onChange={set("authority")} />
-                  </Field>
-                  <Field label="Can we count on you to attend your scheduled consultation? *">
-                    <Choice options={COMMITMENT} value={a['commitment']} onChange={set("commitment")} />
-                  </Field>
-                  <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-card p-3 text-xs leading-relaxed text-muted-foreground sm:p-4 sm:text-sm">
-                    <input
-                      type="checkbox"
-                      checked={consent}
-                      onChange={(e) => setConsent(e.target.checked)}
-                      className="mt-1 size-4 shrink-0 accent-[var(--primary)]"
+                <Field label="Approximately how many calls or leads does your business receive each month? *">
+                  <Choice options={CALLS} value={a["calls"]} onChange={set("calls")} />
+                </Field>
+                <Field label="What is one new client typically worth to your business? *">
+                  <Choice options={VALUE} value={a["value"]} onChange={set("value")} />
+                </Field>
+                <Field label="What is your biggest challenge right now? *">
+                  <Choice options={CHALLENGE} value={a["challenge"]} onChange={set("challenge")} />
+                </Field>
+                {a["challenge"] === "Other" ? (
+                  <Field label="Tell us what is currently happening *">
+                    <textarea
+                      rows={4}
+                      maxLength={1000}
+                      className={inputCls}
+                      value={a["challengeOther"] ?? ""}
+                      onChange={(e) => set("challengeOther")(e.target.value)}
                     />
-                    <span>
-                      I agree to receive calls, emails, and SMS updates from Vektiss regarding my
-                      application and scheduled consultation. Message and data rates may apply.
-                      Reply STOP to opt out.
-                    </span>
-                  </label>
+                  </Field>
+                ) : null}
               </div>
 
-              {error ? <p className="text-sm font-medium text-destructive sm:text-base">{error}</p> : null}
+              <div className="space-y-7">
+                <Field label="How soon are you looking to improve this? *">
+                  <Choice options={TIMELINE} value={a["timeline"]} onChange={set("timeline")} />
+                </Field>
+                <Field label="Are you prepared to invest in a professionally built and managed AI communication system? *">
+                  <Choice
+                    options={INVESTMENT}
+                    value={a["investment"]}
+                    onChange={set("investment")}
+                  />
+                </Field>
+                <Field label="Are you involved in the final purchasing decision? *">
+                  <Choice options={AUTHORITY} value={a["authority"]} onChange={set("authority")} />
+                </Field>
+                <Field label="Can we count on you to attend your scheduled consultation? *">
+                  <Choice
+                    options={COMMITMENT}
+                    value={a["commitment"]}
+                    onChange={set("commitment")}
+                  />
+                </Field>
+                <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-card p-3 text-xs leading-relaxed text-muted-foreground sm:p-4 sm:text-sm">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="mt-1 size-4 shrink-0 accent-[var(--primary)]"
+                  />
+                  <span>
+                    I agree to receive calls, emails, and SMS updates from Vektiss regarding my
+                    application and scheduled consultation. Message and data rates may apply. Reply
+                    STOP to opt out.
+                  </span>
+                </label>
+              </div>
+
+              {error ? (
+                <p className="text-sm font-medium text-destructive sm:text-base">{error}</p>
+              ) : null}
 
               <div className="flex justify-end">
                 <button
                   type="button"
                   onClick={submit}
+                  disabled={submitting}
                   className="btn-glow rounded-full px-5 py-2.5 text-sm font-semibold sm:px-7 sm:py-3 sm:text-base"
                 >
-                  Apply for a Consultation →
+                  {submitting ? "Saving application…" : "Apply for a Consultation →"}
                 </button>
               </div>
             </>
@@ -349,7 +435,9 @@ export function ApplyDialog({
               ) : null}
               {status === "not-qualified" ? (
                 <>
-                  <h3 className="text-xl font-bold sm:text-2xl">Thank you for your interest in Vektiss Voice.</h3>
+                  <h3 className="text-xl font-bold sm:text-2xl">
+                    Thank you for your interest in Vektiss Voice.
+                  </h3>
                   <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     Based on your answers, a custom managed system may not be the right fit for your
                     business at this time. We have saved your information and may contact you if a

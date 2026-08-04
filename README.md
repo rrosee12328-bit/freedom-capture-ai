@@ -174,3 +174,11 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Supabase lead capture
+
+1. Run `supabase/migrations/20260804000000_create_leads.sql` in the Supabase SQL editor.
+2. Copy `.env.example` to `.env.local` and provide the project URL and anon key.
+3. In Supabase Authentication, create only trusted admin users. Authenticated users can view leads at `/admin`; public visitors can submit leads but cannot read them.
+
+The Lovable deployment needs the same `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` environment variables. Never expose a Supabase service-role key in the app.
