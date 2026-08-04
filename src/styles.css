@@ -259,20 +259,3 @@
   border-left: 3px solid color-mix(in oklab, var(--primary) 60%, transparent);
   padding-left: 1.25rem;
 }
-
-@utility legacy-btn-glow {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: var(--shadow-glow);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 0 0 1px color-mix(in oklab, var(--primary) 60%, transparent),
-      0 12px 30px -6px color-mix(in oklab, var(--primary) 70%, transparent),
-      0 24px 60px -12px color-mix(in oklab, var(--primary) 55%, transparent);
-  }
-}
