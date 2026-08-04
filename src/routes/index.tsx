@@ -688,6 +688,37 @@ function Funnel() {
         </p>
       </Section>
 
+      {/* PHONE SHOWCASE */}
+      <section className="relative overflow-hidden invert-surface">
+        <div className="grid-bg absolute inset-0 opacity-20" aria-hidden />
+        <div className="relative mx-auto max-w-5xl px-6 py-20 text-center lg:py-28">
+          <p className="eyebrow mb-4 text-primary-foreground/70">The system in action</p>
+          <h2 className="mx-auto max-w-3xl text-3xl leading-[1.1] font-bold sm:text-4xl lg:text-5xl">
+            Your Business Answers — Even When You Don't
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed font-medium text-primary-foreground/80">
+            A live call gets picked up instantly, qualified by AI, and the conversation is captured
+            in real time so nothing is ever lost.
+          </p>
+          <div className="relative mt-12 flex items-center justify-center">
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-full opacity-20 blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--primary) 60%, transparent), transparent 70%)",
+              }}
+            />
+            <img
+              src={phoneCutout}
+              alt="Vektiss Voice answering a live call on a phone with real-time AI transcription"
+              className="relative z-10 w-full max-w-3xl drop-shadow-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       <Section eyebrow="Why this is different" title="Why This Time Is Different" tone="accent">
         <p className="lead-para">
           Most solutions out there give you tools and then expect you to become an expert in
