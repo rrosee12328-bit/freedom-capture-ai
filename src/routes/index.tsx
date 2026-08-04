@@ -535,41 +535,23 @@ function Funnel() {
       {/* HERO */}
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-6 py-10 lg:grid-cols-2 lg:gap-10 lg:py-12">
-          <div className="max-w-xl">
-            <p className="eyebrow mb-3 text-primary-foreground/70">For established service businesses</p>
-            <h1 className="text-3xl leading-[1.05] font-extrabold lg:text-4xl xl:text-[2.5rem] 2xl:text-5xl">
-              Stop Feeling Trapped By Your Success:{" "}
-              <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
-              Without Constant Oversight
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed font-medium text-primary-foreground/80 xl:text-xl">
-              A custom AI communication system that{" "}
-              <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
-              business keeps growing even when you're not personally there to watch it.
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:py-24">
+          <p className="eyebrow mb-4 text-primary-foreground/70">For established service businesses</p>
+          <h1 className="text-3xl leading-[1.05] font-extrabold sm:text-4xl lg:text-5xl">
+            Stop Feeling Trapped By Your Success:{" "}
+            <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
+            Without Constant Oversight
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed font-medium text-primary-foreground/80 sm:text-xl">
+            A custom AI communication system that{" "}
+            <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
+            business keeps growing even when you're not personally there to watch it.
+          </p>
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <Cta onClick={openForm} />
+            <p className="font-mono text-xs tracking-wider text-primary-foreground/50 uppercase">
+              Managed implementation · Custom workflow design · Ongoing optimization
             </p>
-            <div className="mt-6 flex flex-col items-start gap-3">
-              <Cta onClick={openForm} />
-              <p className="font-mono text-xs tracking-wider text-primary-foreground/50 uppercase">
-                Managed implementation · Custom workflow design · Ongoing optimization
-              </p>
-            </div>
-          </div>
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <div
-              aria-hidden
-              className="absolute inset-0 rounded-full opacity-20 blur-3xl"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--primary) 60%, transparent), transparent 70%)",
-              }}
-            />
-            <img
-              src={phoneMockup.url}
-              alt="Vektiss Voice answering a live call on a phone with real-time AI transcription"
-              className="relative z-10 w-full max-w-xs rounded-[var(--radius-3xl)] shadow-2xl xl:max-w-sm 2xl:max-w-md"
-              loading="eager"
-            />
           </div>
         </div>
       </section>
