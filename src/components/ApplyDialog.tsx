@@ -215,16 +215,16 @@ export function ApplyDialog({
         if (!v) setTimeout(reset, 250);
       }}
     >
-      <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto p-0">
-        <div className="bg-ink px-6 py-6 text-background">
+      <DialogContent className="max-h-[92vh] max-w-2xl overflow-y-auto p-0">
+        <div className="bg-ink px-4 py-5 text-background sm:px-6 sm:py-6">
           <span className="font-mono text-xs tracking-[0.25em] uppercase text-background/70">
             Vektiss
           </span>
-          <DialogHeader className="mt-3 space-y-3 text-left">
-            <DialogTitle className="text-3xl leading-tight font-bold text-background">
+          <DialogHeader className="mt-2 space-y-2 text-left sm:mt-3 sm:space-y-3">
+            <DialogTitle className="text-2xl leading-tight font-bold text-background sm:text-3xl">
               Stop Losing High-Value Clients to Missed Calls
             </DialogTitle>
-            <DialogDescription className="text-base leading-relaxed text-background/80">
+            <DialogDescription className="text-sm leading-relaxed text-background/80 sm:text-base">
               Apply to see whether Vektiss Voice is the right fit for your business. Vektiss builds
               and manages custom AI communication systems that answer calls 24/7, qualify leads,
               schedule appointments, and follow up across phone, text, and email.
@@ -232,7 +232,7 @@ export function ApplyDialog({
           </DialogHeader>
         </div>
 
-        <div className="space-y-6 px-6 pt-6 pb-8">
+        <div className="space-y-5 px-4 pb-6 pt-5 sm:space-y-6 sm:px-6 sm:pb-8 sm:pt-6">
           {status === null ? (
             <>
               <div className="space-y-5">
