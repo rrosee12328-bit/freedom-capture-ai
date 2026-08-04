@@ -58,7 +58,7 @@ function Section({
         {title ? (
           <h2 className="text-4xl font-bold leading-tight sm:text-5xl">{title}</h2>
         ) : null}
-        <div className="mt-6 space-y-5 text-xl leading-relaxed text-muted-foreground">
+        <div className="mt-6 space-y-5 text-xl leading-[1.7] font-medium text-foreground/90">
           {children}
         </div>
       </div>
