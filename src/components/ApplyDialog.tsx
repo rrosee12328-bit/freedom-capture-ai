@@ -112,7 +112,7 @@ function Choice({
             type="button"
             key={o.label}
             onClick={() => onChange(o.label)}
-            className={`rounded-xl border px-4 py-3 text-left text-base transition-colors ${
+            className={`rounded-xl border px-3 py-2.5 text-left text-sm transition-colors sm:px-4 sm:py-3 sm:text-base ${
               active
                 ? "border-primary bg-primary/10 font-semibold text-foreground"
                 : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
