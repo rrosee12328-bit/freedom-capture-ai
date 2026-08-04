@@ -133,7 +133,6 @@ export function ApplyDialog({
   open: boolean;
   onOpenChange: (v: boolean) => void;
 }) {
-  const [step, setStep] = useState(0);
   const [a, setA] = useState<Answers>({});
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -158,40 +157,30 @@ export function ApplyDialog({
     !!find(COMMITMENT, a['commitment'])?.disqualify;
 
   function reset() {
-    setStep(0);
     setA({});
     setConsent(false);
     setStatus(null);
     setError(null);
   }
 
-  function next() {
-    setError(null);
-    if (step === 0) {
-      if (!a['name']?.trim() || !a['email']?.trim() || !a['phone']?.trim() || !a['business']?.trim() || !a['type']?.trim()) {
-        setError("Please complete all required fields.");
-        return;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a['email'] ?? "")) {
-        setError("Please enter a valid business email.");
-        return;
-      }
-    }
-    if (step === 1) {
-      if (!a['calls'] || !a['value'] || !a['challenge']) {
-        setError("Please answer every question.");
-        return;
-      }
-      if (a['challenge'] === "Other" && !a['challengeOther']?.trim()) {
-        setError("Please tell us what is currently happening.");
-        return;
-      }
-    }
-    setStep((s) => s + 1);
-  }
-
   function submit() {
     setError(null);
+    if (!a['name']?.trim() || !a['email']?.trim() || !a['phone']?.trim() || !a['business']?.trim() || !a['type']?.trim()) {
+      setError("Please complete all required fields.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a['email'] ?? "")) {
+      setError("Please enter a valid business email.");
+      return;
+    }
+    if (!a['calls'] || !a['value'] || !a['challenge']) {
+      setError("Please answer every question.");
+      return;
+    }
+    if (a['challenge'] === "Other" && !a['challengeOther']?.trim()) {
+      setError("Please tell us what is currently happening.");
+      return;
+    }
     if (!a['timeline'] || !a['investment'] || !a['authority'] || !a['commitment']) {
       setError("Please answer every question.");
       return;
@@ -218,8 +207,6 @@ export function ApplyDialog({
     setStatus(disqualified || score <= 6 ? "not-qualified" : score >= 12 ? "qualified" : "review");
   }
 
-  const progress = status ? 100 : ((step + 1) / 3) * 100;
-
   return (
     <Dialog
       open={open}
@@ -245,19 +232,10 @@ export function ApplyDialog({
           </DialogHeader>
         </div>
 
-        <div className="h-1 w-full bg-muted">
-          <div className="h-full bg-primary transition-all" style={{ width: `${progress}%` }} />
-        </div>
-
         <div className="space-y-6 px-6 pt-6 pb-8">
           {status === null ? (
             <>
-              <p className="font-mono text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                Step {step + 1} of 3
-              </p>
-
-              {step === 0 ? (
-                <div className="space-y-5">
+              <div className="space-y-5">
                   <Field label="Full name *">
                     <input className={inputCls} value={a['name'] ?? ""} onChange={(e) => set("name")(e.target.value)} maxLength={100} />
                   </Field>
@@ -276,11 +254,9 @@ export function ApplyDialog({
                   <Field label="What type of business do you operate? *">
                     <input className={inputCls} value={a['type'] ?? ""} onChange={(e) => set("type")(e.target.value)} maxLength={120} />
                   </Field>
-                </div>
-              ) : null}
+              </div>
 
-              {step === 1 ? (
-                <div className="space-y-7">
+              <div className="space-y-7">
                   <Field label="Approximately how many calls or leads does your business receive each month? *">
                     <Choice options={CALLS} value={a['calls']} onChange={set("calls")} />
                   </Field>
@@ -301,11 +277,9 @@ export function ApplyDialog({
                       />
                     </Field>
                   ) : null}
-                </div>
-              ) : null}
+              </div>
 
-              {step === 2 ? (
-                <div className="space-y-7">
+              <div className="space-y-7">
                   <Field label="How soon are you looking to improve this? *">
                     <Choice options={TIMELINE} value={a['timeline']} onChange={set("timeline")} />
                   </Field>
@@ -331,29 +305,17 @@ export function ApplyDialog({
                       Reply STOP to opt out.
                     </span>
                   </label>
-                </div>
-              ) : null}
+              </div>
 
               {error ? <p className="text-base font-medium text-destructive">{error}</p> : null}
 
-              <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
-                {step > 0 ? (
-                  <button
-                    type="button"
-                    onClick={() => setStep((s) => s - 1)}
-                    className="rounded-full border border-border px-6 py-3 text-base font-semibold text-muted-foreground hover:text-foreground"
-                  >
-                    Back
-                  </button>
-                ) : (
-                  <span />
-                )}
+              <div className="flex justify-end">
                 <button
                   type="button"
-                  onClick={step === 2 ? submit : next}
+                  onClick={submit}
                   className="rounded-full bg-primary px-7 py-3 text-base font-semibold text-primary-foreground shadow-[var(--shadow-cta)] transition-transform hover:-translate-y-0.5"
                 >
-                  {step === 2 ? "Apply for a Vektiss Voice Consultation →" : "Continue →"}
+                  Apply for a Vektiss Voice Consultation →
                 </button>
               </div>
             </>
