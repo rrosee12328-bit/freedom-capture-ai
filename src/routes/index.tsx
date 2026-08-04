@@ -296,6 +296,7 @@ const AFTER = [
 const FOR = [
   {
     key: "f1",
+    icon: <Building2 size={20} strokeWidth={2} />,
     node: (
       <span>
         You run an <Hl>established service business</Hl> with consistent calls and leads.
@@ -304,6 +305,7 @@ const FOR = [
   },
   {
     key: "f2",
+    icon: <PhoneMissed size={20} strokeWidth={2} />,
     node: (
       <span>
         You're tired of watching valuable opportunities <Hl>disappear</Hl> due to missed calls or
@@ -313,6 +315,7 @@ const FOR = [
   },
   {
     key: "f3",
+    icon: <Clock size={20} strokeWidth={2} />,
     node: (
       <span>
         You want to scale your business but feel constrained by the{" "}
@@ -322,6 +325,7 @@ const FOR = [
   },
   {
     key: "f4",
+    icon: <ShieldCheck size={20} strokeWidth={2} />,
     node: (
       <span>
         You value <Hl>peace of mind</Hl> and want to trust that your business runs efficiently even
@@ -331,6 +335,7 @@ const FOR = [
   },
   {
     key: "f5",
+    icon: <Layers size={20} strokeWidth={2} />,
     node: (
       <span>
         You're looking for a <Hl>comprehensive solution</Hl>, not just another piece of software to
@@ -340,6 +345,7 @@ const FOR = [
   },
   {
     key: "f6",
+    icon: <DollarSign size={20} strokeWidth={2} />,
     node: (
       <span>
         You understand the <Hl>cost of a missed lead</Hl> is far greater than the cost of capturing
@@ -350,14 +356,24 @@ const FOR = [
 ];
 
 const NOT_FOR = [
-  { key: "n1", node: "Businesses that are just starting out and don't yet have consistent demand." },
+  {
+    key: "n1",
+    icon: <Sprout size={20} strokeWidth={2} />,
+    node: "Businesses that are just starting out and don't yet have consistent demand.",
+  },
   {
     key: "n2",
+    icon: <User size={20} strokeWidth={2} />,
     node: "Owners who prefer to personally handle every single customer interaction 24/7.",
   },
-  { key: "n3", node: "Companies looking for a quick fix without integrating a long-term system." },
+  {
+    key: "n3",
+    icon: <Zap size={20} strokeWidth={2} />,
+    node: "Companies looking for a quick fix without integrating a long-term system.",
+  },
   {
     key: "n4",
+    icon: <Lock size={20} strokeWidth={2} />,
     node: "Those unwilling to adapt current processes to leverage advanced AI capabilities.",
   },
 ];
