@@ -65,7 +65,7 @@ const COMMITMENT: Option[] = [
   { label: "No, I may not be able to attend", points: 0, disqualify: true },
 ];
 
-const BOOKING_URL = "https://vektiss.com/apply";
+const BOOKING_URL = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
 
 type Answers = Record<string, string>;
 
