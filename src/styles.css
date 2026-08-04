@@ -187,10 +187,14 @@
 
 @utility eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--primary);
+
+  @media (min-width: 640px) {
+    font-size: 0.85rem;
+  }
 }
 
 @utility surface-card {
@@ -249,15 +253,24 @@
 }
 
 @utility lead-para {
-  font-size: 1.35rem;
-  line-height: 1.5;
+  font-size: 1.125rem;
+  line-height: 1.55;
   font-weight: 600;
   letter-spacing: -0.015em;
+
+  @media (min-width: 640px) {
+    font-size: 1.35rem;
+    line-height: 1.5;
+  }
 }
 
 @utility rule-accent {
   border-left: 3px solid color-mix(in oklab, var(--primary) 60%, transparent);
-  padding-left: 1.25rem;
+  padding-left: 1rem;
+
+  @media (min-width: 640px) {
+    padding-left: 1.25rem;
+  }
 }
 
 /* Inverted dark surface: re-maps semantic tokens for a whole subtree */

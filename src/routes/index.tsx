@@ -51,7 +51,7 @@ function Cta({
     <button
       type="button"
       onClick={onClick}
-      className={`btn-glow inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold ${block ? "w-full sm:w-auto" : ""}`}
+      className={`btn-glow inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold sm:px-8 sm:py-4 sm:text-base ${block ? "w-full sm:w-auto" : ""}`}
     >
       {label}
     </button>
@@ -81,18 +81,18 @@ function Section({
           : "";
   return (
     <section className={toneClass}>
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
+      <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 sm:gap-10 sm:py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
+          {eyebrow ? <p className="eyebrow mb-3 sm:mb-4 text-xs sm:text-sm">{eyebrow}</p> : null}
           {title ? (
-            <h2 className="text-4xl font-bold leading-[1.05] sm:text-5xl">{title}</h2>
+            <h2 className="text-2xl font-bold leading-[1.05] sm:text-4xl lg:text-5xl">{title}</h2>
           ) : null}
           <span
             aria-hidden
-            className="mt-6 block h-1 w-16 rounded-full bg-primary"
+            className="mt-4 sm:mt-6 block h-1 w-16 rounded-full bg-primary"
           />
         </div>
-        <div className="max-w-2xl space-y-8 text-xl leading-[1.65] font-medium text-foreground/90">
+        <div className="max-w-2xl space-y-6 text-base leading-[1.65] font-medium text-foreground/90 sm:space-y-8 sm:text-lg lg:text-xl">
           {children}
         </div>
       </div>
@@ -102,7 +102,7 @@ function Section({
 
 function PullQuote({ children }: { children: React.ReactNode }) {
   return (
-    <p className="my-2 border-y border-border/70 py-6 font-display text-2xl leading-[1.25] font-extrabold tracking-tight text-foreground sm:text-3xl">
+    <p className="my-2 border-y border-border/70 py-5 font-display text-xl leading-[1.25] font-extrabold tracking-tight text-foreground sm:py-6 sm:text-2xl lg:text-3xl">
       {children}
     </p>
   );
@@ -112,15 +112,15 @@ function Callouts({ items }: { items: { k: string; label: string; node: React.Re
   return (
     <div className="grid gap-px overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-border sm:grid-cols-3">
       {items.map((i, idx) => (
-        <div key={i.k} className="bg-card p-6">
-          <div className="mb-4 flex items-center gap-2">
-            <span className="eyebrow text-primary">
+        <div key={i.k} className="bg-card p-5 sm:p-6">
+          <div className="mb-3 flex items-center gap-2 sm:mb-4">
+            <span className="eyebrow text-primary text-xs sm:text-sm">
               {String(idx + 1).padStart(2, "0")}
             </span>
             <span aria-hidden className="h-px flex-1 bg-border" />
           </div>
-          <p className="eyebrow mb-2 text-muted-foreground">{i.label}</p>
-          <p className="text-lg leading-snug font-semibold text-foreground">{i.node}</p>
+          <p className="eyebrow mb-2 text-muted-foreground text-xs sm:text-sm">{i.label}</p>
+          <p className="text-base leading-snug font-semibold text-foreground sm:text-lg">{i.node}</p>
         </div>
       ))}
     </div>
@@ -168,16 +168,16 @@ function PremiumIconCard({
   };
   const t = toneStyles[tone];
   return (
-    <div className={`group rounded-[var(--radius-2xl)] border p-6 transition-colors ${t.card}`}>
-      <div className="mb-5 flex items-center gap-3">
+    <div className={`group rounded-[var(--radius-2xl)] border p-5 transition-colors sm:p-6 ${t.card}`}>
+      <div className="mb-4 flex items-center gap-3 sm:mb-5">
         <Icon className={`size-[18px] shrink-0 ${t.icon}`} strokeWidth={1.25} />
         <span aria-hidden className={`h-px flex-1 ${t.rule}`} />
         {label ? (
-          <span className={`eyebrow text-[0.7rem] ${t.label}`}>{label}</span>
+          <span className={`eyebrow text-[0.65rem] sm:text-[0.7rem] ${t.label}`}>{label}</span>
         ) : null}
       </div>
-      <h3 className={`text-xl font-bold tracking-tight ${t.title}`}>{title}</h3>
-      <p className={`mt-2 text-base leading-snug ${t.desc}`}>{description}</p>
+      <h3 className={`text-lg font-bold tracking-tight sm:text-xl ${t.title}`}>{title}</h3>
+      <p className={`mt-2 text-sm leading-snug sm:text-base ${t.desc}`}>{description}</p>
     </div>
   );
 }
@@ -190,11 +190,11 @@ function CheckList({
   tone?: "yes" | "no";
 }) {
   return (
-    <ul className="grid gap-3 sm:grid-cols-2">
+    <ul className="grid gap-2 sm:gap-3 sm:grid-cols-2">
       {items.map((item) => (
         <li
           key={item.key}
-          className="surface-card flex gap-3 p-4 text-lg font-medium text-foreground"
+          className="surface-card flex gap-3 p-3 text-base font-medium text-foreground sm:p-4 sm:text-lg"
         >
           <span
             aria-hidden
@@ -227,35 +227,35 @@ function QualifierCard({
   const isFor = mode === "for";
   return (
     <div
-      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-6 sm:p-8 ${
+      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-5 sm:p-8 ${
         isFor
           ? "border-primary/20 bg-card shadow-[var(--shadow-soft)]"
           : "border-destructive/30 bg-ink text-background"
       }`}
     >
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <div className="mb-3 flex items-center gap-3">
           <span
             aria-hidden
             className={`h-px w-8 ${isFor ? "bg-primary" : "bg-background/40"}`}
           />
-          <p className={`eyebrow ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
+          <p className={`eyebrow text-xs sm:text-sm ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
         </div>
-        <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">{title}</h3>
+        <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">{title}</h3>
       </div>
       <ul className={`grid ${isFor ? "divide-y divide-border" : "divide-y divide-background/10"}`}>
         {items.map((item, i) => (
-          <li key={item.key} className="flex items-start gap-5 py-5 first:pt-0 last:pb-0">
+          <li key={item.key} className="flex items-start gap-5 py-4 first:pt-0 last:pb-0 sm:py-5">
             <span
               aria-hidden
-              className={`mt-1 flex shrink-0 items-center gap-2 font-mono text-[0.7rem] tracking-widest ${
+              className={`mt-1 flex shrink-0 items-center gap-2 font-mono text-[0.65rem] tracking-widest sm:text-[0.7rem] ${
                 isFor ? "text-primary" : "text-background/40"
               }`}
             >
               {String(i + 1).padStart(2, "0")}
             </span>
             <span
-              className={`text-lg leading-snug font-medium ${
+              className={`text-base leading-snug font-medium sm:text-lg ${
                 isFor ? "text-foreground" : "text-background/85"
               }`}
             >
@@ -518,14 +518,14 @@ function Funnel() {
     <main className="min-h-screen bg-background text-foreground">
       <ApplyDialog open={open} onOpenChange={setOpen} />
       <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <a href="/" aria-label="Vektiss home" className="flex items-center">
-            <img src={vektissLogo} alt="Vektiss" className="h-8 w-auto" />
+        <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:flex sm:justify-between sm:px-6 sm:py-5">
+          <a href="/" aria-label="Vektiss home" className="flex min-w-0 items-center">
+            <img src={vektissLogo} alt="Vektiss" className="h-7 w-auto sm:h-8" />
           </a>
           <button
             type="button"
             onClick={openForm}
-            className="btn-glow rounded-full px-6 py-2.5 text-base font-semibold"
+            className="btn-glow shrink-0 rounded-full px-4 py-2 text-sm font-semibold sm:px-6 sm:py-2.5 sm:text-base"
           >
             Apply Now
           </button>
@@ -535,21 +535,21 @@ function Funnel() {
       {/* HERO */}
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-6 py-12 text-center lg:py-16">
-          <p className="eyebrow mb-4 text-foreground/70">For established service businesses</p>
-          <h1 className="text-3xl leading-[1.05] font-extrabold text-foreground sm:text-4xl lg:text-5xl">
+        <div className="relative mx-auto max-w-4xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:py-16">
+          <p className="eyebrow mb-3 text-xs text-foreground/70 sm:mb-4 sm:text-sm">For established service businesses</p>
+          <h1 className="text-2xl leading-[1.05] font-extrabold text-foreground sm:text-4xl lg:text-5xl">
             Stop Feeling Trapped By Your Success:{" "}
             <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
             Without Constant Oversight
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed font-semibold text-foreground sm:text-xl">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed font-semibold text-foreground sm:mt-6 sm:text-lg lg:text-xl">
             A custom AI communication system that{" "}
             <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
             business keeps growing even when you're not personally there to watch it.
           </p>
 
           {/* VSL */}
-          <div className="surface-card mx-auto mt-8 max-w-3xl overflow-hidden p-0">
+          <div className="surface-card mx-auto mt-6 max-w-3xl overflow-hidden p-0 sm:mt-8">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/600055/0c670976-e711-43b7-bce8-76a61e91d32c?autoplay=false&preload=true&responsive=true"
@@ -562,9 +562,9 @@ function Funnel() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-3">
+          <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
             <Cta onClick={openForm} />
-            <p className="font-mono text-xs tracking-wider text-foreground/50 uppercase">
+            <p className="font-mono text-[0.65rem] tracking-wider text-foreground/50 uppercase sm:text-xs">
               Managed implementation · Custom workflow design · Ongoing optimization
             </p>
           </div>
@@ -608,17 +608,17 @@ function Funnel() {
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="surface-card border-l-4 border-primary p-5">
+          <div className="surface-card border-l-4 border-primary p-4 sm:p-5">
             <p className="eyebrow mb-2">Option A</p>
-            <h3 className="text-2xl font-bold tracking-tight">Micromanage everything</h3>
-            <p className="mt-2 text-base text-muted-foreground">
+            <h3 className="text-xl font-bold tracking-tight sm:text-2xl">Micromanage everything</h3>
+            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
               Stay glued to every call, every follow-up, every interaction — forever.
             </p>
           </div>
-          <div className="surface-card border-l-4 border-destructive/70 p-5">
+          <div className="surface-card border-l-4 border-destructive/70 p-4 sm:p-5">
             <p className="eyebrow mb-2">Option B</p>
-            <h3 className="text-2xl font-bold tracking-tight">Let opportunities vanish</h3>
-            <p className="mt-2 text-base text-muted-foreground">
+            <h3 className="text-xl font-bold tracking-tight sm:text-2xl">Let opportunities vanish</h3>
+            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
               Accept that a percentage of hard-earned leads simply disappear into thin air.
             </p>
           </div>
@@ -777,20 +777,20 @@ function Funnel() {
       </Section>
 
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="eyebrow mb-4">After Vektiss</p>
-          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">What Your Life Looks Like After</h2>
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">After Vektiss</p>
+          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl lg:text-5xl">What Your Life Looks Like After</h2>
           <CheckList items={AFTER} />
         </div>
       </section>
 
       <section className="bg-background">
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <p className="eyebrow mb-4 text-center">Qualification</p>
-          <h2 className="mx-auto mb-16 max-w-3xl text-center text-4xl font-bold leading-[1.05] sm:text-5xl">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+          <p className="eyebrow mb-3 text-center text-xs sm:mb-4 sm:text-sm">Qualification</p>
+          <h2 className="mx-auto mb-10 max-w-3xl text-center text-2xl font-bold leading-[1.05] sm:mb-16 sm:text-4xl lg:text-5xl">
             Who This Is For — And Who Should Pass
           </h2>
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <QualifierCard
               mode="for"
               eyebrow="You're a fit"
@@ -809,34 +809,34 @@ function Funnel() {
 
       {/* PROOF */}
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="eyebrow mb-4">Proof</p>
-          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Results From Real Businesses</h2>
-          <div className="grid gap-5 md:grid-cols-2">
-            <figure className="surface-card flex flex-col gap-5 p-8">
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">Proof</p>
+          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl lg:text-5xl">Results From Real Businesses</h2>
+          <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+            <figure className="surface-card flex flex-col gap-4 p-6 sm:gap-5 sm:p-8">
               <div className="flex items-center gap-3">
                 <span aria-hidden className="h-px w-8 bg-primary" />
-                <span className="eyebrow">01</span>
+                <span className="eyebrow text-xs sm:text-sm">01</span>
               </div>
-              <blockquote className="text-lg leading-relaxed font-medium text-black">
+              <blockquote className="text-base leading-relaxed font-medium text-black sm:text-lg">
                 “Vektiss Voice answers our calls 24/7, collects quote requests, and sends hiring
                 applications automatically. It has helped us respond faster and take pressure off
                 our team.”
               </blockquote>
-              <figcaption className="text-base font-semibold text-black">— Kairos Security&nbsp;</figcaption>
+              <figcaption className="text-sm font-semibold text-black sm:text-base">— Kairos Security&nbsp;</figcaption>
             </figure>
 
-            <figure className="surface-card flex flex-col gap-5 p-8">
+            <figure className="surface-card flex flex-col gap-4 p-6 sm:gap-5 sm:p-8">
               <div className="flex items-center gap-3">
                 <span aria-hidden className="h-px w-8 bg-primary" />
-                <span className="eyebrow">02</span>
+                <span className="eyebrow text-xs sm:text-sm">02</span>
               </div>
-              <blockquote className="text-lg leading-relaxed font-medium text-black">
+              <blockquote className="text-base leading-relaxed font-medium text-black sm:text-lg">
                 “Since adding Vektiss Voice, our customers can call anytime and get the help they
                 need, including updates on their vehicle. It has made communication smoother and
                 helped our shop stay focused on the repairs.”
               </blockquote>
-              <figcaption className="text-base font-semibold text-black">
+              <figcaption className="text-sm font-semibold text-black sm:text-base">
                 — J&J Elite Auto Repair
               </figcaption>
             </figure>
@@ -846,14 +846,14 @@ function Funnel() {
 
       {/* FAQ */}
       <section>
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="eyebrow mb-4">FAQ</p>
-          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Frequently Asked Questions</h2>
-          <div className="space-y-4">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">FAQ</p>
+          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
+          <div className="space-y-3 sm:space-y-4">
             {FAQS.map((f) => (
-              <div key={f.q} className="surface-card p-6">
-                <h3 className="text-xl font-semibold">{f.q}</h3>
-                <p className="mt-3 text-lg leading-relaxed font-medium text-foreground/90">{f.a}</p>
+              <div key={f.q} className="surface-card p-4 sm:p-6">
+                <h3 className="text-lg font-semibold sm:text-xl">{f.q}</h3>
+                <p className="mt-2 text-base leading-relaxed font-medium text-foreground/90 sm:mt-3 sm:text-lg">{f.a}</p>
               </div>
             ))}
           </div>
@@ -862,15 +862,15 @@ function Funnel() {
 
       {/* STEPS */}
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="eyebrow mb-4">Next steps</p>
-          <h2 className="mb-10 text-4xl font-bold sm:text-5xl">Here Is Exactly What Happens Next</h2>
-          <ol className="grid gap-5 md:grid-cols-3">
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">Next steps</p>
+          <h2 className="mb-8 text-2xl font-bold sm:mb-10 sm:text-4xl lg:text-5xl">Here Is Exactly What Happens Next</h2>
+          <ol className="grid gap-4 md:grid-cols-3 md:gap-5">
             {STEPS.map((s) => (
-              <li key={s.n} className="surface-card p-6">
-                <span className="eyebrow">{s.n}</span>
-                <h3 className="mt-3 text-xl font-semibold">{s.t}</h3>
-                <p className="mt-2 text-lg leading-relaxed font-medium text-foreground/90">{s.d}</p>
+              <li key={s.n} className="surface-card p-5 sm:p-6">
+                <span className="eyebrow text-xs sm:text-sm">{s.n}</span>
+                <h3 className="mt-3 text-lg font-semibold sm:text-xl">{s.t}</h3>
+                <p className="mt-2 text-base leading-relaxed font-medium text-foreground/90 sm:text-lg">{s.d}</p>
               </li>
             ))}
           </ol>
@@ -879,10 +879,10 @@ function Funnel() {
 
       {/* GUARANTEE */}
       <section>
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          <div className="surface-card border-primary/30 p-8 text-center">
-            <p className="eyebrow mb-4">The guarantee</p>
-            <p className="text-xl leading-relaxed font-medium text-foreground/90">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="surface-card border-primary/30 p-6 text-center sm:p-8">
+            <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">The guarantee</p>
+            <p className="text-base leading-relaxed font-medium text-foreground/90 sm:text-lg lg:text-xl">
               We are confident in our ability to transform your lead capture. If, after{" "}
               <Hl>60 days</Hl> of full system implementation, you don't see a measurable improvement
               in lead capture or response efficiency,{" "}
@@ -894,16 +894,16 @@ function Funnel() {
 
       {/* CTA */}
       <section className="relative overflow-hidden border-t border-border bg-ink">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <p className="text-2xl leading-relaxed font-semibold text-background sm:text-3xl">
+        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+          <p className="text-xl leading-relaxed font-semibold text-background sm:text-2xl lg:text-3xl">
             Stop leaving money on the table. Every moment you wait is another{" "}
             <span className="uline-hl text-background">high-value client</span> going to{" "}
             <span className="font-bold text-primary">your competition</span>.
           </p>
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <Cta onClick={openForm} />
           </div>
-          <p className="mt-6 text-lg text-background/70">
+          <p className="mt-4 text-base text-background/70 sm:mt-6 sm:text-lg">
             Don't let your hard-earned demand turn into missed opportunities.
           </p>
         </div>
@@ -911,31 +911,31 @@ function Funnel() {
 
       {/* URGENCY */}
       <section>
-        <div className="mx-auto max-w-4xl px-6 py-24">
-          <p className="eyebrow mb-6">The cost of waiting</p>
-          <p className="font-display text-3xl leading-[1.15] font-extrabold tracking-tight sm:text-4xl">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
+          <p className="eyebrow mb-4 text-xs sm:mb-6 sm:text-sm">The cost of waiting</p>
+          <p className="font-display text-2xl leading-[1.15] font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
             The true cost of inaction isn't just the leads you're losing today.
           </p>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            <p className="rule-accent text-xl leading-[1.65] font-medium text-foreground/90">
+          <div className="mt-6 grid gap-6 sm:mt-8 md:grid-cols-2 md:gap-8">
+            <p className="rule-accent text-base leading-[1.65] font-medium text-foreground/90 sm:text-lg lg:text-xl">
               It's the compounding effect on your growth, your team's morale, and{" "}
               <Hl>your personal freedom</Hl>. If you do nothing, you risk staying trapped in the
               endless cycle of oversight, always wondering how much money is being lost while
               you're not personally watching.
             </p>
-            <p className="rule-accent text-xl leading-[1.65] font-medium text-foreground/90">
+            <p className="rule-accent text-base leading-[1.65] font-medium text-foreground/90 sm:text-lg lg:text-xl">
               Vektiss offers a path to truly enjoying the business you built, knowing it's equipped
               to handle <Hl>every opportunity, every call, every lead, 24/7</Hl>. Don't let{" "}
               <Mark>your biggest asset—your demand—become your biggest burden</Mark>.
             </p>
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center sm:mt-10">
             <Cta onClick={openForm} />
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-border py-10 text-center text-base text-muted-foreground">
+      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground sm:py-10 sm:text-base">
         © {new Date().getFullYear()} Vektiss Technologies
       </footer>
     </main>

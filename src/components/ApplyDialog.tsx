@@ -84,15 +84,15 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <label className="block text-base font-semibold text-foreground">{label}</label>
-      {hint ? <p className="text-sm text-muted-foreground">{hint}</p> : null}
+      <label className="block text-sm font-semibold text-foreground sm:text-base">{label}</label>
+      {hint ? <p className="text-xs text-muted-foreground sm:text-sm">{hint}</p> : null}
       {children}
     </div>
   );
 }
 
 const inputCls =
-  "w-full rounded-xl border border-border bg-card px-4 py-3 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25";
+  "w-full rounded-xl border border-border bg-card px-3 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/25 sm:px-4 sm:py-3 sm:text-base";
 
 function Choice({
   options,
@@ -112,7 +112,7 @@ function Choice({
             type="button"
             key={o.label}
             onClick={() => onChange(o.label)}
-            className={`rounded-xl border px-4 py-3 text-left text-base transition-colors ${
+            className={`rounded-xl border px-3 py-2.5 text-left text-sm transition-colors sm:px-4 sm:py-3 sm:text-base ${
               active
                 ? "border-primary bg-primary/10 font-semibold text-foreground"
                 : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
@@ -215,16 +215,16 @@ export function ApplyDialog({
         if (!v) setTimeout(reset, 250);
       }}
     >
-      <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto p-0">
-        <div className="bg-ink px-6 py-6 text-background">
+      <DialogContent className="max-h-[92vh] max-w-2xl overflow-y-auto p-0">
+        <div className="bg-ink px-4 py-5 text-background sm:px-6 sm:py-6">
           <span className="font-mono text-xs tracking-[0.25em] uppercase text-background/70">
             Vektiss
           </span>
-          <DialogHeader className="mt-3 space-y-3 text-left">
-            <DialogTitle className="text-3xl leading-tight font-bold text-background">
+          <DialogHeader className="mt-2 space-y-2 text-left sm:mt-3 sm:space-y-3">
+            <DialogTitle className="text-2xl leading-tight font-bold text-background sm:text-3xl">
               Stop Losing High-Value Clients to Missed Calls
             </DialogTitle>
-            <DialogDescription className="text-base leading-relaxed text-background/80">
+            <DialogDescription className="text-sm leading-relaxed text-background/80 sm:text-base">
               Apply to see whether Vektiss Voice is the right fit for your business. Vektiss builds
               and manages custom AI communication systems that answer calls 24/7, qualify leads,
               schedule appointments, and follow up across phone, text, and email.
@@ -232,7 +232,7 @@ export function ApplyDialog({
           </DialogHeader>
         </div>
 
-        <div className="space-y-6 px-6 pt-6 pb-8">
+        <div className="space-y-5 px-4 pb-6 pt-5 sm:space-y-6 sm:px-6 sm:pb-8 sm:pt-6">
           {status === null ? (
             <>
               <div className="space-y-5">
@@ -292,7 +292,7 @@ export function ApplyDialog({
                   <Field label="Can we count on you to attend your scheduled consultation? *">
                     <Choice options={COMMITMENT} value={a['commitment']} onChange={set("commitment")} />
                   </Field>
-                  <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-card p-4 text-sm leading-relaxed text-muted-foreground">
+                  <label className="flex cursor-pointer gap-3 rounded-xl border border-border bg-card p-3 text-xs leading-relaxed text-muted-foreground sm:p-4 sm:text-sm">
                     <input
                       type="checkbox"
                       checked={consent}
@@ -307,41 +307,41 @@ export function ApplyDialog({
                   </label>
               </div>
 
-              {error ? <p className="text-base font-medium text-destructive">{error}</p> : null}
+              {error ? <p className="text-sm font-medium text-destructive sm:text-base">{error}</p> : null}
 
               <div className="flex justify-end">
                 <button
                   type="button"
                   onClick={submit}
-                  className="btn-glow rounded-full px-7 py-3 text-base font-semibold"
+                  className="btn-glow rounded-full px-5 py-2.5 text-sm font-semibold sm:px-7 sm:py-3 sm:text-base"
                 >
-                  Apply for a Vektiss Voice Consultation →
+                  Apply for a Consultation →
                 </button>
               </div>
             </>
           ) : (
-            <div className="space-y-6 py-4 text-center">
+            <div className="space-y-5 py-3 text-center sm:space-y-6 sm:py-4">
               {status === "qualified" ? (
                 <>
-                  <h3 className="text-2xl font-bold">
+                  <h3 className="text-xl font-bold sm:text-2xl">
                     Your application looks like a potential fit for Vektiss Voice.
                   </h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     Choose a time below to speak with our team about your current call and lead
                     process.
                   </p>
                   <a
                     href={BOOKING_URL}
-                    className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-cta)]"
+                    className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-cta)] sm:px-8 sm:py-4 sm:text-base"
                   >
-                    Schedule Your Vektiss Voice Consultation →
+                    Schedule Your Consultation →
                   </a>
                 </>
               ) : null}
               {status === "review" ? (
                 <>
-                  <h3 className="text-2xl font-bold">Thank you for applying.</h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <h3 className="text-xl font-bold sm:text-2xl">Thank you for applying.</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     Our team will review your application and contact you if Vektiss Voice appears
                     to be the right fit for your business.
                   </p>
@@ -349,8 +349,8 @@ export function ApplyDialog({
               ) : null}
               {status === "not-qualified" ? (
                 <>
-                  <h3 className="text-2xl font-bold">Thank you for your interest in Vektiss Voice.</h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <h3 className="text-xl font-bold sm:text-2xl">Thank you for your interest in Vektiss Voice.</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     Based on your answers, a custom managed system may not be the right fit for your
                     business at this time. We have saved your information and may contact you if a
                     more suitable option becomes available.
