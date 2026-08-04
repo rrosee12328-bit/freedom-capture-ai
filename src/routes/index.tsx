@@ -961,9 +961,9 @@ function Funnel() {
               window.alert("Incorrect access code.");
             }
           }}
-          className="mt-6 rounded-full border border-border px-4 py-2 text-xs font-semibold tracking-wide text-muted-foreground transition hover:text-foreground"
+          className="mt-6 text-xs text-muted-foreground/60 transition hover:text-foreground"
         >
-          Lead Dashboard
+          vk
         </button>
       </footer>
     </main>
