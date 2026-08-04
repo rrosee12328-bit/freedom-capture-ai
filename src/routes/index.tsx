@@ -171,6 +171,18 @@ function Funnel() {
             </span>{" "}
             And Scale Confidently Without Constant Oversight
           </h1>
+          <div className="surface-card mx-auto mt-10 max-w-3xl overflow-hidden p-0">
+            <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+              <iframe
+                src="https://iframe.mediadelivery.net/embed/600055/0c670976-e711-43b7-bce8-76a61e91d32c?autoplay=false&preload=true&responsive=true"
+                loading="lazy"
+                title="Vektiss Voice — how it works"
+                className="absolute inset-0 size-full border-0"
+                allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+                allowFullScreen
+              />
+            </div>
+          </div>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
             Discover the custom AI communication system that answers calls 24/7, qualifies leads,
             and books appointments, so your business keeps growing even when you're not personally
