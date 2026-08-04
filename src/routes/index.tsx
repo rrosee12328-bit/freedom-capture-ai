@@ -61,14 +61,24 @@ function Section({
   title,
   children,
   tinted = false,
+  tone = "plain",
 }: {
   eyebrow?: string;
   title?: string;
   children: React.ReactNode;
   tinted?: boolean;
+  tone?: "plain" | "accent" | "dark";
 }) {
+  const toneClass =
+    tone === "dark"
+      ? "invert-surface border-y border-white/10"
+      : tone === "accent"
+        ? "accent-band border-y border-primary/15"
+        : tinted
+          ? "bg-secondary/60 border-y border-border"
+          : "";
   return (
-    <section className={tinted ? "bg-secondary/60 border-y border-border" : ""}>
+    <section className={toneClass}>
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
