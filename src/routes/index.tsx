@@ -517,14 +517,14 @@ function Funnel() {
     <main className="min-h-screen bg-background text-foreground">
       <ApplyDialog open={open} onOpenChange={setOpen} />
       <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <a href="/" aria-label="Vektiss home" className="flex items-center">
-            <img src={vektissLogo.url} alt="Vektiss" className="h-10 w-auto sm:h-12" />
+            <img src={vektissLogo.url} alt="Vektiss" className="h-12 w-auto sm:h-16" />
           </a>
           <button
             type="button"
             onClick={openForm}
-            className="btn-glow rounded-full px-5 py-2 text-sm font-semibold"
+            className="btn-glow rounded-full px-6 py-2.5 text-base font-semibold"
           >
             Apply Now
           </button>
