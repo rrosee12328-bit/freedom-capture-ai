@@ -541,8 +541,8 @@ function Funnel() {
       {/* FAQ */}
       <section>
         <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="eyebrow mb-4">Questions</p>
-          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Objection Handling</h2>
+          <p className="eyebrow mb-4">FAQ</p>
+          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {FAQS.map((f) => (
               <div key={f.q} className="surface-card p-6">
