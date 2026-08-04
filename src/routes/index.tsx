@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  AlertCircle,
   Building2,
   Clock,
   DollarSign,
@@ -11,7 +10,6 @@ import {
   ShieldCheck,
   Sprout,
   User,
-  Users,
   Zap,
 } from "lucide-react";
 import { ApplyDialog } from "@/components/ApplyDialog";
