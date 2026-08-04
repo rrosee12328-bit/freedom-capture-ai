@@ -536,26 +536,20 @@ function Funnel() {
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 py-12 text-center lg:py-16">
-          <p className="eyebrow mb-4 text-primary-foreground/70">For established service businesses</p>
-          <h1 className="text-3xl leading-[1.05] font-extrabold sm:text-4xl lg:text-5xl">
+          <p className="eyebrow mb-4 text-foreground/70">For established service businesses</p>
+          <h1 className="text-3xl leading-[1.05] font-extrabold text-foreground sm:text-4xl lg:text-5xl">
             Stop Feeling Trapped By Your Success:{" "}
             <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
             Without Constant Oversight
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed font-medium text-primary-foreground/80 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed font-semibold text-foreground sm:text-xl">
             A custom AI communication system that{" "}
             <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
             business keeps growing even when you're not personally there to watch it.
           </p>
-          <div className="mt-8 flex flex-col items-center gap-3">
-            <Cta onClick={openForm} />
-            <p className="font-mono text-xs tracking-wider text-primary-foreground/50 uppercase">
-              Managed implementation · Custom workflow design · Ongoing optimization
-            </p>
-          </div>
 
           {/* VSL */}
-          <div className="surface-card mx-auto mt-10 max-w-3xl overflow-hidden p-0">
+          <div className="surface-card mx-auto mt-8 max-w-3xl overflow-hidden p-0">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/600055/0c670976-e711-43b7-bce8-76a61e91d32c?autoplay=false&preload=true&responsive=true"
@@ -566,6 +560,13 @@ function Funnel() {
                 allowFullScreen
               />
             </div>
+          </div>
+
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <Cta onClick={openForm} />
+            <p className="font-mono text-xs tracking-wider text-foreground/50 uppercase">
+              Managed implementation · Custom workflow design · Ongoing optimization
+            </p>
           </div>
         </div>
       </section>
