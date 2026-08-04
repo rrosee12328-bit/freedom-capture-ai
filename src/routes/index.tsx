@@ -911,25 +911,25 @@ function Funnel() {
 
       {/* URGENCY */}
       <section>
-        <div className="mx-auto max-w-4xl px-6 py-24">
-          <p className="eyebrow mb-6">The cost of waiting</p>
-          <p className="font-display text-3xl leading-[1.15] font-extrabold tracking-tight sm:text-4xl">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
+          <p className="eyebrow mb-4 text-xs sm:mb-6 sm:text-sm">The cost of waiting</p>
+          <p className="font-display text-2xl leading-[1.15] font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
             The true cost of inaction isn't just the leads you're losing today.
           </p>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            <p className="rule-accent text-xl leading-[1.65] font-medium text-foreground/90">
+          <div className="mt-6 grid gap-6 sm:mt-8 md:grid-cols-2 md:gap-8">
+            <p className="rule-accent text-base leading-[1.65] font-medium text-foreground/90 sm:text-lg lg:text-xl">
               It's the compounding effect on your growth, your team's morale, and{" "}
               <Hl>your personal freedom</Hl>. If you do nothing, you risk staying trapped in the
               endless cycle of oversight, always wondering how much money is being lost while
               you're not personally watching.
             </p>
-            <p className="rule-accent text-xl leading-[1.65] font-medium text-foreground/90">
+            <p className="rule-accent text-base leading-[1.65] font-medium text-foreground/90 sm:text-lg lg:text-xl">
               Vektiss offers a path to truly enjoying the business you built, knowing it's equipped
               to handle <Hl>every opportunity, every call, every lead, 24/7</Hl>. Don't let{" "}
               <Mark>your biggest asset—your demand—become your biggest burden</Mark>.
             </p>
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center sm:mt-10">
             <Cta onClick={openForm} />
           </div>
         </div>
