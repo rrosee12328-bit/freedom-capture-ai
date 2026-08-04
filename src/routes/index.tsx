@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ApplyDialog } from "@/components/ApplyDialog";
+import { Hl, Mark, Uline } from "@/components/Emphasis";
 
 const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
 const DESCRIPTION =
@@ -33,7 +34,7 @@ function Cta({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-cta)] transition-transform hover:-translate-y-0.5 ${block ? "w-full sm:w-auto" : ""}`}
+      className={`btn-glow inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold ${block ? "w-full sm:w-auto" : ""}`}
     >
       {label}
     </button>
@@ -66,11 +67,20 @@ function Section({
   );
 }
 
-function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "no" }) {
+function CheckList({
+  items,
+  tone = "yes",
+}: {
+  items: { key: string; node: React.ReactNode }[];
+  tone?: "yes" | "no";
+}) {
   return (
     <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className="surface-card flex gap-3 p-4 text-lg font-medium text-foreground">
+        <li
+          key={item.key}
+          className="surface-card flex gap-3 p-4 text-lg font-medium text-foreground"
+        >
           <span
             aria-hidden
             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
@@ -81,7 +91,7 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
           >
             {tone === "yes" ? "✓" : "×"}
           </span>
-          {item}
+          {item.node}
         </li>
       ))}
     </ul>
@@ -89,32 +99,162 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
 }
 
 const AFTER = [
-  "Confidently leave the office knowing every serious lead is being qualified and captured.",
-  "Focus on strategic growth and high-level decisions, not chasing missed calls or checking voicemails.",
-  "Experience genuine relief that your business operates efficiently even when you're not personally watching it.",
-  "Take time off with family and friends without the nagging fear of lost revenue.",
-  "See an immediate boost in captured opportunities that would have otherwise gone to voicemail or a competitor.",
-  "Empower your team by offloading repetitive tasks, letting them focus on what they do best.",
-  "Scale your operations without the immediate pressure of hiring more full-time staff for communication.",
-  "Trust that your investment in marketing is finally yielding its full potential.",
-  "Enjoy the business you built, rather than feeling trapped by its constant demands.",
-  "Sleep soundly at night, knowing your business never misses a beat, even when you are.",
+  {
+    key: "a1",
+    node: (
+      <span>
+        Confidently leave the office knowing <Hl>every serious lead</Hl> is being qualified and
+        captured.
+      </span>
+    ),
+  },
+  {
+    key: "a2",
+    node: (
+      <span>
+        Focus on <Hl>strategic growth</Hl> and high-level decisions, not chasing missed calls or
+        checking voicemails.
+      </span>
+    ),
+  },
+  {
+    key: "a3",
+    node: (
+      <span>
+        Experience <Hl>genuine relief</Hl> that your business operates efficiently even when you're
+        not personally watching it.
+      </span>
+    ),
+  },
+  {
+    key: "a4",
+    node: (
+      <span>
+        Take time off with family and friends <Hl>without the nagging fear</Hl> of lost revenue.
+      </span>
+    ),
+  },
+  {
+    key: "a5",
+    node: (
+      <span>
+        See an <Hl>immediate boost in captured opportunities</Hl> that would have otherwise gone to
+        voicemail or a competitor.
+      </span>
+    ),
+  },
+  {
+    key: "a6",
+    node: (
+      <span>
+        <Hl>Empower your team</Hl> by offloading repetitive tasks, letting them focus on what they
+        do best.
+      </span>
+    ),
+  },
+  {
+    key: "a7",
+    node: (
+      <span>
+        <Hl>Scale your operations</Hl> without the immediate pressure of hiring more full-time staff
+        for communication.
+      </span>
+    ),
+  },
+  {
+    key: "a8",
+    node: (
+      <span>
+        Trust that your investment in marketing is finally yielding its <Hl>full potential</Hl>.
+      </span>
+    ),
+  },
+  {
+    key: "a9",
+    node: (
+      <span>
+        <Hl>Enjoy the business you built</Hl>, rather than feeling trapped by its constant demands.
+      </span>
+    ),
+  },
+  {
+    key: "a10",
+    node: (
+      <span>
+        Sleep soundly at night, knowing your business <Hl>never misses a beat</Hl>, even when you
+        are.
+      </span>
+    ),
+  },
 ];
 
 const FOR = [
-  "You run an established service business with consistent calls and leads.",
-  "You're tired of watching valuable opportunities disappear due to missed calls or slow follow-ups.",
-  "You want to scale your business but feel constrained by the limits of human availability.",
-  "You value peace of mind and want to trust that your business runs efficiently even when you're not present.",
-  "You're looking for a comprehensive solution, not just another piece of software to figure out.",
-  "You understand the cost of a missed lead is far greater than the cost of capturing it.",
+  {
+    key: "f1",
+    node: (
+      <span>
+        You run an <Hl>established service business</Hl> with consistent calls and leads.
+      </span>
+    ),
+  },
+  {
+    key: "f2",
+    node: (
+      <span>
+        You're tired of watching valuable opportunities <Hl>disappear</Hl> due to missed calls or
+        slow follow-ups.
+      </span>
+    ),
+  },
+  {
+    key: "f3",
+    node: (
+      <span>
+        You want to scale your business but feel constrained by the{" "}
+        <Hl>limits of human availability</Hl>.
+      </span>
+    ),
+  },
+  {
+    key: "f4",
+    node: (
+      <span>
+        You value <Hl>peace of mind</Hl> and want to trust that your business runs efficiently even
+        when you're not present.
+      </span>
+    ),
+  },
+  {
+    key: "f5",
+    node: (
+      <span>
+        You're looking for a <Hl>comprehensive solution</Hl>, not just another piece of software to
+        figure out.
+      </span>
+    ),
+  },
+  {
+    key: "f6",
+    node: (
+      <span>
+        You understand the <Hl>cost of a missed lead</Hl> is far greater than the cost of capturing
+        it.
+      </span>
+    ),
+  },
 ];
 
 const NOT_FOR = [
-  "Businesses that are just starting out and don't yet have consistent demand.",
-  "Owners who prefer to personally handle every single customer interaction 24/7.",
-  "Companies looking for a quick fix without integrating a long-term system.",
-  "Those unwilling to adapt current processes to leverage advanced AI capabilities.",
+  { key: "n1", node: "Businesses that are just starting out and don't yet have consistent demand." },
+  {
+    key: "n2",
+    node: "Owners who prefer to personally handle every single customer interaction 24/7.",
+  },
+  { key: "n3", node: "Companies looking for a quick fix without integrating a long-term system." },
+  {
+    key: "n4",
+    node: "Those unwilling to adapt current processes to leverage advanced AI capabilities.",
+  },
 ];
 
 const FAQS = [
