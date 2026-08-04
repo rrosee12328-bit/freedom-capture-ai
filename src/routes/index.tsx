@@ -412,8 +412,8 @@ function Funnel() {
         </div>
       </section>
 
-      <Section eyebrow="The gilded cage">
-        <p>
+      <Section eyebrow="The gilded cage" title="You Built The Demand. Now It Owns You.">
+        <p className="dropcap lead-para">
           You built this business from the ground up. You worked tirelessly to create demand, to get
           the phone ringing, to see those leads come in. But lately,{" "}
           <Mark>that success feels less like freedom and more like a gilded cage</Mark>. Every time
@@ -423,7 +423,11 @@ function Funnel() {
           opportunities, but the systems (or lack thereof) feel like they're holding you back,
           forcing you to stay chained to your desk, constantly monitoring, constantly overseeing.
         </p>
-        <p>
+        <PullQuote>
+          Either constantly micromanage every interaction — or accept that a percentage of those
+          hard-earned opportunities will simply vanish.
+        </PullQuote>
+        <p className="rule-accent">
           You know the demand is there. The calls are coming in. But you also know your team is
           stretched thin, the office closes, and even the most dedicated person{" "}
           <Hl>can't be available 24/7</Hl>. So, you find yourself making an{" "}
@@ -435,7 +439,7 @@ function Funnel() {
       </Section>
 
       <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tinted>
-        <p>
+        <p className="lead-para">
           The biggest myth in business growth is that{" "}
           <Uline>demand automatically translates to revenue</Uline>. <Hl>It doesn't.</Hl> Not if
           your infrastructure isn't ready for it. You're probably assuming a serious
@@ -445,6 +449,13 @@ function Funnel() {
           is, many of them are{" "}
           <Mark>lost opportunities walking straight into your competitor's arms.</Mark>
         </p>
+        <Callouts
+          items={[
+            { k: "c1", label: "After hours", node: "Nobody answers. They call the next business." },
+            { k: "c2", label: "Team swamped", node: "Slow follow-up reads as no follow-up." },
+            { k: "c3", label: "Weekends", node: "Demand keeps arriving. Capacity doesn't." },
+          ]}
+        />
         <p>
           You've invested in marketing, built a great team, and established your reputation. Yet,
           your potential for growth is being capped, <Hl>not by lack of demand</Hl>, but by{" "}
@@ -455,14 +466,17 @@ function Funnel() {
       </Section>
 
       <Section eyebrow="Why this is different" title="Why This Time Is Different">
-        <p>
+        <p className="lead-para">
           Most solutions out there give you tools and then expect you to become an expert in
           building and managing complex systems. They hand you the pieces and wish you luck. But
           what you need isn't just another piece of software; you need a{" "}
           <Uline>fully integrated, always-on communication system</Uline> that works for your
           business, not the other way around.
         </p>
-        <p>
+        <PullQuote>
+          Vektiss doesn't just provide software. We build, customize, and manage the system.
+        </PullQuote>
+        <p className="rule-accent">
           Vektiss doesn't just provide software. We{" "}
           <Hl>build, customize, and manage</Hl> an AI communication system tailored to how your
           business already operates. This isn't about replacing your team; it's about{" "}
