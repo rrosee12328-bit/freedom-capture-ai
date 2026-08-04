@@ -572,7 +572,7 @@ function Funnel() {
           <PremiumIconCard
             icon={PhoneMissed}
             label="The worry"
-            title="\"Who's calling?\""
+            title={"\"Who's calling?\""}
             description="Did we miss that one? Is a serious lead going to the competitor who answers first?"
             tone="dark"
           />
