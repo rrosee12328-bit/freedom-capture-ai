@@ -707,6 +707,38 @@ function Funnel() {
           />
         </div>
 
+        {/* System in action — phone visual nested inside this section */}
+        <div className="relative overflow-hidden rounded-[var(--radius-2xl)] bg-ink p-8 sm:p-10">
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+            <div className="max-w-md">
+              <p className="eyebrow mb-3 text-primary-foreground/60">The system in action</p>
+              <h3 className="text-2xl leading-[1.1] font-bold text-primary-foreground sm:text-3xl">
+                Your Business Answers — Even When You Don't
+              </h3>
+              <p className="mt-4 text-base leading-relaxed font-medium text-primary-foreground/75">
+                A live call gets picked up instantly, qualified by AI, and the conversation is
+                captured in real time so nothing is ever lost.
+              </p>
+            </div>
+            <div className="relative flex items-center justify-center lg:justify-end">
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-full opacity-25 blur-3xl"
+                style={{
+                  background:
+                    "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--primary) 70%, transparent), transparent 70%)",
+                }}
+              />
+              <img
+                src={phoneCutout}
+                alt="Vektiss Voice answering a live call on a phone with real-time AI transcription"
+                className="relative z-10 w-full max-w-[14rem] drop-shadow-2xl sm:max-w-[16rem]"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
         <PullQuote>
           Vektiss doesn't just provide software. We build, customize, and manage the system.
         </PullQuote>
