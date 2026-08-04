@@ -81,18 +81,18 @@ function Section({
           : "";
   return (
     <section className={toneClass}>
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
+      <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 sm:gap-10 sm:py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
+          {eyebrow ? <p className="eyebrow mb-3 sm:mb-4 text-xs sm:text-sm">{eyebrow}</p> : null}
           {title ? (
-            <h2 className="text-4xl font-bold leading-[1.05] sm:text-5xl">{title}</h2>
+            <h2 className="text-2xl font-bold leading-[1.05] sm:text-4xl lg:text-5xl">{title}</h2>
           ) : null}
           <span
             aria-hidden
-            className="mt-6 block h-1 w-16 rounded-full bg-primary"
+            className="mt-4 sm:mt-6 block h-1 w-16 rounded-full bg-primary"
           />
         </div>
-        <div className="max-w-2xl space-y-8 text-xl leading-[1.65] font-medium text-foreground/90">
+        <div className="max-w-2xl space-y-6 text-base leading-[1.65] font-medium text-foreground/90 sm:space-y-8 sm:text-lg lg:text-xl">
           {children}
         </div>
       </div>
