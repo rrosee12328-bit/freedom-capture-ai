@@ -535,21 +535,21 @@ function Funnel() {
       {/* HERO */}
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-6 py-12 text-center lg:py-16">
-          <p className="eyebrow mb-4 text-foreground/70">For established service businesses</p>
-          <h1 className="text-3xl leading-[1.05] font-extrabold text-foreground sm:text-4xl lg:text-5xl">
+        <div className="relative mx-auto max-w-4xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:py-16">
+          <p className="eyebrow mb-3 text-xs text-foreground/70 sm:mb-4 sm:text-sm">For established service businesses</p>
+          <h1 className="text-2xl leading-[1.05] font-extrabold text-foreground sm:text-4xl lg:text-5xl">
             Stop Feeling Trapped By Your Success:{" "}
             <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
             Without Constant Oversight
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed font-semibold text-foreground sm:text-xl">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed font-semibold text-foreground sm:mt-6 sm:text-lg lg:text-xl">
             A custom AI communication system that{" "}
             <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
             business keeps growing even when you're not personally there to watch it.
           </p>
 
           {/* VSL */}
-          <div className="surface-card mx-auto mt-8 max-w-3xl overflow-hidden p-0">
+          <div className="surface-card mx-auto mt-6 max-w-3xl overflow-hidden p-0 sm:mt-8">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/600055/0c670976-e711-43b7-bce8-76a61e91d32c?autoplay=false&preload=true&responsive=true"
@@ -562,9 +562,9 @@ function Funnel() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-3">
+          <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
             <Cta onClick={openForm} />
-            <p className="font-mono text-xs tracking-wider text-foreground/50 uppercase">
+            <p className="font-mono text-[0.65rem] tracking-wider text-foreground/50 uppercase sm:text-xs">
               Managed implementation · Custom workflow design · Ongoing optimization
             </p>
           </div>
