@@ -47,9 +47,9 @@ function Section({
       <div className="mx-auto max-w-3xl px-6 py-20">
         {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
         {title ? (
-          <h2 className="text-3xl font-bold leading-tight sm:text-4xl">{title}</h2>
+          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">{title}</h2>
         ) : null}
-        <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
+        <div className="mt-6 space-y-5 text-xl leading-relaxed text-muted-foreground">
           {children}
         </div>
       </div>
@@ -61,7 +61,7 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
   return (
     <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className="surface-card flex gap-3 p-4 text-base text-foreground">
+        <li key={item} className="surface-card flex gap-3 p-4 text-lg text-foreground">
           <span
             aria-hidden
             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
@@ -160,25 +160,25 @@ function Funnel() {
       <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="grid-bg absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 pt-20 pb-24 text-center">
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed font-medium text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-base leading-relaxed font-medium text-muted-foreground">
             For established service businesses with consistent calls and leads who want the freedom
             to step away from their business without worrying about missed opportunities.
           </p>
-          <h1 className="mt-8 text-4xl leading-[1.05] font-extrabold sm:text-6xl">
+          <h1 className="mt-8 text-5xl leading-[1.05] font-extrabold sm:text-7xl">
             Stop Feeling Trapped By Your Success:{" "}
             <span className="text-primary">
               How Established Service Businesses Capture Every Serious Lead
             </span>{" "}
             And Scale Confidently Without Constant Oversight
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
             Discover the custom AI communication system that answers calls 24/7, qualifies leads,
             and books appointments, so your business keeps growing even when you're not personally
             there to watch it.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <Cta />
-            <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
+            <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
               Managed implementation · Custom workflow design · Ongoing optimization
             </p>
           </div>
@@ -244,7 +244,7 @@ function Funnel() {
       <section className="border-y border-border bg-secondary/60">
         <div className="mx-auto max-w-5xl px-6 py-20">
           <p className="eyebrow mb-4">After Vektiss</p>
-          <h2 className="mb-8 text-3xl font-bold sm:text-4xl">What Your Life Looks Like After</h2>
+          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">What Your Life Looks Like After</h2>
           <CheckList items={AFTER} />
         </div>
       </section>
@@ -253,14 +253,14 @@ function Funnel() {
         <div className="mx-auto grid max-w-5xl gap-12 px-6 py-20 lg:grid-cols-2">
           <div>
             <p className="eyebrow mb-4">Who this is for</p>
-            <h2 className="mb-8 text-3xl font-bold">Who This Is For</h2>
+            <h2 className="mb-8 text-4xl font-bold">Who This Is For</h2>
             <div className="[&_ul]:grid-cols-1">
               <CheckList items={FOR} />
             </div>
           </div>
           <div>
             <p className="eyebrow mb-4">Who this is not for</p>
-            <h2 className="mb-8 text-3xl font-bold">Who This Is Not For</h2>
+            <h2 className="mb-8 text-4xl font-bold">Who This Is Not For</h2>
             <div className="[&_ul]:grid-cols-1">
               <CheckList items={NOT_FOR} tone="no" />
             </div>
@@ -272,17 +272,17 @@ function Funnel() {
       <section className="border-y border-border bg-secondary/60">
         <div className="mx-auto max-w-5xl px-6 py-20">
           <p className="eyebrow mb-4">Proof</p>
-          <h2 className="mb-8 text-3xl font-bold sm:text-4xl">Results From Real Businesses</h2>
+          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Results From Real Businesses</h2>
           <div className="grid gap-5 md:grid-cols-3">
             {[1, 2, 3].map((i) => (
               <figure key={i} className="surface-card flex flex-col gap-4 p-6">
                 <div className="size-12 rounded-full bg-muted" aria-hidden />
-                <blockquote className="text-base leading-relaxed text-foreground">
+                <blockquote className="text-lg leading-relaxed text-foreground">
                   [Insert client result or testimonial #{i} here — focus on quantifiable results
                   like increased captured leads, improved response times, or specific revenue
                   recovery.]
                 </blockquote>
-                <figcaption className="text-sm text-muted-foreground">
+                <figcaption className="text-base text-muted-foreground">
                   Name, Title — Company
                 </figcaption>
               </figure>
@@ -295,12 +295,12 @@ function Funnel() {
       <section>
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="eyebrow mb-4">Questions</p>
-          <h2 className="mb-8 text-3xl font-bold sm:text-4xl">Objection Handling</h2>
+          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Objection Handling</h2>
           <div className="space-y-4">
             {FAQS.map((f) => (
               <div key={f.q} className="surface-card p-6">
-                <h3 className="text-lg font-semibold">{f.q}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
+                <h3 className="text-xl font-semibold">{f.q}</h3>
+                <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{f.a}</p>
               </div>
             ))}
           </div>
@@ -311,13 +311,13 @@ function Funnel() {
       <section className="border-y border-border bg-secondary/60">
         <div className="mx-auto max-w-5xl px-6 py-20">
           <p className="eyebrow mb-4">Next steps</p>
-          <h2 className="mb-10 text-3xl font-bold sm:text-4xl">Here Is Exactly What Happens Next</h2>
+          <h2 className="mb-10 text-4xl font-bold sm:text-5xl">Here Is Exactly What Happens Next</h2>
           <ol className="grid gap-5 md:grid-cols-3">
             {STEPS.map((s) => (
               <li key={s.n} className="surface-card p-6">
                 <span className="eyebrow">{s.n}</span>
-                <h3 className="mt-3 text-lg font-semibold">{s.t}</h3>
-                <p className="mt-2 leading-relaxed text-muted-foreground">{s.d}</p>
+                <h3 className="mt-3 text-xl font-semibold">{s.t}</h3>
+                <p className="mt-2 text-lg leading-relaxed text-muted-foreground">{s.d}</p>
               </li>
             ))}
           </ol>
@@ -329,7 +329,7 @@ function Funnel() {
         <div className="mx-auto max-w-3xl px-6 py-20">
           <div className="surface-card border-primary/30 p-8 text-center">
             <p className="eyebrow mb-4">The guarantee</p>
-            <p className="text-lg leading-relaxed text-foreground">
+            <p className="text-xl leading-relaxed text-foreground">
               We are confident in our ability to transform your lead capture. If, after 60 days of
               full system implementation, you don't see a measurable improvement in lead capture or
               response efficiency, we'll work with you until you do, or provide a full refund.
@@ -341,14 +341,14 @@ function Funnel() {
       {/* CTA */}
       <section className="relative overflow-hidden border-t border-border bg-ink">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <p className="text-xl leading-relaxed font-semibold text-background sm:text-2xl">
+          <p className="text-2xl leading-relaxed font-semibold text-background sm:text-3xl">
             Stop leaving money on the table. Every moment you wait is another high-value client
             going to your competition.
           </p>
           <div className="mt-8">
             <Cta />
           </div>
-          <p className="mt-6 text-base text-background/70">
+          <p className="mt-6 text-lg text-background/70">
             Don't let your hard-earned demand turn into missed opportunities.
           </p>
         </div>
@@ -357,7 +357,7 @@ function Funnel() {
       {/* URGENCY */}
       <section>
         <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="text-lg leading-relaxed text-muted-foreground">
+          <p className="text-xl leading-relaxed text-muted-foreground">
             The true cost of inaction isn't just the leads you're losing today; it's the compounding
             effect on your growth, your team's morale, and your personal freedom. If you do nothing,
             you risk staying trapped in the endless cycle of oversight, always wondering how much
@@ -372,7 +372,7 @@ function Funnel() {
         </div>
       </section>
 
-      <footer className="border-t border-border py-10 text-center text-sm text-muted-foreground">
+      <footer className="border-t border-border py-10 text-center text-base text-muted-foreground">
         © {new Date().getFullYear()} Vektiss Technologies
       </footer>
     </main>
