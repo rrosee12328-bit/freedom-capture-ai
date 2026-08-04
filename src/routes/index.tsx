@@ -535,20 +535,20 @@ function Funnel() {
       {/* HERO */}
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 lg:grid-cols-2 lg:gap-14 lg:py-20">
-          <div className="max-w-2xl">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-6 py-12 lg:grid-cols-2 lg:gap-12 lg:py-16">
+          <div className="max-w-xl">
             <p className="eyebrow mb-3 text-primary-foreground/70">For established service businesses</p>
-            <h1 className="text-3xl leading-[1.05] font-extrabold sm:text-4xl lg:text-5xl">
+            <h1 className="text-3xl leading-[1.05] font-extrabold sm:text-4xl lg:text-[2.75rem]">
               Stop Feeling Trapped By Your Success:{" "}
               <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
               Without Constant Oversight
             </h1>
-            <p className="mt-5 text-lg leading-relaxed font-medium text-primary-foreground/80 sm:text-xl">
+            <p className="mt-4 text-lg leading-relaxed font-medium text-primary-foreground/80 sm:text-xl">
               A custom AI communication system that{" "}
               <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
               business keeps growing even when you're not personally there to watch it.
             </p>
-            <div className="mt-8 flex flex-col items-start gap-3">
+            <div className="mt-6 flex flex-col items-start gap-3">
               <Cta onClick={openForm} />
               <p className="font-mono text-xs tracking-wider text-primary-foreground/50 uppercase">
                 Managed implementation · Custom workflow design · Ongoing optimization
@@ -567,7 +567,7 @@ function Funnel() {
             <img
               src={phoneMockup.url}
               alt="Vektiss Voice answering a live call on a phone with real-time AI transcription"
-              className="relative z-10 w-full max-w-md rounded-[var(--radius-3xl)] shadow-2xl lg:max-w-lg"
+              className="relative z-10 w-full max-w-sm rounded-[var(--radius-3xl)] shadow-2xl lg:max-w-md"
               loading="eager"
             />
           </div>
