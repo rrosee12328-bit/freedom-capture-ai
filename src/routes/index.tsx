@@ -766,8 +766,11 @@ function Funnel() {
           <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Results From Real Businesses</h2>
           <div className="grid gap-5 md:grid-cols-3">
             {[1, 2, 3].map((i) => (
-              <figure key={i} className="surface-card flex flex-col gap-4 p-6">
-                <div className="size-12 rounded-full bg-muted" aria-hidden />
+              <figure key={i} className="surface-card flex flex-col gap-5 p-8">
+                <div className="flex items-center gap-3">
+                  <span aria-hidden className="h-px w-8 bg-primary" />
+                  <span className="eyebrow">{String(i).padStart(2, "0")}</span>
+                </div>
                 <blockquote className="text-lg leading-relaxed font-medium text-foreground/90">
                   [Insert client result or testimonial #{i} here — focus on quantifiable results
                   like increased captured leads, improved response times, or specific revenue
