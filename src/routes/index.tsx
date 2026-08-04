@@ -54,16 +54,43 @@ function Section({
 }) {
   return (
     <section className={tinted ? "bg-secondary/60 border-y border-border" : ""}>
-      <div className="mx-auto max-w-3xl px-6 py-20">
-        {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
-        {title ? (
-          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">{title}</h2>
-        ) : null}
-        <div className="mt-6 space-y-5 text-xl leading-[1.7] font-medium text-foreground/90">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
+          {title ? (
+            <h2 className="text-4xl font-bold leading-[1.05] sm:text-5xl">{title}</h2>
+          ) : null}
+          <span
+            aria-hidden
+            className="mt-6 block h-1 w-16 rounded-full bg-primary"
+          />
+        </div>
+        <div className="max-w-2xl space-y-8 text-xl leading-[1.65] font-medium text-foreground/90">
           {children}
         </div>
       </div>
     </section>
+  );
+}
+
+function PullQuote({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="my-2 border-y border-border/70 py-6 font-display text-2xl leading-[1.25] font-extrabold tracking-tight text-foreground sm:text-3xl">
+      {children}
+    </p>
+  );
+}
+
+function Callouts({ items }: { items: { k: string; label: string; node: React.ReactNode }[] }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-3">
+      {items.map((i) => (
+        <div key={i.k} className="surface-card p-5">
+          <p className="eyebrow mb-2">{i.label}</p>
+          <p className="text-lg leading-snug font-semibold text-foreground">{i.node}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 
