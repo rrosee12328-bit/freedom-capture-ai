@@ -70,7 +70,7 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
   return (
     <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className="surface-card flex gap-3 p-4 text-lg text-foreground">
+        <li key={item} className="surface-card flex gap-3 p-4 text-lg font-medium text-foreground">
           <span
             aria-hidden
             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
@@ -302,7 +302,7 @@ function Funnel() {
             {[1, 2, 3].map((i) => (
               <figure key={i} className="surface-card flex flex-col gap-4 p-6">
                 <div className="size-12 rounded-full bg-muted" aria-hidden />
-                <blockquote className="text-lg leading-relaxed text-foreground">
+                <blockquote className="text-lg leading-relaxed font-medium text-foreground/90">
                   [Insert client result or testimonial #{i} here — focus on quantifiable results
                   like increased captured leads, improved response times, or specific revenue
                   recovery.]
@@ -382,7 +382,7 @@ function Funnel() {
       {/* URGENCY */}
       <section>
         <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="text-xl leading-relaxed text-muted-foreground">
+          <p className="text-xl leading-relaxed font-medium text-foreground/90">
             The true cost of inaction isn't just the leads you're losing today; it's the compounding
             effect on your growth, your team's morale, and your personal freedom. If you do nothing,
             you risk staying trapped in the endless cycle of oversight, always wondering how much
