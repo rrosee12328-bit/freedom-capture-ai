@@ -2,14 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Building2,
+  CalendarX,
   Clock,
   DollarSign,
   Layers,
   Lock,
+  Moon,
   PhoneMissed,
   ShieldCheck,
   Sprout,
   User,
+  Users,
   Zap,
 } from "lucide-react";
 import { ApplyDialog } from "@/components/ApplyDialog";
@@ -102,6 +105,60 @@ function Callouts({ items }: { items: { k: string; label: string; node: React.Re
           <p className="text-lg leading-snug font-semibold text-foreground">{i.node}</p>
         </div>
       ))}
+    </div>
+  );
+}
+
+function PremiumIconCard({
+  icon: Icon,
+  label,
+  title,
+  description,
+  tone = "muted",
+}: {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  label?: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
+  tone?: "muted" | "accent" | "dark";
+}) {
+  const toneStyles = {
+    muted: {
+      card: "bg-card border-border",
+      iconBg: "bg-secondary/70 border-border/50",
+      icon: "text-foreground/70",
+      label: "",
+      title: "text-foreground",
+      desc: "text-muted-foreground",
+    },
+    accent: {
+      card: "bg-card border-primary/15",
+      iconBg: "bg-primary/8 border-primary/15",
+      icon: "text-primary/80",
+      label: "",
+      title: "text-foreground",
+      desc: "text-muted-foreground",
+    },
+    dark: {
+      card: "bg-ink border-ink/50",
+      iconBg: "bg-primary/15 border-primary/20",
+      icon: "text-primary/90",
+      label: "text-primary",
+      title: "text-primary-foreground",
+      desc: "text-primary-foreground/70",
+    },
+  };
+  const t = toneStyles[tone];
+  return (
+    <div className={`rounded-[var(--radius-2xl)] border p-5 shadow-[var(--shadow-soft)] ${t.card}`}>
+      <div
+        className={`mb-4 inline-flex size-12 items-center justify-center rounded-xl border ${t.iconBg}`}
+      >
+        <Icon className={`size-5 ${t.icon}`} strokeWidth={1.5} />
+      </div>
+      {label ? <p className={`eyebrow mb-2 ${t.label}`}>{label}</p> : null}
+      <h3 className={`text-xl font-bold tracking-tight ${t.title}`}>{title}</h3>
+      <p className={`mt-2 text-base leading-snug ${t.desc}`}>{description}</p>
     </div>
   );
 }
@@ -512,30 +569,27 @@ function Funnel() {
         </p>
 
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="surface-card p-5">
-            <PhoneMissed className="mb-3 size-8 text-primary" />
-            <p className="eyebrow mb-1">The worry</p>
-            <h3 className="text-xl font-bold tracking-tight">"Who's calling?"</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Did we miss that one? Is a serious lead going to the competitor who answers first?
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <Clock className="mb-3 size-8 text-primary" />
-            <p className="eyebrow mb-1">The leak</p>
-            <h3 className="text-xl font-bold tracking-tight">After-hours drift</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Revenue slips through the cracks the moment you step away from your desk.
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <Lock className="mb-3 size-8 text-primary" />
-            <p className="eyebrow mb-1">The trap</p>
-            <h3 className="text-xl font-bold tracking-tight">Chained to the business</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Systems (or lack thereof) force you to stay constantly monitoring, constantly overseeing.
-            </p>
-          </div>
+          <PremiumIconCard
+            icon={PhoneMissed}
+            label="The worry"
+            title={"\"Who's calling?\""}
+            description="Did we miss that one? Is a serious lead going to the competitor who answers first?"
+            tone="dark"
+          />
+          <PremiumIconCard
+            icon={Clock}
+            label="The leak"
+            title="After-hours drift"
+            description="Revenue slips through the cracks the moment you step away from your desk."
+            tone="dark"
+          />
+          <PremiumIconCard
+            icon={Lock}
+            label="The trap"
+            title="Chained to the business"
+            description="Systems (or lack thereof) force you to stay constantly monitoring, constantly overseeing."
+            tone="dark"
+          />
         </div>
 
         <p className="rule-accent">
@@ -585,13 +639,26 @@ function Funnel() {
           is, many of them are{" "}
           <Mark>lost opportunities walking straight into your competitor's arms.</Mark>
         </p>
-        <Callouts
-          items={[
-            { k: "c1", label: "After hours", node: "Nobody answers. They call the next business." },
-            { k: "c2", label: "Team swamped", node: "Slow follow-up reads as no follow-up." },
-            { k: "c3", label: "Weekends", node: "Demand keeps arriving. Capacity doesn't." },
-          ]}
-        />
+        <div className="grid gap-4 sm:grid-cols-3">
+          <PremiumIconCard
+            icon={Moon}
+            label="After hours"
+            title="Nobody answers."
+            description="They call the next business. Your empty office becomes a silent opportunity drain."
+          />
+          <PremiumIconCard
+            icon={Users}
+            label="Team swamped"
+            title="Slow follow-up"
+            description="Slow follow-up reads as no follow-up. Perception is reality for a serious lead."
+          />
+          <PremiumIconCard
+            icon={CalendarX}
+            label="Weekends"
+            title="Demand keeps arriving"
+            description="Demand keeps arriving. Capacity doesn't. Every closed day costs you."
+          />
+        </div>
         <p>
           You've invested in marketing, built a great team, and established your reputation. Yet,
           your potential for growth is being capped, <Hl>not by lack of demand</Hl>, but by{" "}
@@ -611,20 +678,19 @@ function Funnel() {
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="surface-card p-5">
-            <p className="eyebrow mb-2">Most tools</p>
-            <h3 className="text-2xl font-bold tracking-tight">Hand you the pieces</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              You become the expert, builder, and manager — while still running the business.
-            </p>
-          </div>
-          <div className="surface-card border-l-4 border-primary p-5">
-            <p className="eyebrow mb-2">Vektiss</p>
-            <h3 className="text-2xl font-bold tracking-tight">Builds the machine for you</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Custom system, fully managed, tailored to how you already operate.
-            </p>
-          </div>
+          <PremiumIconCard
+            icon={Layers}
+            label="Most tools"
+            title="Hand you the pieces"
+            description="You become the expert, builder, and manager — while still running the business."
+          />
+          <PremiumIconCard
+            icon={Zap}
+            label="Vektiss"
+            title="Builds the machine for you"
+            description="Custom system, fully managed, tailored to how you already operate."
+            tone="accent"
+          />
         </div>
 
         <PullQuote>
@@ -632,27 +698,28 @@ function Funnel() {
         </PullQuote>
 
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="surface-card p-5">
-            <Layers className="mb-3 size-8 text-primary" />
-            <h3 className="text-xl font-bold tracking-tight">Tailored to you</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              An AI communication system built around your existing workflows.
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <User className="mb-3 size-8 text-primary" />
-            <h3 className="text-xl font-bold tracking-tight">Empowers your team</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Not replacing people — <Mark>extending their reach beyond human limitations</Mark>.
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <ShieldCheck className="mb-3 size-8 text-primary" />
-            <h3 className="text-xl font-bold tracking-tight">Always-on coverage</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Capture serious opportunities without requiring 24/7 availability.
-            </p>
-          </div>
+          <PremiumIconCard
+            icon={Layers}
+            label="Tailored"
+            title="Tailored to you"
+            description="An AI communication system built around your existing workflows."
+          />
+          <PremiumIconCard
+            icon={User}
+            label="Empowering"
+            title="Empowers your team"
+            description={
+              <>
+                Not replacing people — <Mark>extending their reach beyond human limitations</Mark>.
+              </>
+            }
+          />
+          <PremiumIconCard
+            icon={ShieldCheck}
+            label="Reliable"
+            title="Always-on coverage"
+            description="Capture serious opportunities without requiring 24/7 availability."
+          />
         </div>
 
         <p className="rule-accent">
