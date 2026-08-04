@@ -846,14 +846,14 @@ function Funnel() {
 
       {/* FAQ */}
       <section>
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="eyebrow mb-4">FAQ</p>
-          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Frequently Asked Questions</h2>
-          <div className="space-y-4">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">FAQ</p>
+          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
+          <div className="space-y-3 sm:space-y-4">
             {FAQS.map((f) => (
-              <div key={f.q} className="surface-card p-6">
-                <h3 className="text-xl font-semibold">{f.q}</h3>
-                <p className="mt-3 text-lg leading-relaxed font-medium text-foreground/90">{f.a}</p>
+              <div key={f.q} className="surface-card p-4 sm:p-6">
+                <h3 className="text-lg font-semibold sm:text-xl">{f.q}</h3>
+                <p className="mt-2 text-base leading-relaxed font-medium text-foreground/90 sm:mt-3 sm:text-lg">{f.a}</p>
               </div>
             ))}
           </div>
