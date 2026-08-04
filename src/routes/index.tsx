@@ -535,11 +535,32 @@ function Funnel() {
       {/* HERO */}
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:py-16">
-          <h1 className="text-2xl leading-[1.05] font-extrabold text-foreground uppercase sm:text-4xl lg:text-5xl">
-            Stop Losing High-Value Clients to Missed Calls
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed font-semibold text-foreground sm:mt-6 sm:text-lg lg:text-xl">
+        <div className="relative mx-auto max-w-5xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:py-16">
+          <div className="relative mx-auto inline-block">
+            {/* AI Voice Pulse Aura */}
+            <div
+              className="absolute -top-10 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl sm:-top-16 sm:h-80 sm:w-80"
+              aria-hidden
+            />
+
+            <h1 className="font-bricolage relative text-4xl font-extrabold leading-[0.88] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
+              <span className="block">Stop Losing</span>
+              <span className="relative inline-block bg-gradient-to-r from-primary to-[oklch(0.5_0.15_260)] bg-clip-text py-1 italic text-transparent">
+                High-Value
+              </span>
+              <span className="block">Clients to</span>
+              <span className="relative mt-1 inline-block rotate-[-1deg] rounded-2xl bg-foreground px-4 py-1 text-background sm:mt-2 sm:px-6 sm:py-2">
+                <span className="relative z-10">Missed Calls</span>
+                {/* Urgent pulse dot */}
+                <span className="absolute -top-1 -right-1 flex h-3 w-3 sm:h-4 sm:w-4">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex h-full w-full rounded-full bg-primary" />
+                </span>
+              </span>
+            </h1>
+          </div>
+
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed font-semibold text-foreground/90 sm:mt-8 sm:text-lg lg:text-xl">
             For established service businesses: A custom AI system that answers 24/7, follows up
             fast, and converts more leads into paying clients.
           </p>
