@@ -946,6 +946,9 @@ function Funnel() {
             Privacy Policy
           </Link>
         </p>
+        <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed sm:text-sm">
+          This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. Facebook is a trademark of Meta Platforms, Inc.
+        </p>
       </footer>
     </main>
   );
