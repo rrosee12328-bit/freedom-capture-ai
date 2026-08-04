@@ -20,9 +20,9 @@ import { Hl, Mark, Uline } from "@/components/Emphasis";
 import vektissLogo from "@/assets/vektiss-logo-cropped.webp";
 import phoneCutout from "@/assets/vektiss-phone-cutout.png";
 
-const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
+const TITLE = "Vektiss Voice — Stop Losing High-Value Clients to Missed Calls";
 const DESCRIPTION =
-  "A custom AI communication system that answers calls 24/7, qualifies leads, and books appointments — so your service business keeps growing without constant oversight.";
+  "A custom AI system for established service businesses that answers 24/7, follows up fast, and converts more leads into paying clients.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Cta({
-  label = "Apply Now",
+  label = "Learn More",
   block = false,
   onClick,
 }: {
@@ -481,7 +481,7 @@ const FAQS = [
 const STEPS = [
   {
     n: "Step 1",
-    t: 'Click "Apply Now" and tell us about your business.',
+    t: 'Click "Learn More" and tell us about your business.',
     d: (
       <>
         Share some details about your <Hl>current lead flow</Hl>, challenges, and goals through our
@@ -527,7 +527,7 @@ function Funnel() {
             onClick={openForm}
             className="btn-glow shrink-0 rounded-full px-4 py-2 text-sm font-semibold sm:px-6 sm:py-2.5 sm:text-base"
           >
-            Apply Now
+            Learn More
           </button>
         </div>
       </header>
@@ -536,16 +536,12 @@ function Funnel() {
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-4 py-8 text-center sm:px-6 sm:py-12 lg:py-16">
-          <p className="eyebrow mb-3 text-xs text-foreground/70 sm:mb-4 sm:text-sm">For established service businesses</p>
-          <h1 className="text-2xl leading-[1.05] font-extrabold text-foreground sm:text-4xl lg:text-5xl">
-            Stop Feeling Trapped By Your Success:{" "}
-            <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
-            Without Constant Oversight
+          <h1 className="text-2xl leading-[1.05] font-extrabold text-foreground uppercase sm:text-4xl lg:text-5xl">
+            Stop Losing High-Value Clients to Missed Calls
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed font-semibold text-foreground sm:mt-6 sm:text-lg lg:text-xl">
-            A custom AI communication system that{" "}
-            <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
-            business keeps growing even when you're not personally there to watch it.
+            For established service businesses: A custom AI system that answers 24/7, follows up
+            fast, and converts more leads into paying clients.
           </p>
 
           {/* VSL */}
@@ -563,7 +559,7 @@ function Funnel() {
           </div>
 
           <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
-            <Cta onClick={openForm} />
+            <Cta label="Learn More" onClick={openForm} />
             <p className="font-mono text-[0.65rem] tracking-wider text-foreground/50 uppercase sm:text-xs">
               Managed implementation · Custom workflow design · Ongoing optimization
             </p>
@@ -571,11 +567,11 @@ function Funnel() {
         </div>
       </section>
 
-      <Section eyebrow="The gilded cage" title="You Built The Demand. Now It Owns You.">
+      <Section eyebrow="The moment it happens" title="You Just Checked Your Missed Calls.">
         <p className="dropcap lead-para">
-          You built this business from the ground up. You worked tirelessly to create demand, to get
-          the phone ringing, to see those leads come in. But lately,{" "}
-          <Mark>that success feels less like freedom and more like a gilded cage</Mark>.
+          You just checked your missed calls. Another high-value opportunity slipped through because
+          no one answered—or the follow-up was too slow. You're treating missed calls like delayed
+          opportunities, but most are <Hl>lost to your competitors</Hl>.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-3">
