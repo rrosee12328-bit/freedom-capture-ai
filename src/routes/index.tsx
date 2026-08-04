@@ -553,7 +553,7 @@ function Funnel() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-secondary/60">
+      <section className="bg-background">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <p className="eyebrow mb-4 text-center">Qualification</p>
           <h2 className="mx-auto mb-16 max-w-3xl text-center text-4xl font-bold leading-[1.05] sm:text-5xl">
