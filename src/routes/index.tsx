@@ -785,12 +785,12 @@ function Funnel() {
       </section>
 
       <section className="bg-background">
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <p className="eyebrow mb-4 text-center">Qualification</p>
-          <h2 className="mx-auto mb-16 max-w-3xl text-center text-4xl font-bold leading-[1.05] sm:text-5xl">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+          <p className="eyebrow mb-3 text-center text-xs sm:mb-4 sm:text-sm">Qualification</p>
+          <h2 className="mx-auto mb-10 max-w-3xl text-center text-2xl font-bold leading-[1.05] sm:mb-16 sm:text-4xl lg:text-5xl">
             Who This Is For — And Who Should Pass
           </h2>
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <QualifierCard
               mode="for"
               eyebrow="You're a fit"
