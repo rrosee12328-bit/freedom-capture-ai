@@ -569,30 +569,27 @@ function Funnel() {
         </p>
 
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="surface-card p-5">
-            <PhoneMissed className="mb-3 size-8 text-primary" />
-            <p className="eyebrow mb-1">The worry</p>
-            <h3 className="text-xl font-bold tracking-tight">"Who's calling?"</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Did we miss that one? Is a serious lead going to the competitor who answers first?
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <Clock className="mb-3 size-8 text-primary" />
-            <p className="eyebrow mb-1">The leak</p>
-            <h3 className="text-xl font-bold tracking-tight">After-hours drift</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Revenue slips through the cracks the moment you step away from your desk.
-            </p>
-          </div>
-          <div className="surface-card p-5">
-            <Lock className="mb-3 size-8 text-primary" />
-            <p className="eyebrow mb-1">The trap</p>
-            <h3 className="text-xl font-bold tracking-tight">Chained to the business</h3>
-            <p className="mt-2 text-base text-muted-foreground">
-              Systems (or lack thereof) force you to stay constantly monitoring, constantly overseeing.
-            </p>
-          </div>
+          <PremiumIconCard
+            icon={PhoneMissed}
+            label="The worry"
+            title="\"Who's calling?\""
+            description="Did we miss that one? Is a serious lead going to the competitor who answers first?"
+            tone="dark"
+          />
+          <PremiumIconCard
+            icon={Clock}
+            label="The leak"
+            title="After-hours drift"
+            description="Revenue slips through the cracks the moment you step away from your desk."
+            tone="dark"
+          />
+          <PremiumIconCard
+            icon={Lock}
+            label="The trap"
+            title="Chained to the business"
+            description="Systems (or lack thereof) force you to stay constantly monitoring, constantly overseeing."
+            tone="dark"
+          />
         </div>
 
         <p className="rule-accent">
