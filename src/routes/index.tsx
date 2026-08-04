@@ -639,13 +639,26 @@ function Funnel() {
           is, many of them are{" "}
           <Mark>lost opportunities walking straight into your competitor's arms.</Mark>
         </p>
-        <Callouts
-          items={[
-            { k: "c1", label: "After hours", node: "Nobody answers. They call the next business." },
-            { k: "c2", label: "Team swamped", node: "Slow follow-up reads as no follow-up." },
-            { k: "c3", label: "Weekends", node: "Demand keeps arriving. Capacity doesn't." },
-          ]}
-        />
+        <div className="grid gap-4 sm:grid-cols-3">
+          <PremiumIconCard
+            icon={Moon}
+            label="After hours"
+            title="Nobody answers."
+            description="They call the next business. Your empty office becomes a silent opportunity drain."
+          />
+          <PremiumIconCard
+            icon={Users}
+            label="Team swamped"
+            title="Slow follow-up"
+            description="Slow follow-up reads as no follow-up. Perception is reality for a serious lead."
+          />
+          <PremiumIconCard
+            icon={CalendarX}
+            label="Weekends"
+            title="Demand keeps arriving"
+            description="Demand keeps arriving. Capacity doesn't. Every closed day costs you."
+          />
+        </div>
         <p>
           You've invested in marketing, built a great team, and established your reputation. Yet,
           your potential for growth is being capped, <Hl>not by lack of demand</Hl>, but by{" "}
