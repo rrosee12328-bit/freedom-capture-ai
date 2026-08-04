@@ -100,7 +100,7 @@ function Choice({
   onChange,
 }: {
   options: Option[];
-  value?: string;
+  value: string | undefined;
   onChange: (v: string) => void;
 }) {
   return (
