@@ -18,7 +18,7 @@ import {
 import { ApplyDialog } from "@/components/ApplyDialog";
 import { Hl, Mark, Uline } from "@/components/Emphasis";
 import vektissLogo from "@/assets/vektiss-logo-cropped.webp";
-import phoneMockup from "@/assets/vektiss-phone-v2.png.asset.json";
+import phoneCutout from "@/assets/vektiss-phone-cutout.png";
 
 const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
 const DESCRIPTION =
