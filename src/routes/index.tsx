@@ -527,7 +527,7 @@ function Funnel() {
             onClick={openForm}
             className="btn-glow shrink-0 rounded-full px-4 py-2 text-sm font-semibold sm:px-6 sm:py-2.5 sm:text-base"
           >
-            Apply Now
+            Learn More
           </button>
         </div>
       </header>
