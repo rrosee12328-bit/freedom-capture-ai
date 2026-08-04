@@ -549,8 +549,9 @@ function Funnel() {
       <section className="relative overflow-hidden border-t border-border bg-ink">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center">
           <p className="text-2xl leading-relaxed font-semibold text-background sm:text-3xl">
-            Stop leaving money on the table. Every moment you wait is another high-value client
-            going to your competition.
+            Stop leaving money on the table. Every moment you wait is another{" "}
+            <span className="uline-hl text-background">high-value client</span> going to{" "}
+            <span className="font-bold text-primary">your competition</span>.
           </p>
           <div className="mt-8">
             <Cta onClick={openForm} />
