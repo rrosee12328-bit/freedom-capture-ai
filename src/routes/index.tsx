@@ -545,7 +545,7 @@ function Funnel() {
 
             <h1 className="font-bricolage relative overflow-visible text-4xl font-extrabold leading-[1] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               <span className="block">Stop Losing</span>
-              <span className="relative block overflow-visible bg-gradient-to-r from-primary to-[oklch(0.5_0.15_260)] bg-clip-text px-2 pb-10 pt-3 italic leading-[1.6] text-transparent">
+              <span className="relative block overflow-visible bg-gradient-to-r from-primary to-[oklch(0.5_0.15_260)] bg-clip-text px-3 py-1 italic leading-[1.15] text-transparent">
                 High-Value
               </span>
               <span className="block">Clients to</span>
