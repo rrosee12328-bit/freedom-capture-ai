@@ -809,34 +809,34 @@ function Funnel() {
 
       {/* PROOF */}
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="eyebrow mb-4">Proof</p>
-          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Results From Real Businesses</h2>
-          <div className="grid gap-5 md:grid-cols-2">
-            <figure className="surface-card flex flex-col gap-5 p-8">
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">Proof</p>
+          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl lg:text-5xl">Results From Real Businesses</h2>
+          <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+            <figure className="surface-card flex flex-col gap-4 p-6 sm:gap-5 sm:p-8">
               <div className="flex items-center gap-3">
                 <span aria-hidden className="h-px w-8 bg-primary" />
-                <span className="eyebrow">01</span>
+                <span className="eyebrow text-xs sm:text-sm">01</span>
               </div>
-              <blockquote className="text-lg leading-relaxed font-medium text-black">
+              <blockquote className="text-base leading-relaxed font-medium text-black sm:text-lg">
                 “Vektiss Voice answers our calls 24/7, collects quote requests, and sends hiring
                 applications automatically. It has helped us respond faster and take pressure off
                 our team.”
               </blockquote>
-              <figcaption className="text-base font-semibold text-black">— Kairos Security&nbsp;</figcaption>
+              <figcaption className="text-sm font-semibold text-black sm:text-base">— Kairos Security&nbsp;</figcaption>
             </figure>
 
-            <figure className="surface-card flex flex-col gap-5 p-8">
+            <figure className="surface-card flex flex-col gap-4 p-6 sm:gap-5 sm:p-8">
               <div className="flex items-center gap-3">
                 <span aria-hidden className="h-px w-8 bg-primary" />
-                <span className="eyebrow">02</span>
+                <span className="eyebrow text-xs sm:text-sm">02</span>
               </div>
-              <blockquote className="text-lg leading-relaxed font-medium text-black">
+              <blockquote className="text-base leading-relaxed font-medium text-black sm:text-lg">
                 “Since adding Vektiss Voice, our customers can call anytime and get the help they
                 need, including updates on their vehicle. It has made communication smoother and
                 helped our shop stay focused on the repairs.”
               </blockquote>
-              <figcaption className="text-base font-semibold text-black">
+              <figcaption className="text-sm font-semibold text-black sm:text-base">
                 — J&J Elite Auto Repair
               </figcaption>
             </figure>
