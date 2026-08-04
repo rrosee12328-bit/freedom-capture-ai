@@ -102,7 +102,7 @@ function Section({
 
 function PullQuote({ children }: { children: React.ReactNode }) {
   return (
-    <p className="my-2 border-y border-border/70 py-6 font-display text-2xl leading-[1.25] font-extrabold tracking-tight text-foreground sm:text-3xl">
+    <p className="my-2 border-y border-border/70 py-5 font-display text-xl leading-[1.25] font-extrabold tracking-tight text-foreground sm:py-6 sm:text-2xl lg:text-3xl">
       {children}
     </p>
   );
