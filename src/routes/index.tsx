@@ -1,5 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import {
+  Building2,
+  Clock,
+  DollarSign,
+  Layers,
+  Lock,
+  PhoneMissed,
+  ShieldCheck,
+  Sprout,
+  User,
+  Zap,
+} from "lucide-react";
 import { ApplyDialog } from "@/components/ApplyDialog";
 import { Hl, Mark, Uline } from "@/components/Emphasis";
 
@@ -134,18 +146,18 @@ function QualifierCard({
   mode: "for" | "not-for";
   eyebrow: string;
   title: string;
-  items: { key: string; node: React.ReactNode }[];
+  items: { key: string; icon: React.ReactNode; node: React.ReactNode }[];
 }) {
   const isFor = mode === "for";
   return (
     <div
-      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-8 sm:p-10 ${
+      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-6 sm:p-8 ${
         isFor
           ? "border-primary/20 bg-card shadow-[var(--shadow-soft)]"
           : "border-destructive/30 bg-ink text-background"
       }`}
     >
-      <div className="mb-8 flex items-start gap-4">
+      <div className="mb-6 flex items-start gap-4">
         <span
           aria-hidden
           className={`flex size-12 shrink-0 items-center justify-center rounded-full text-2xl font-bold ${
@@ -155,22 +167,29 @@ function QualifierCard({
           {isFor ? "✓" : "×"}
         </span>
         <div>
-          <p className={`eyebrow mb-1 ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
+          <p className={`eyebrow mb-1 ${isFor ? "" : "text-background/70"}`}>{eyebrow}</p>
           <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {title}
           </h3>
         </div>
       </div>
-      <ul className="space-y-4">
+      <ul className="grid gap-3">
         {items.map((item) => (
-          <li key={item.key} className="flex items-start gap-4">
+          <li
+            key={item.key}
+            className={`flex items-start gap-4 rounded-2xl p-4 ${
+              isFor
+                ? "bg-secondary/40 border border-transparent hover:border-primary/20"
+                : "bg-background/5 border border-background/10 hover:border-background/20"
+            }`}
+          >
             <span
               aria-hidden
-              className={`mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
-                isFor ? "bg-accent text-accent-foreground" : "bg-background/20 text-background"
+              className={`mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl ${
+                isFor ? "bg-primary/10 text-primary" : "bg-background/10 text-background"
               }`}
             >
-              {isFor ? "✓" : "×"}
+              {item.icon}
             </span>
             <span className={`text-lg leading-snug font-medium ${isFor ? "text-foreground" : "text-background/90"}`}>
               {item.node}
@@ -275,6 +294,7 @@ const AFTER = [
 const FOR = [
   {
     key: "f1",
+    icon: <Building2 size={20} strokeWidth={2} />,
     node: (
       <span>
         You run an <Hl>established service business</Hl> with consistent calls and leads.
@@ -283,6 +303,7 @@ const FOR = [
   },
   {
     key: "f2",
+    icon: <PhoneMissed size={20} strokeWidth={2} />,
     node: (
       <span>
         You're tired of watching valuable opportunities <Hl>disappear</Hl> due to missed calls or
@@ -292,6 +313,7 @@ const FOR = [
   },
   {
     key: "f3",
+    icon: <Clock size={20} strokeWidth={2} />,
     node: (
       <span>
         You want to scale your business but feel constrained by the{" "}
@@ -301,6 +323,7 @@ const FOR = [
   },
   {
     key: "f4",
+    icon: <ShieldCheck size={20} strokeWidth={2} />,
     node: (
       <span>
         You value <Hl>peace of mind</Hl> and want to trust that your business runs efficiently even
@@ -310,6 +333,7 @@ const FOR = [
   },
   {
     key: "f5",
+    icon: <Layers size={20} strokeWidth={2} />,
     node: (
       <span>
         You're looking for a <Hl>comprehensive solution</Hl>, not just another piece of software to
@@ -319,6 +343,7 @@ const FOR = [
   },
   {
     key: "f6",
+    icon: <DollarSign size={20} strokeWidth={2} />,
     node: (
       <span>
         You understand the <Hl>cost of a missed lead</Hl> is far greater than the cost of capturing
@@ -329,14 +354,24 @@ const FOR = [
 ];
 
 const NOT_FOR = [
-  { key: "n1", node: "Businesses that are just starting out and don't yet have consistent demand." },
+  {
+    key: "n1",
+    icon: <Sprout size={20} strokeWidth={2} />,
+    node: "Businesses that are just starting out and don't yet have consistent demand.",
+  },
   {
     key: "n2",
+    icon: <User size={20} strokeWidth={2} />,
     node: "Owners who prefer to personally handle every single customer interaction 24/7.",
   },
-  { key: "n3", node: "Companies looking for a quick fix without integrating a long-term system." },
+  {
+    key: "n3",
+    icon: <Zap size={20} strokeWidth={2} />,
+    node: "Companies looking for a quick fix without integrating a long-term system.",
+  },
   {
     key: "n4",
+    icon: <Lock size={20} strokeWidth={2} />,
     node: "Those unwilling to adapt current processes to leverage advanced AI capabilities.",
   },
 ];
