@@ -947,7 +947,7 @@ function Funnel() {
           </Link>
         </p>
         <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed sm:text-sm">
-          This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. Facebook is a trademark of Meta Platforms, Inc.
+          This website is not affiliated with, endorsed by, or sponsored by Facebook or Meta Platforms, Inc. Facebook is a trademark of Meta Platforms, Inc.
         </p>
       </footer>
     </main>
