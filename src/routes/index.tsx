@@ -941,6 +941,10 @@ function Funnel() {
           <Link to="/terms" className="underline underline-offset-4 hover:text-foreground">
             Terms and Conditions
           </Link>
+          {" · "}
+          <Link to="/privacy" className="underline underline-offset-4 hover:text-foreground">
+            Privacy Policy
+          </Link>
         </p>
       </footer>
     </main>
