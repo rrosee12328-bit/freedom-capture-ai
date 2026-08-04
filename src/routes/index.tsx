@@ -98,10 +98,16 @@ function PullQuote({ children }: { children: React.ReactNode }) {
 
 function Callouts({ items }: { items: { k: string; label: string; node: React.ReactNode }[] }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
-      {items.map((i) => (
-        <div key={i.k} className="surface-card p-5">
-          <p className="eyebrow mb-2">{i.label}</p>
+    <div className="grid gap-px overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-border sm:grid-cols-3">
+      {items.map((i, idx) => (
+        <div key={i.k} className="bg-card p-6">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="eyebrow text-primary">
+              {String(idx + 1).padStart(2, "0")}
+            </span>
+            <span aria-hidden className="h-px flex-1 bg-border" />
+          </div>
+          <p className="eyebrow mb-2 text-muted-foreground">{i.label}</p>
           <p className="text-lg leading-snug font-semibold text-foreground">{i.node}</p>
         </div>
       ))}
@@ -125,38 +131,39 @@ function PremiumIconCard({
   const toneStyles = {
     muted: {
       card: "bg-card border-border",
-      iconBg: "bg-secondary/70 border-border/50",
-      icon: "text-foreground/70",
-      label: "",
+      icon: "text-foreground/45",
+      rule: "bg-border",
+      label: "text-muted-foreground",
       title: "text-foreground",
       desc: "text-muted-foreground",
     },
     accent: {
-      card: "bg-card border-primary/15",
-      iconBg: "bg-primary/8 border-primary/15",
-      icon: "text-primary/80",
-      label: "",
+      card: "bg-card border-border",
+      icon: "text-primary",
+      rule: "bg-primary/25",
+      label: "text-primary",
       title: "text-foreground",
       desc: "text-muted-foreground",
     },
     dark: {
-      card: "bg-ink border-ink/50",
-      iconBg: "bg-primary/15 border-primary/20",
-      icon: "text-primary/90",
-      label: "text-primary",
+      card: "bg-ink border-white/10",
+      icon: "text-primary",
+      rule: "bg-white/12",
+      label: "text-primary-foreground/50",
       title: "text-primary-foreground",
-      desc: "text-primary-foreground/70",
+      desc: "text-primary-foreground/65",
     },
   };
   const t = toneStyles[tone];
   return (
-    <div className={`rounded-[var(--radius-2xl)] border p-5 shadow-[var(--shadow-soft)] ${t.card}`}>
-      <div
-        className={`mb-4 inline-flex size-12 items-center justify-center rounded-xl border ${t.iconBg}`}
-      >
-        <Icon className={`size-5 ${t.icon}`} strokeWidth={1.5} />
+    <div className={`group rounded-[var(--radius-2xl)] border p-6 transition-colors ${t.card}`}>
+      <div className="mb-5 flex items-center gap-3">
+        <Icon className={`size-[18px] shrink-0 ${t.icon}`} strokeWidth={1.25} />
+        <span aria-hidden className={`h-px flex-1 ${t.rule}`} />
+        {label ? (
+          <span className={`eyebrow text-[0.7rem] ${t.label}`}>{label}</span>
+        ) : null}
       </div>
-      {label ? <p className={`eyebrow mb-2 ${t.label}`}>{label}</p> : null}
       <h3 className={`text-xl font-bold tracking-tight ${t.title}`}>{title}</h3>
       <p className={`mt-2 text-base leading-snug ${t.desc}`}>{description}</p>
     </div>
