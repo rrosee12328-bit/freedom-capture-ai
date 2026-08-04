@@ -253,10 +253,15 @@
 }
 
 @utility lead-para {
-  font-size: 1.35rem;
-  line-height: 1.5;
+  font-size: 1.125rem;
+  line-height: 1.55;
   font-weight: 600;
   letter-spacing: -0.015em;
+
+  @media (min-width: 640px) {
+    font-size: 1.35rem;
+    line-height: 1.5;
+  }
 }
 
 @utility rule-accent {
