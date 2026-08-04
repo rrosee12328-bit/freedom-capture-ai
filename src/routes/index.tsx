@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { ApplyDialog } from "@/components/ApplyDialog";
 import { Hl, Mark, Uline } from "@/components/Emphasis";
+import vektissLogo from "@/assets/vektiss-logo.png.asset.json";
 
 const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
 const DESCRIPTION =
@@ -517,7 +518,9 @@ function Funnel() {
       <ApplyDialog open={open} onOpenChange={setOpen} />
       <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <span className="font-mono text-sm font-medium tracking-[0.2em] uppercase">Vektiss</span>
+          <a href="/" aria-label="Vektiss home" className="flex items-center">
+            <img src={vektissLogo.url} alt="Vektiss" className="h-8 w-auto sm:h-9" />
+          </a>
           <button
             type="button"
             onClick={openForm}
