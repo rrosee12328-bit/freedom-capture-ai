@@ -51,39 +51,6 @@ function AdminDashboard() {
     return () => data.subscription.unsubscribe();
   }, []);
 
-  if (!unlocked) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background px-5">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const code = String(new FormData(e.currentTarget).get("code")).trim().toUpperCase();
-            if (code === "VEKTISS2026") {
-              window.sessionStorage.setItem("vektiss_admin_code", "VEKTISS2026");
-              setUnlocked(true);
-            } else {
-              setError("Incorrect access code.");
-            }
-          }}
-          className="w-full max-w-sm space-y-4 rounded-2xl border border-border bg-card p-6"
-        >
-          <h1 className="text-xl font-bold">Access code</h1>
-          {error ? <p className="text-sm text-destructive">{error}</p> : null}
-          <input
-            name="code"
-            type="password"
-            required
-            placeholder="Enter access code"
-            className="w-full rounded-lg border border-border bg-background p-3"
-          />
-          <button className="w-full rounded-lg bg-primary p-3 font-semibold text-primary-foreground">
-            Unlock
-          </button>
-        </form>
-      </div>
-    );
-  }
-
   useEffect(() => {
     if (!session || !supabase) {
       setLeads([]);
@@ -110,6 +77,40 @@ function AdminDashboard() {
       password: String(form.get("password")),
     });
     if (result?.error) setError(result.error.message);
+  }
+
+  if (!unlocked) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background px-5">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const code = String(new FormData(e.currentTarget).get("code")).trim().toUpperCase();
+            if (code === "VEKTISS2026") {
+              window.sessionStorage.setItem("vektiss_admin_code", "VEKTISS2026");
+              setUnlocked(true);
+              setError("");
+            } else {
+              setError("Incorrect access code.");
+            }
+          }}
+          className="w-full max-w-sm space-y-4 rounded-2xl border border-border bg-card p-6"
+        >
+          <h1 className="text-xl font-bold">Access code</h1>
+          {error ? <p className="text-sm text-destructive">{error}</p> : null}
+          <input
+            name="code"
+            type="password"
+            required
+            placeholder="Enter access code"
+            className="w-full rounded-lg border border-border bg-background p-3"
+          />
+          <button className="w-full rounded-lg bg-primary p-3 font-semibold text-primary-foreground">
+            Unlock
+          </button>
+        </form>
+      </div>
+    );
   }
 
   return (
