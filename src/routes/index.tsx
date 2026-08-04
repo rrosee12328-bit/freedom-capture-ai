@@ -415,8 +415,8 @@ function Funnel() {
           lead will leave a voicemail, wait for a callback, or try again later. The harsh truth?
           <Hl> Most won't.</Hl> They call the next business that answers immediately. You're
           treating every missed call or slow follow-up as a "delayed opportunity," but the reality
-          is, many of them are <Mark>lost opportunities walking straight into your competitor's
-          arms</Mark>.
+          is, many of them are{" "}
+          <Mark>lost opportunities walking straight into your competitor's arms.</Mark>
         </p>
         <p>
           You've invested in marketing, built a great team, and established your reputation. Yet,
