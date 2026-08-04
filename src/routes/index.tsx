@@ -109,6 +109,60 @@ function Callouts({ items }: { items: { k: string; label: string; node: React.Re
   );
 }
 
+function PremiumIconCard({
+  icon: Icon,
+  label,
+  title,
+  description,
+  tone = "muted",
+}: {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  label?: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
+  tone?: "muted" | "accent" | "dark";
+}) {
+  const toneStyles = {
+    muted: {
+      card: "bg-card border-border",
+      iconBg: "bg-secondary/70 border-border/50",
+      icon: "text-foreground/70",
+      label: "",
+      title: "text-foreground",
+      desc: "text-muted-foreground",
+    },
+    accent: {
+      card: "bg-card border-primary/15",
+      iconBg: "bg-primary/8 border-primary/15",
+      icon: "text-primary/80",
+      label: "",
+      title: "text-foreground",
+      desc: "text-muted-foreground",
+    },
+    dark: {
+      card: "bg-ink border-ink/50",
+      iconBg: "bg-primary/15 border-primary/20",
+      icon: "text-primary/90",
+      label: "text-primary",
+      title: "text-primary-foreground",
+      desc: "text-primary-foreground/70",
+    },
+  };
+  const t = toneStyles[tone];
+  return (
+    <div className={`rounded-[var(--radius-2xl)] border p-5 shadow-[var(--shadow-soft)] ${t.card}`}>
+      <div
+        className={`mb-4 inline-flex size-12 items-center justify-center rounded-xl border ${t.iconBg}`}
+      >
+        <Icon className={`size-5 ${t.icon}`} strokeWidth={1.5} />
+      </div>
+      {label ? <p className={`eyebrow mb-2 ${t.label}`}>{label}</p> : null}
+      <h3 className={`text-xl font-bold tracking-tight ${t.title}`}>{title}</h3>
+      <p className={`mt-2 text-base leading-snug ${t.desc}`}>{description}</p>
+    </div>
+  );
+}
+
 function CheckList({
   items,
   tone = "yes",
