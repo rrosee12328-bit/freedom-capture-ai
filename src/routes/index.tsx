@@ -54,16 +54,43 @@ function Section({
 }) {
   return (
     <section className={tinted ? "bg-secondary/60 border-y border-border" : ""}>
-      <div className="mx-auto max-w-3xl px-6 py-20">
-        {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
-        {title ? (
-          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">{title}</h2>
-        ) : null}
-        <div className="mt-6 space-y-5 text-xl leading-[1.7] font-medium text-foreground/90">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
+          {title ? (
+            <h2 className="text-4xl font-bold leading-[1.05] sm:text-5xl">{title}</h2>
+          ) : null}
+          <span
+            aria-hidden
+            className="mt-6 block h-1 w-16 rounded-full bg-primary"
+          />
+        </div>
+        <div className="max-w-2xl space-y-8 text-xl leading-[1.65] font-medium text-foreground/90">
           {children}
         </div>
       </div>
     </section>
+  );
+}
+
+function PullQuote({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="my-2 border-y border-border/70 py-6 font-display text-2xl leading-[1.25] font-extrabold tracking-tight text-foreground sm:text-3xl">
+      {children}
+    </p>
+  );
+}
+
+function Callouts({ items }: { items: { k: string; label: string; node: React.ReactNode }[] }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-3">
+      {items.map((i) => (
+        <div key={i.k} className="surface-card p-5">
+          <p className="eyebrow mb-2">{i.label}</p>
+          <p className="text-lg leading-snug font-semibold text-foreground">{i.node}</p>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -385,8 +412,8 @@ function Funnel() {
         </div>
       </section>
 
-      <Section eyebrow="The gilded cage">
-        <p>
+      <Section eyebrow="The gilded cage" title="You Built The Demand. Now It Owns You.">
+        <p className="dropcap lead-para">
           You built this business from the ground up. You worked tirelessly to create demand, to get
           the phone ringing, to see those leads come in. But lately,{" "}
           <Mark>that success feels less like freedom and more like a gilded cage</Mark>. Every time
@@ -396,7 +423,11 @@ function Funnel() {
           opportunities, but the systems (or lack thereof) feel like they're holding you back,
           forcing you to stay chained to your desk, constantly monitoring, constantly overseeing.
         </p>
-        <p>
+        <PullQuote>
+          Either constantly micromanage every interaction — or accept that a percentage of those
+          hard-earned opportunities will simply vanish.
+        </PullQuote>
+        <p className="rule-accent">
           You know the demand is there. The calls are coming in. But you also know your team is
           stretched thin, the office closes, and even the most dedicated person{" "}
           <Hl>can't be available 24/7</Hl>. So, you find yourself making an{" "}
@@ -408,7 +439,7 @@ function Funnel() {
       </Section>
 
       <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tinted>
-        <p>
+        <p className="lead-para">
           The biggest myth in business growth is that{" "}
           <Uline>demand automatically translates to revenue</Uline>. <Hl>It doesn't.</Hl> Not if
           your infrastructure isn't ready for it. You're probably assuming a serious
@@ -418,6 +449,13 @@ function Funnel() {
           is, many of them are{" "}
           <Mark>lost opportunities walking straight into your competitor's arms.</Mark>
         </p>
+        <Callouts
+          items={[
+            { k: "c1", label: "After hours", node: "Nobody answers. They call the next business." },
+            { k: "c2", label: "Team swamped", node: "Slow follow-up reads as no follow-up." },
+            { k: "c3", label: "Weekends", node: "Demand keeps arriving. Capacity doesn't." },
+          ]}
+        />
         <p>
           You've invested in marketing, built a great team, and established your reputation. Yet,
           your potential for growth is being capped, <Hl>not by lack of demand</Hl>, but by{" "}
@@ -428,14 +466,17 @@ function Funnel() {
       </Section>
 
       <Section eyebrow="Why this is different" title="Why This Time Is Different">
-        <p>
+        <p className="lead-para">
           Most solutions out there give you tools and then expect you to become an expert in
           building and managing complex systems. They hand you the pieces and wish you luck. But
           what you need isn't just another piece of software; you need a{" "}
           <Uline>fully integrated, always-on communication system</Uline> that works for your
           business, not the other way around.
         </p>
-        <p>
+        <PullQuote>
+          Vektiss doesn't just provide software. We build, customize, and manage the system.
+        </PullQuote>
+        <p className="rule-accent">
           Vektiss doesn't just provide software. We{" "}
           <Hl>build, customize, and manage</Hl> an AI communication system tailored to how your
           business already operates. This isn't about replacing your team; it's about{" "}
@@ -564,16 +605,24 @@ function Funnel() {
 
       {/* URGENCY */}
       <section>
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="text-xl leading-relaxed font-medium text-foreground/90">
-            The true cost of inaction isn't just the leads you're losing today; it's the compounding
-            effect on your growth, your team's morale, and <Hl>your personal freedom</Hl>. If you do
-            nothing, you risk staying trapped in the endless cycle of oversight, always wondering
-            how much money is being lost while you're not personally watching. Vektiss offers a path
-            to truly enjoying the business you built, knowing it's equipped to handle{" "}
-            <Hl>every opportunity, every call, every lead, 24/7</Hl>. Don't let{" "}
-            <Mark>your biggest asset—your demand—become your biggest burden</Mark>.
+        <div className="mx-auto max-w-4xl px-6 py-24">
+          <p className="eyebrow mb-6">The cost of waiting</p>
+          <p className="font-display text-3xl leading-[1.15] font-extrabold tracking-tight sm:text-4xl">
+            The true cost of inaction isn't just the leads you're losing today.
           </p>
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
+            <p className="rule-accent text-xl leading-[1.65] font-medium text-foreground/90">
+              It's the compounding effect on your growth, your team's morale, and{" "}
+              <Hl>your personal freedom</Hl>. If you do nothing, you risk staying trapped in the
+              endless cycle of oversight, always wondering how much money is being lost while
+              you're not personally watching.
+            </p>
+            <p className="rule-accent text-xl leading-[1.65] font-medium text-foreground/90">
+              Vektiss offers a path to truly enjoying the business you built, knowing it's equipped
+              to handle <Hl>every opportunity, every call, every lead, 24/7</Hl>. Don't let{" "}
+              <Mark>your biggest asset—your demand—become your biggest burden</Mark>.
+            </p>
+          </div>
           <div className="mt-10 text-center">
             <Cta onClick={openForm} />
           </div>
