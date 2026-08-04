@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { ApplyDialog } from "@/components/ApplyDialog";
 import { Hl, Mark, Uline } from "@/components/Emphasis";
+import vektissLogo from "@/assets/vektiss-logo.png.asset.json";
 
 const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
 const DESCRIPTION =
