@@ -684,7 +684,7 @@ function Funnel() {
       {/* PHONE SHOWCASE — centered, compact, readable size */}
       <section className="relative overflow-hidden invert-surface">
         <div className="grid-bg absolute inset-0 opacity-20" aria-hidden />
-        <div className="relative mx-auto max-w-3xl px-6 py-14 text-center">
+        <div className="relative mx-auto max-w-3xl px-6 py-8 text-center">
           <p className="eyebrow mb-3 text-primary-foreground/70">The system in action</p>
           <h2 className="text-3xl leading-[1.1] font-bold sm:text-4xl">
             Your Business Answers — Even When You Don't
@@ -693,7 +693,7 @@ function Funnel() {
             A live call gets picked up instantly, qualified by AI, and the conversation is captured
             in real time so nothing is ever lost.
           </p>
-          <div className="relative mt-8 flex items-center justify-center">
+          <div className="relative mt-4 flex items-center justify-center">
             <div
               aria-hidden
               className="absolute inset-0 rounded-full opacity-20 blur-3xl"
