@@ -349,8 +349,8 @@ function Funnel() {
         <div className="grid-bg absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 pt-20 pb-24 text-center">
           <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-foreground/85 sm:text-xl">
-            For established service businesses with consistent calls and leads who want the freedom
-            to step away from their business without worrying about missed opportunities.
+            For <Hl>established service businesses</Hl> with consistent calls and leads who want the
+            freedom to step away from their business without worrying about missed opportunities.
           </p>
           <h1 className="mt-8 text-5xl leading-[1.05] font-extrabold sm:text-7xl">
             Stop Feeling Trapped By Your Success:{" "}
@@ -372,9 +372,9 @@ function Funnel() {
             </div>
           </div>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed font-medium text-foreground/90 sm:text-2xl">
-            Discover the custom AI communication system that answers calls 24/7, qualifies leads,
-            and books appointments, so your business keeps growing even when you're not personally
-            there to watch it.
+            Discover the custom AI communication system that{" "}
+            <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
+            business keeps growing even when you're not personally there to watch it.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <Cta onClick={openForm} />
@@ -388,8 +388,9 @@ function Funnel() {
       <Section eyebrow="The gilded cage">
         <p>
           You built this business from the ground up. You worked tirelessly to create demand, to get
-          the phone ringing, to see those leads come in. But lately, that success feels less like
-          freedom and more like a gilded cage. Every time you try to step away, even for a moment,
+          the phone ringing, to see those leads come in. But lately,{" "}
+          <Mark>that success feels less like freedom and more like a gilded cage</Mark>. Every time
+          you try to step away, even for a moment,
           the nagging worry sets in: "Who's calling? Did we miss that one? Is revenue slipping
           through the cracks while I'm gone?" You're doing everything right to generate
           opportunities, but the systems (or lack thereof) feel like they're holding you back,
@@ -397,8 +398,9 @@ function Funnel() {
         </p>
         <p>
           You know the demand is there. The calls are coming in. But you also know your team is
-          stretched thin, the office closes, and even the most dedicated person can't be available
-          24/7. So, you find yourself making an impossible choice: either constantly micromanage
+          stretched thin, the office closes, and even the most dedicated person{" "}
+          <Hl>can't be available 24/7</Hl>. So, you find yourself making an{" "}
+          <Hl>impossible choice</Hl>: either constantly micromanage
           every interaction, or accept that a percentage of those hard-earned opportunities will
           simply vanish. It's a frustrating cycle, where growth seems to create more chaos than
           confidence.
