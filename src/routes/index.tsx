@@ -608,17 +608,17 @@ function Funnel() {
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="surface-card border-l-4 border-primary p-5">
+          <div className="surface-card border-l-4 border-primary p-4 sm:p-5">
             <p className="eyebrow mb-2">Option A</p>
-            <h3 className="text-2xl font-bold tracking-tight">Micromanage everything</h3>
-            <p className="mt-2 text-base text-muted-foreground">
+            <h3 className="text-xl font-bold tracking-tight sm:text-2xl">Micromanage everything</h3>
+            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
               Stay glued to every call, every follow-up, every interaction — forever.
             </p>
           </div>
-          <div className="surface-card border-l-4 border-destructive/70 p-5">
+          <div className="surface-card border-l-4 border-destructive/70 p-4 sm:p-5">
             <p className="eyebrow mb-2">Option B</p>
-            <h3 className="text-2xl font-bold tracking-tight">Let opportunities vanish</h3>
-            <p className="mt-2 text-base text-muted-foreground">
+            <h3 className="text-xl font-bold tracking-tight sm:text-2xl">Let opportunities vanish</h3>
+            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
               Accept that a percentage of hard-earned leads simply disappear into thin air.
             </p>
           </div>
