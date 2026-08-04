@@ -481,7 +481,7 @@ const FAQS = [
 const STEPS = [
   {
     n: "Step 1",
-    t: 'Click "Apply Now" and tell us about your business.',
+    t: 'Click "Learn More" and tell us about your business.',
     d: (
       <>
         Share some details about your <Hl>current lead flow</Hl>, challenges, and goals through our
