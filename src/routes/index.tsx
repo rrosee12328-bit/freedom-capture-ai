@@ -609,15 +609,54 @@ function Funnel() {
           <Uline>fully integrated, always-on communication system</Uline> that works for your
           business, not the other way around.
         </p>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="surface-card p-5">
+            <p className="eyebrow mb-2">Most tools</p>
+            <h3 className="text-2xl font-bold tracking-tight">Hand you the pieces</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              You become the expert, builder, and manager — while still running the business.
+            </p>
+          </div>
+          <div className="surface-card border-l-4 border-primary p-5">
+            <p className="eyebrow mb-2">Vektiss</p>
+            <h3 className="text-2xl font-bold tracking-tight">Builds the machine for you</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Custom system, fully managed, tailored to how you already operate.
+            </p>
+          </div>
+        </div>
+
         <PullQuote>
           Vektiss doesn't just provide software. We build, customize, and manage the system.
         </PullQuote>
+
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="surface-card p-5">
+            <Layers className="mb-3 size-8 text-primary" />
+            <h3 className="text-xl font-bold tracking-tight">Tailored to you</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              An AI communication system built around your existing workflows.
+            </p>
+          </div>
+          <div className="surface-card p-5">
+            <User className="mb-3 size-8 text-primary" />
+            <h3 className="text-xl font-bold tracking-tight">Empowers your team</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Not replacing people — <Mark>extending their reach beyond human limitations</Mark>.
+            </p>
+          </div>
+          <div className="surface-card p-5">
+            <ShieldCheck className="mb-3 size-8 text-primary" />
+            <h3 className="text-xl font-bold tracking-tight">Always-on coverage</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Capture serious opportunities without requiring 24/7 availability.
+            </p>
+          </div>
+        </div>
+
         <p className="rule-accent">
-          Vektiss doesn't just provide software. We{" "}
-          <Hl>build, customize, and manage</Hl> an AI communication system tailored to how your
-          business already operates. This isn't about replacing your team; it's about{" "}
-          <Mark>empowering them and extending your reach beyond human limitations</Mark>. We
-          ensure your business is equipped to capture more serious opportunities without requiring
+          We ensure your business is equipped to capture more serious opportunities without requiring
           you or your team to be available around the clock. This means your business finally aligns
           with the demand you've worked so hard to create, giving you the freedom to step away
           knowing your leads are always handled.
