@@ -811,7 +811,20 @@ function Funnel() {
           <p className="eyebrow mb-4">Proof</p>
           <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Results From Real Businesses</h2>
           <div className="grid gap-5 md:grid-cols-3">
-            {[1, 2, 3].map((i) => (
+            <figure className="surface-card flex flex-col gap-5 p-8">
+              <div className="flex items-center gap-3">
+                <span aria-hidden className="h-px w-8 bg-primary" />
+                <span className="eyebrow">01</span>
+              </div>
+              <blockquote className="text-lg leading-relaxed font-medium text-foreground/90">
+                “Vektiss Voice answers our calls 24/7, collects quote requests, and sends hiring
+                applications automatically. It has helped us respond faster and take pressure off
+                our team.”
+              </blockquote>
+              <figcaption className="text-base text-muted-foreground">— Kari’s Security</figcaption>
+            </figure>
+
+            {[2, 3].map((i) => (
               <figure key={i} className="surface-card flex flex-col gap-5 p-8">
                 <div className="flex items-center gap-3">
                   <span aria-hidden className="h-px w-8 bg-primary" />
