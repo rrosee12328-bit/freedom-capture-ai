@@ -221,41 +221,32 @@ function QualifierCard({
           : "border-destructive/30 bg-ink text-background"
       }`}
     >
-      <div className="mb-6 flex items-start gap-4">
-        <span
-          aria-hidden
-          className={`flex size-12 shrink-0 items-center justify-center rounded-full text-2xl font-bold ${
-            isFor ? "bg-primary text-primary-foreground" : "bg-background/10 text-background"
-          }`}
-        >
-          {isFor ? "✓" : "×"}
-        </span>
-        <div>
-          <p className={`eyebrow mb-1 ${isFor ? "" : "text-background/70"}`}>{eyebrow}</p>
-          <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            {title}
-          </h3>
+      <div className="mb-8">
+        <div className="mb-3 flex items-center gap-3">
+          <span
+            aria-hidden
+            className={`h-px w-8 ${isFor ? "bg-primary" : "bg-background/40"}`}
+          />
+          <p className={`eyebrow ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
         </div>
+        <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">{title}</h3>
       </div>
-      <ul className="grid gap-3">
-        {items.map((item) => (
-          <li
-            key={item.key}
-            className={`flex items-start gap-4 rounded-2xl p-4 ${
-              isFor
-                ? "bg-secondary/40 border border-transparent hover:border-primary/20"
-                : "bg-background/5 border border-background/10 hover:border-background/20"
-            }`}
-          >
+      <ul className={`grid ${isFor ? "divide-y divide-border" : "divide-y divide-background/10"}`}>
+        {items.map((item, i) => (
+          <li key={item.key} className="flex items-start gap-5 py-5 first:pt-0 last:pb-0">
             <span
               aria-hidden
-              className={`mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl ${
-                isFor ? "bg-primary/10 text-primary" : "bg-background/10 text-background"
+              className={`mt-1 flex shrink-0 items-center gap-2 font-mono text-[0.7rem] tracking-widest ${
+                isFor ? "text-primary" : "text-background/40"
               }`}
             >
-              {item.icon}
+              {String(i + 1).padStart(2, "0")}
             </span>
-            <span className={`text-lg leading-snug font-medium ${isFor ? "text-foreground" : "text-background/90"}`}>
+            <span
+              className={`text-lg leading-snug font-medium ${
+                isFor ? "text-foreground" : "text-background/85"
+              }`}
+            >
               {item.node}
             </span>
           </li>
@@ -775,8 +766,11 @@ function Funnel() {
           <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Results From Real Businesses</h2>
           <div className="grid gap-5 md:grid-cols-3">
             {[1, 2, 3].map((i) => (
-              <figure key={i} className="surface-card flex flex-col gap-4 p-6">
-                <div className="size-12 rounded-full bg-muted" aria-hidden />
+              <figure key={i} className="surface-card flex flex-col gap-5 p-8">
+                <div className="flex items-center gap-3">
+                  <span aria-hidden className="h-px w-8 bg-primary" />
+                  <span className="eyebrow">{String(i).padStart(2, "0")}</span>
+                </div>
                 <blockquote className="text-lg leading-relaxed font-medium text-foreground/90">
                   [Insert client result or testimonial #{i} here — focus on quantifiable results
                   like increased captured leads, improved response times, or specific revenue
