@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Cta({
-  label = "Apply Now",
+  label = "Learn More",
   block = false,
   onClick,
 }: {
