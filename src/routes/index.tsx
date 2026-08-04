@@ -51,7 +51,7 @@ function Cta({
     <button
       type="button"
       onClick={onClick}
-      className={`btn-glow inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold ${block ? "w-full sm:w-auto" : ""}`}
+      className={`btn-glow inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold sm:px-8 sm:py-4 sm:text-base ${block ? "w-full sm:w-auto" : ""}`}
     >
       {label}
     </button>
