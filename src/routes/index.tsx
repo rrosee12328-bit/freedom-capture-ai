@@ -862,15 +862,15 @@ function Funnel() {
 
       {/* STEPS */}
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="eyebrow mb-4">Next steps</p>
-          <h2 className="mb-10 text-4xl font-bold sm:text-5xl">Here Is Exactly What Happens Next</h2>
-          <ol className="grid gap-5 md:grid-cols-3">
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">Next steps</p>
+          <h2 className="mb-8 text-2xl font-bold sm:mb-10 sm:text-4xl lg:text-5xl">Here Is Exactly What Happens Next</h2>
+          <ol className="grid gap-4 md:grid-cols-3 md:gap-5">
             {STEPS.map((s) => (
-              <li key={s.n} className="surface-card p-6">
-                <span className="eyebrow">{s.n}</span>
-                <h3 className="mt-3 text-xl font-semibold">{s.t}</h3>
-                <p className="mt-2 text-lg leading-relaxed font-medium text-foreground/90">{s.d}</p>
+              <li key={s.n} className="surface-card p-5 sm:p-6">
+                <span className="eyebrow text-xs sm:text-sm">{s.n}</span>
+                <h3 className="mt-3 text-lg font-semibold sm:text-xl">{s.t}</h3>
+                <p className="mt-2 text-base leading-relaxed font-medium text-foreground/90 sm:text-lg">{s.d}</p>
               </li>
             ))}
           </ol>
