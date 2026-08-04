@@ -810,7 +810,7 @@ function Funnel() {
         <div className="mx-auto max-w-5xl px-6 py-20">
           <p className="eyebrow mb-4">Proof</p>
           <h2 className="mb-8 text-4xl font-bold sm:text-5xl">Results From Real Businesses</h2>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2">
             <figure className="surface-card flex flex-col gap-5 p-8">
               <div className="flex items-center gap-3">
                 <span aria-hidden className="h-px w-8 bg-primary" />
@@ -836,20 +836,6 @@ function Funnel() {
               </blockquote>
               <figcaption className="text-base font-semibold text-black">
                 — J&J Elite Auto Repair
-              </figcaption>
-            </figure>
-
-            <figure className="surface-card flex flex-col gap-5 p-8">
-              <div className="flex items-center gap-3">
-                <span aria-hidden className="h-px w-8 bg-primary" />
-                <span className="eyebrow">03</span>
-              </div>
-              <blockquote className="text-lg leading-relaxed font-medium text-black">
-                [Insert client result or testimonial #3 here — focus on quantifiable results like
-                increased captured leads, improved response times, or specific revenue recovery.]
-              </blockquote>
-              <figcaption className="text-base font-semibold text-black">
-                Name, Title — Company
               </figcaption>
             </figure>
           </div>
