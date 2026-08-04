@@ -816,12 +816,12 @@ function Funnel() {
                 <span aria-hidden className="h-px w-8 bg-primary" />
                 <span className="eyebrow">01</span>
               </div>
-              <blockquote className="text-lg leading-relaxed font-medium text-foreground/90">
+              <blockquote className="text-lg leading-relaxed font-medium text-black">
                 “Vektiss Voice answers our calls 24/7, collects quote requests, and sends hiring
                 applications automatically. It has helped us respond faster and take pressure off
                 our team.”
               </blockquote>
-              <figcaption className="text-base text-muted-foreground">— Kari’s Security</figcaption>
+              <figcaption className="text-base font-semibold text-black">— Kairos Security&nbsp;</figcaption>
             </figure>
 
             {[2, 3].map((i) => (
@@ -830,12 +830,12 @@ function Funnel() {
                   <span aria-hidden className="h-px w-8 bg-primary" />
                   <span className="eyebrow">{String(i).padStart(2, "0")}</span>
                 </div>
-                <blockquote className="text-lg leading-relaxed font-medium text-foreground/90">
+                <blockquote className="text-lg leading-relaxed font-medium text-black">
                   [Insert client result or testimonial #{i} here — focus on quantifiable results
                   like increased captured leads, improved response times, or specific revenue
                   recovery.]
                 </blockquote>
-                <figcaption className="text-base text-muted-foreground">
+                <figcaption className="text-base font-semibold text-black">
                   Name, Title — Company
                 </figcaption>
               </figure>
