@@ -61,7 +61,7 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
   return (
     <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className="surface-card flex gap-3 p-4 text-base text-foreground">
+        <li key={item} className="surface-card flex gap-3 p-4 text-lg text-foreground">
           <span
             aria-hidden
             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
