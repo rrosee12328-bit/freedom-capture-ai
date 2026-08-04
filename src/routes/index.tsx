@@ -1,5 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import {
+  AlertCircle,
+  Building2,
+  Clock,
+  DollarSign,
+  Layers,
+  Lock,
+  PhoneMissed,
+  ShieldCheck,
+  Sprout,
+  User,
+  Users,
+  Zap,
+} from "lucide-react";
 import { ApplyDialog } from "@/components/ApplyDialog";
 import { Hl, Mark, Uline } from "@/components/Emphasis";
 
