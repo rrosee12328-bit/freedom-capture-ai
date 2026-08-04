@@ -337,7 +337,7 @@ function Funnel() {
           <button
             type="button"
             onClick={openForm}
-            className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground"
+            className="btn-glow rounded-full px-5 py-2 text-sm font-semibold"
           >
             Apply Now
           </button>
@@ -536,9 +536,10 @@ function Funnel() {
           <div className="surface-card border-primary/30 p-8 text-center">
             <p className="eyebrow mb-4">The guarantee</p>
             <p className="text-xl leading-relaxed font-medium text-foreground/90">
-              We are confident in our ability to transform your lead capture. If, after 60 days of
-              full system implementation, you don't see a measurable improvement in lead capture or
-              response efficiency, we'll work with you until you do, or provide a full refund.
+              We are confident in our ability to transform your lead capture. If, after{" "}
+              <Hl>60 days</Hl> of full system implementation, you don't see a measurable improvement
+              in lead capture or response efficiency,{" "}
+              <Mark>we'll work with you until you do, or provide a full refund</Mark>.
             </p>
           </div>
         </div>
@@ -565,12 +566,12 @@ function Funnel() {
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="text-xl leading-relaxed font-medium text-foreground/90">
             The true cost of inaction isn't just the leads you're losing today; it's the compounding
-            effect on your growth, your team's morale, and your personal freedom. If you do nothing,
-            you risk staying trapped in the endless cycle of oversight, always wondering how much
-            money is being lost while you're not personally watching. Vektiss offers a path to truly
-            enjoying the business you built, knowing it's equipped to handle every opportunity,
-            every call, every lead, 24/7. Don't let your biggest asset—your demand—become your
-            biggest burden.
+            effect on your growth, your team's morale, and <Hl>your personal freedom</Hl>. If you do
+            nothing, you risk staying trapped in the endless cycle of oversight, always wondering
+            how much money is being lost while you're not personally watching. Vektiss offers a path
+            to truly enjoying the business you built, knowing it's equipped to handle{" "}
+            <Hl>every opportunity, every call, every lead, 24/7</Hl>. Don't let{" "}
+            <Mark>your biggest asset—your demand—become your biggest burden</Mark>.
           </p>
           <div className="mt-10 text-center">
             <Cta onClick={openForm} />
