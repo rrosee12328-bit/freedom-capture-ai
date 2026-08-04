@@ -58,7 +58,7 @@ function Section({
         {title ? (
           <h2 className="text-4xl font-bold leading-tight sm:text-5xl">{title}</h2>
         ) : null}
-        <div className="mt-6 space-y-5 text-xl leading-relaxed text-muted-foreground">
+        <div className="mt-6 space-y-5 text-xl leading-[1.7] font-medium text-foreground/90">
           {children}
         </div>
       </div>
@@ -70,7 +70,7 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
   return (
     <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className="surface-card flex gap-3 p-4 text-lg text-foreground">
+        <li key={item} className="surface-card flex gap-3 p-4 text-lg font-medium text-foreground">
           <span
             aria-hidden
             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
@@ -173,7 +173,7 @@ function Funnel() {
       <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="grid-bg absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 pt-20 pb-24 text-center">
-          <p className="mx-auto max-w-2xl text-base leading-relaxed font-medium text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-foreground/85 sm:text-xl">
             For established service businesses with consistent calls and leads who want the freedom
             to step away from their business without worrying about missed opportunities.
           </p>
@@ -196,7 +196,7 @@ function Funnel() {
               />
             </div>
           </div>
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
+          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed font-medium text-foreground/90 sm:text-2xl">
             Discover the custom AI communication system that answers calls 24/7, qualifies leads,
             and books appointments, so your business keeps growing even when you're not personally
             there to watch it.
@@ -302,7 +302,7 @@ function Funnel() {
             {[1, 2, 3].map((i) => (
               <figure key={i} className="surface-card flex flex-col gap-4 p-6">
                 <div className="size-12 rounded-full bg-muted" aria-hidden />
-                <blockquote className="text-lg leading-relaxed text-foreground">
+                <blockquote className="text-lg leading-relaxed font-medium text-foreground/90">
                   [Insert client result or testimonial #{i} here — focus on quantifiable results
                   like increased captured leads, improved response times, or specific revenue
                   recovery.]
@@ -325,7 +325,7 @@ function Funnel() {
             {FAQS.map((f) => (
               <div key={f.q} className="surface-card p-6">
                 <h3 className="text-xl font-semibold">{f.q}</h3>
-                <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{f.a}</p>
+                <p className="mt-3 text-lg leading-relaxed font-medium text-foreground/90">{f.a}</p>
               </div>
             ))}
           </div>
@@ -342,7 +342,7 @@ function Funnel() {
               <li key={s.n} className="surface-card p-6">
                 <span className="eyebrow">{s.n}</span>
                 <h3 className="mt-3 text-xl font-semibold">{s.t}</h3>
-                <p className="mt-2 text-lg leading-relaxed text-muted-foreground">{s.d}</p>
+                <p className="mt-2 text-lg leading-relaxed font-medium text-foreground/90">{s.d}</p>
               </li>
             ))}
           </ol>
@@ -354,7 +354,7 @@ function Funnel() {
         <div className="mx-auto max-w-3xl px-6 py-20">
           <div className="surface-card border-primary/30 p-8 text-center">
             <p className="eyebrow mb-4">The guarantee</p>
-            <p className="text-xl leading-relaxed text-foreground">
+            <p className="text-xl leading-relaxed font-medium text-foreground/90">
               We are confident in our ability to transform your lead capture. If, after 60 days of
               full system implementation, you don't see a measurable improvement in lead capture or
               response efficiency, we'll work with you until you do, or provide a full refund.
@@ -382,7 +382,7 @@ function Funnel() {
       {/* URGENCY */}
       <section>
         <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="text-xl leading-relaxed text-muted-foreground">
+          <p className="text-xl leading-relaxed font-medium text-foreground/90">
             The true cost of inaction isn't just the leads you're losing today; it's the compounding
             effect on your growth, your team's morale, and your personal freedom. If you do nothing,
             you risk staying trapped in the endless cycle of oversight, always wondering how much
