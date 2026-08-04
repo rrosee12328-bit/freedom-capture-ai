@@ -259,3 +259,29 @@
   border-left: 3px solid color-mix(in oklab, var(--primary) 60%, transparent);
   padding-left: 1.25rem;
 }
+
+/* Inverted dark surface: re-maps semantic tokens for a whole subtree */
+@utility invert-surface {
+  --background: oklch(0.12 0.01 260);
+  --foreground: oklch(0.98 0.002 250);
+  --card: oklch(0.17 0.012 262);
+  --card-foreground: oklch(0.98 0.002 250);
+  --muted: oklch(0.2 0.012 262);
+  --muted-foreground: oklch(0.72 0.015 258);
+  --secondary: oklch(0.18 0.012 262);
+  --secondary-foreground: oklch(0.98 0.002 250);
+  --border: oklch(1 0 0 / 12%);
+  --primary: oklch(0.68 0.19 254);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --highlight: color-mix(in oklab, var(--primary) 30%, transparent);
+  --underline-accent: color-mix(in oklab, var(--primary) 55%, transparent);
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.4), 0 18px 50px -18px oklch(0 0 0 / 0.7);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@utility accent-band {
+  background:
+    radial-gradient(90% 120% at 15% 0%, color-mix(in oklab, var(--primary) 14%, transparent), transparent 60%),
+    color-mix(in oklab, var(--primary) 7%, var(--background));
+}

@@ -61,14 +61,24 @@ function Section({
   title,
   children,
   tinted = false,
+  tone = "plain",
 }: {
   eyebrow?: string;
   title?: string;
   children: React.ReactNode;
   tinted?: boolean;
+  tone?: "plain" | "accent" | "dark";
 }) {
+  const toneClass =
+    tone === "dark"
+      ? "invert-surface border-y border-white/10"
+      : tone === "accent"
+        ? "accent-band border-y border-primary/15"
+        : tinted
+          ? "bg-secondary/60 border-y border-border"
+          : "";
   return (
-    <section className={tinted ? "bg-secondary/60 border-y border-border" : ""}>
+    <section className={toneClass}>
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           {eyebrow ? <p className="eyebrow mb-4">{eyebrow}</p> : null}
@@ -626,7 +636,7 @@ function Funnel() {
         </p>
       </Section>
 
-      <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tinted>
+      <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tone="dark">
         <p className="lead-para">
           The biggest myth in business growth is that{" "}
           <Uline>demand automatically translates to revenue</Uline>. <Hl>It doesn't.</Hl> Not if
@@ -643,18 +653,21 @@ function Funnel() {
             label="After hours"
             title="Nobody answers."
             description="They call the next business. Your empty office becomes a silent opportunity drain."
+            tone="accent"
           />
           <PremiumIconCard
             icon={Users}
             label="Team swamped"
             title="Slow follow-up"
             description="Slow follow-up reads as no follow-up. Perception is reality for a serious lead."
+            tone="accent"
           />
           <PremiumIconCard
             icon={CalendarX}
             label="Weekends"
             title="Demand keeps arriving"
             description="Demand keeps arriving. Capacity doesn't. Every closed day costs you."
+            tone="accent"
           />
         </div>
         <p>
@@ -666,7 +679,7 @@ function Funnel() {
         </p>
       </Section>
 
-      <Section eyebrow="Why this is different" title="Why This Time Is Different">
+      <Section eyebrow="Why this is different" title="Why This Time Is Different" tone="accent">
         <p className="lead-para">
           Most solutions out there give you tools and then expect you to become an expert in
           building and managing complex systems. They hand you the pieces and wish you luck. But
