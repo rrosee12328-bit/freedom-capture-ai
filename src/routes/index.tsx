@@ -879,10 +879,10 @@ function Funnel() {
 
       {/* GUARANTEE */}
       <section>
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          <div className="surface-card border-primary/30 p-8 text-center">
-            <p className="eyebrow mb-4">The guarantee</p>
-            <p className="text-xl leading-relaxed font-medium text-foreground/90">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="surface-card border-primary/30 p-6 text-center sm:p-8">
+            <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">The guarantee</p>
+            <p className="text-base leading-relaxed font-medium text-foreground/90 sm:text-lg lg:text-xl">
               We are confident in our ability to transform your lead capture. If, after{" "}
               <Hl>60 days</Hl> of full system implementation, you don't see a measurable improvement
               in lead capture or response efficiency,{" "}
