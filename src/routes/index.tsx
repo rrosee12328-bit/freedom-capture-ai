@@ -508,25 +508,69 @@ function Funnel() {
         <p className="dropcap lead-para">
           You built this business from the ground up. You worked tirelessly to create demand, to get
           the phone ringing, to see those leads come in. But lately,{" "}
-          <Mark>that success feels less like freedom and more like a gilded cage</Mark>. Every time
-          you try to step away, even for a moment,
-          the nagging worry sets in: "Who's calling? Did we miss that one? Is revenue slipping
-          through the cracks while I'm gone?" You're doing everything right to generate
-          opportunities, but the systems (or lack thereof) feel like they're holding you back,
-          forcing you to stay chained to your desk, constantly monitoring, constantly overseeing.
+          <Mark>that success feels less like freedom and more like a gilded cage</Mark>.
         </p>
+
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="surface-card p-5">
+            <PhoneMissed className="mb-3 size-8 text-primary" />
+            <p className="eyebrow mb-1">The worry</p>
+            <h3 className="text-xl font-bold tracking-tight">"Who's calling?"</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Did we miss that one? Is a serious lead going to the competitor who answers first?
+            </p>
+          </div>
+          <div className="surface-card p-5">
+            <Clock className="mb-3 size-8 text-primary" />
+            <p className="eyebrow mb-1">The leak</p>
+            <h3 className="text-xl font-bold tracking-tight">After-hours drift</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Revenue slips through the cracks the moment you step away from your desk.
+            </p>
+          </div>
+          <div className="surface-card p-5">
+            <Lock className="mb-3 size-8 text-primary" />
+            <p className="eyebrow mb-1">The trap</p>
+            <h3 className="text-xl font-bold tracking-tight">Chained to the business</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Systems (or lack thereof) force you to stay constantly monitoring, constantly overseeing.
+            </p>
+          </div>
+        </div>
+
+        <p className="rule-accent">
+          Every time you try to step away, even for a moment, the nagging worry sets in. You're doing
+          everything right to generate opportunities, but the systems feel like they're holding you back.
+        </p>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="surface-card border-l-4 border-primary p-5">
+            <p className="eyebrow mb-2">Option A</p>
+            <h3 className="text-2xl font-bold tracking-tight">Micromanage everything</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Stay glued to every call, every follow-up, every interaction — forever.
+            </p>
+          </div>
+          <div className="surface-card border-l-4 border-destructive/70 p-5">
+            <p className="eyebrow mb-2">Option B</p>
+            <h3 className="text-2xl font-bold tracking-tight">Let opportunities vanish</h3>
+            <p className="mt-2 text-base text-muted-foreground">
+              Accept that a percentage of hard-earned leads simply disappear into thin air.
+            </p>
+          </div>
+        </div>
+
         <PullQuote>
           Either constantly micromanage every interaction — or accept that a percentage of those
           hard-earned opportunities will simply vanish.
         </PullQuote>
-        <p className="rule-accent">
+
+        <p>
           You know the demand is there. The calls are coming in. But you also know your team is
           stretched thin, the office closes, and even the most dedicated person{" "}
           <Hl>can't be available 24/7</Hl>. So, you find yourself making an{" "}
-          <Hl>impossible choice</Hl>: either constantly micromanage
-          every interaction, or accept that a percentage of those hard-earned opportunities will
-          simply vanish. It's a frustrating cycle, where growth seems to create more chaos than
-          confidence.
+          <Hl>impossible choice</Hl>. It's a frustrating cycle, where growth seems to create more chaos
+          than confidence.
         </p>
       </Section>
 
