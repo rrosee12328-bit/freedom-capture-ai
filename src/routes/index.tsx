@@ -125,6 +125,63 @@ function CheckList({
   );
 }
 
+function QualifierCard({
+  mode,
+  eyebrow,
+  title,
+  items,
+}: {
+  mode: "for" | "not-for";
+  eyebrow: string;
+  title: string;
+  items: { key: string; node: React.ReactNode }[];
+}) {
+  const isFor = mode === "for";
+  return (
+    <div
+      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-8 sm:p-10 ${
+        isFor
+          ? "border-primary/20 bg-card shadow-[var(--shadow-soft)]"
+          : "border-destructive/30 bg-ink text-background"
+      }`}
+    >
+      <div className="mb-8 flex items-start gap-4">
+        <span
+          aria-hidden
+          className={`flex size-12 shrink-0 items-center justify-center rounded-full text-2xl font-bold ${
+            isFor ? "bg-primary text-primary-foreground" : "bg-background/10 text-background"
+          }`}
+        >
+          {isFor ? "✓" : "×"}
+        </span>
+        <div>
+          <p className={`eyebrow mb-1 ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
+          <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            {title}
+          </h3>
+        </div>
+      </div>
+      <ul className="space-y-4">
+        {items.map((item) => (
+          <li key={item.key} className="flex items-start gap-4">
+            <span
+              aria-hidden
+              className={`mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                isFor ? "bg-accent text-accent-foreground" : "bg-background/20 text-background"
+              }`}
+            >
+              {isFor ? "✓" : "×"}
+            </span>
+            <span className={`text-lg leading-snug font-medium ${isFor ? "text-foreground" : "text-background/90"}`}>
+              {item.node}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 const AFTER = [
   {
     key: "a1",
