@@ -949,6 +949,22 @@ function Funnel() {
         <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed sm:text-sm">
           This website is not affiliated with, endorsed by, or sponsored by Facebook or Meta Platforms, Inc. Facebook is a trademark of Meta Platforms, Inc.
         </p>
+        <button
+          type="button"
+          onClick={() => {
+            const code = window.prompt("Enter access code");
+            if (code === null) return;
+            if (code.trim().toUpperCase() === "VEKTISS2026") {
+              window.sessionStorage.setItem("vektiss_admin_code", "VEKTISS2026");
+              window.location.href = "/admin";
+            } else {
+              window.alert("Incorrect access code.");
+            }
+          }}
+          className="mt-6 rounded-full border border-border px-4 py-2 text-xs font-semibold tracking-wide text-muted-foreground transition hover:text-foreground"
+        >
+          Lead Dashboard
+        </button>
       </footer>
     </main>
   );
