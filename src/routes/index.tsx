@@ -20,9 +20,9 @@ import { Hl, Mark, Uline } from "@/components/Emphasis";
 import vektissLogo from "@/assets/vektiss-logo-cropped.webp";
 import phoneCutout from "@/assets/vektiss-phone-cutout.png";
 
-const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
+const TITLE = "Vektiss Voice — Stop Losing High-Value Clients to Missed Calls";
 const DESCRIPTION =
-  "A custom AI communication system that answers calls 24/7, qualifies leads, and books appointments — so your service business keeps growing without constant oversight.";
+  "A custom AI system for established service businesses that answers 24/7, follows up fast, and converts more leads into paying clients.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
