@@ -125,6 +125,63 @@ function CheckList({
   );
 }
 
+function QualifierCard({
+  mode,
+  eyebrow,
+  title,
+  items,
+}: {
+  mode: "for" | "not-for";
+  eyebrow: string;
+  title: string;
+  items: { key: string; node: React.ReactNode }[];
+}) {
+  const isFor = mode === "for";
+  return (
+    <div
+      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-8 sm:p-10 ${
+        isFor
+          ? "border-primary/20 bg-card shadow-[var(--shadow-soft)]"
+          : "border-destructive/30 bg-ink text-background"
+      }`}
+    >
+      <div className="mb-8 flex items-start gap-4">
+        <span
+          aria-hidden
+          className={`flex size-12 shrink-0 items-center justify-center rounded-full text-2xl font-bold ${
+            isFor ? "bg-primary text-primary-foreground" : "bg-background/10 text-background"
+          }`}
+        >
+          {isFor ? "✓" : "×"}
+        </span>
+        <div>
+          <p className={`eyebrow mb-1 ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
+          <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            {title}
+          </h3>
+        </div>
+      </div>
+      <ul className="space-y-4">
+        {items.map((item) => (
+          <li key={item.key} className="flex items-start gap-4">
+            <span
+              aria-hidden
+              className={`mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                isFor ? "bg-accent text-accent-foreground" : "bg-background/20 text-background"
+              }`}
+            >
+              {isFor ? "✓" : "×"}
+            </span>
+            <span className={`text-lg leading-snug font-medium ${isFor ? "text-foreground" : "text-background/90"}`}>
+              {item.node}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 const AFTER = [
   {
     key: "a1",
@@ -496,21 +553,25 @@ function Funnel() {
         </div>
       </section>
 
-      <section>
-        <div className="mx-auto grid max-w-5xl gap-12 px-6 py-20 lg:grid-cols-2">
-          <div>
-            <p className="eyebrow mb-4">Who this is for</p>
-            <h2 className="mb-8 text-4xl font-bold">Who This Is For</h2>
-            <div className="[&_ul]:grid-cols-1">
-              <CheckList items={FOR} />
-            </div>
-          </div>
-          <div>
-            <p className="eyebrow mb-4">Who this is not for</p>
-            <h2 className="mb-8 text-4xl font-bold">Who This Is Not For</h2>
-            <div className="[&_ul]:grid-cols-1">
-              <CheckList items={NOT_FOR} tone="no" />
-            </div>
+      <section className="bg-background">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <p className="eyebrow mb-4 text-center">Qualification</p>
+          <h2 className="mx-auto mb-16 max-w-3xl text-center text-4xl font-bold leading-[1.05] sm:text-5xl">
+            Who This Is For — And Who Should Pass
+          </h2>
+          <div className="grid gap-8 lg:grid-cols-2">
+            <QualifierCard
+              mode="for"
+              eyebrow="You're a fit"
+              title="This Is For You If..."
+              items={FOR}
+            />
+            <QualifierCard
+              mode="not-for"
+              eyebrow="Not a fit"
+              title="This Is Not For You If..."
+              items={NOT_FOR}
+            />
           </div>
         </div>
       </section>
