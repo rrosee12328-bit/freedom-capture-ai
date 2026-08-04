@@ -84,8 +84,8 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <label className="block text-base font-semibold text-foreground">{label}</label>
-      {hint ? <p className="text-sm text-muted-foreground">{hint}</p> : null}
+      <label className="block text-sm font-semibold text-foreground sm:text-base">{label}</label>
+      {hint ? <p className="text-xs text-muted-foreground sm:text-sm">{hint}</p> : null}
       {children}
     </div>
   );
