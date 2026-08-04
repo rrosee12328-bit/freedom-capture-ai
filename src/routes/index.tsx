@@ -533,21 +533,55 @@ function Funnel() {
       </header>
 
       {/* HERO */}
-      <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-        <div className="grid-bg absolute inset-0" aria-hidden />
-        <div className="relative mx-auto max-w-4xl px-6 pt-20 pb-24 text-center">
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-foreground/85 sm:text-xl">
-            For <Hl>established service businesses</Hl> with consistent calls and leads who want the
-            freedom to step away from their business without worrying about missed opportunities.
-          </p>
-          <h1 className="mt-8 text-5xl leading-[1.05] font-extrabold sm:text-7xl">
-            Stop Feeling Trapped By Your Success:{" "}
-            <span className="text-primary">
-              How Established Service Businesses Capture Every Serious Lead
-            </span>{" "}
-            And Scale Confidently Without Constant Oversight
-          </h1>
-          <div className="surface-card mx-auto mt-10 max-w-3xl overflow-hidden p-0">
+      <section className="relative overflow-hidden invert-surface">
+        <div className="grid-bg absolute inset-0 opacity-30" aria-hidden />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
+          <div className="max-w-2xl">
+            <p className="eyebrow mb-4 text-primary-foreground/70">For established service businesses</p>
+            <h1 className="text-4xl leading-[1.05] font-extrabold sm:text-5xl lg:text-6xl">
+              Stop Feeling Trapped By Your Success:{" "}
+              <span className="text-primary">Capture Every Serious Lead</span> And Scale Confidently
+              Without Constant Oversight
+            </h1>
+            <p className="mt-6 text-xl leading-relaxed font-medium text-primary-foreground/80 sm:text-2xl">
+              A custom AI communication system that{" "}
+              <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
+              business keeps growing even when you're not personally there to watch it.
+            </p>
+            <div className="mt-10 flex flex-col items-start gap-3">
+              <Cta onClick={openForm} />
+              <p className="font-mono text-sm tracking-wider text-primary-foreground/50 uppercase">
+                Managed implementation · Custom workflow design · Ongoing optimization
+              </p>
+            </div>
+          </div>
+          <div className="relative flex items-center justify-center">
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-full opacity-20 blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--primary) 60%, transparent), transparent 70%)",
+              }}
+            />
+            <img
+              src={phoneMockup.url}
+              alt="Vektiss Voice answering a live call on a phone with real-time AI transcription"
+              className="relative z-10 w-full max-w-lg rounded-[var(--radius-3xl)] shadow-2xl lg:max-w-xl"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* VSL */}
+      <section className="border-y border-border bg-secondary/60">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+          <p className="eyebrow mb-4">See it in action</p>
+          <h2 className="text-3xl leading-[1.1] font-bold sm:text-4xl">
+            Watch How Vektiss Voice Works
+          </h2>
+          <div className="surface-card mx-auto mt-8 max-w-3xl overflow-hidden p-0">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src="https://iframe.mediadelivery.net/embed/600055/0c670976-e711-43b7-bce8-76a61e91d32c?autoplay=false&preload=true&responsive=true"
@@ -558,17 +592,6 @@ function Funnel() {
                 allowFullScreen
               />
             </div>
-          </div>
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed font-medium text-foreground/90 sm:text-2xl">
-            Discover the custom AI communication system that{" "}
-            <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
-            business keeps growing even when you're not personally there to watch it.
-          </p>
-          <div className="mt-10 flex flex-col items-center gap-3">
-            <Cta onClick={openForm} />
-            <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
-              Managed implementation · Custom workflow design · Ongoing optimization
-            </p>
           </div>
         </div>
       </section>
