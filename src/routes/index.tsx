@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ApplyDialog } from "@/components/ApplyDialog";
+import { Hl, Mark, Uline } from "@/components/Emphasis";
 
 const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
 const DESCRIPTION =
@@ -33,7 +34,7 @@ function Cta({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-cta)] transition-transform hover:-translate-y-0.5 ${block ? "w-full sm:w-auto" : ""}`}
+      className={`btn-glow inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold ${block ? "w-full sm:w-auto" : ""}`}
     >
       {label}
     </button>
@@ -66,11 +67,20 @@ function Section({
   );
 }
 
-function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "no" }) {
+function CheckList({
+  items,
+  tone = "yes",
+}: {
+  items: { key: string; node: React.ReactNode }[];
+  tone?: "yes" | "no";
+}) {
   return (
     <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((item) => (
-        <li key={item} className="surface-card flex gap-3 p-4 text-lg font-medium text-foreground">
+        <li
+          key={item.key}
+          className="surface-card flex gap-3 p-4 text-lg font-medium text-foreground"
+        >
           <span
             aria-hidden
             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
@@ -81,7 +91,7 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
           >
             {tone === "yes" ? "✓" : "×"}
           </span>
-          {item}
+          {item.node}
         </li>
       ))}
     </ul>
@@ -89,46 +99,196 @@ function CheckList({ items, tone = "yes" }: { items: string[]; tone?: "yes" | "n
 }
 
 const AFTER = [
-  "Confidently leave the office knowing every serious lead is being qualified and captured.",
-  "Focus on strategic growth and high-level decisions, not chasing missed calls or checking voicemails.",
-  "Experience genuine relief that your business operates efficiently even when you're not personally watching it.",
-  "Take time off with family and friends without the nagging fear of lost revenue.",
-  "See an immediate boost in captured opportunities that would have otherwise gone to voicemail or a competitor.",
-  "Empower your team by offloading repetitive tasks, letting them focus on what they do best.",
-  "Scale your operations without the immediate pressure of hiring more full-time staff for communication.",
-  "Trust that your investment in marketing is finally yielding its full potential.",
-  "Enjoy the business you built, rather than feeling trapped by its constant demands.",
-  "Sleep soundly at night, knowing your business never misses a beat, even when you are.",
+  {
+    key: "a1",
+    node: (
+      <span>
+        Confidently leave the office knowing <Hl>every serious lead</Hl> is being qualified and
+        captured.
+      </span>
+    ),
+  },
+  {
+    key: "a2",
+    node: (
+      <span>
+        Focus on <Hl>strategic growth</Hl> and high-level decisions, not chasing missed calls or
+        checking voicemails.
+      </span>
+    ),
+  },
+  {
+    key: "a3",
+    node: (
+      <span>
+        Experience <Hl>genuine relief</Hl> that your business operates efficiently even when you're
+        not personally watching it.
+      </span>
+    ),
+  },
+  {
+    key: "a4",
+    node: (
+      <span>
+        Take time off with family and friends <Hl>without the nagging fear</Hl> of lost revenue.
+      </span>
+    ),
+  },
+  {
+    key: "a5",
+    node: (
+      <span>
+        See an <Hl>immediate boost in captured opportunities</Hl> that would have otherwise gone to
+        voicemail or a competitor.
+      </span>
+    ),
+  },
+  {
+    key: "a6",
+    node: (
+      <span>
+        <Hl>Empower your team</Hl> by offloading repetitive tasks, letting them focus on what they
+        do best.
+      </span>
+    ),
+  },
+  {
+    key: "a7",
+    node: (
+      <span>
+        <Hl>Scale your operations</Hl> without the immediate pressure of hiring more full-time staff
+        for communication.
+      </span>
+    ),
+  },
+  {
+    key: "a8",
+    node: (
+      <span>
+        Trust that your investment in marketing is finally yielding its <Hl>full potential</Hl>.
+      </span>
+    ),
+  },
+  {
+    key: "a9",
+    node: (
+      <span>
+        <Hl>Enjoy the business you built</Hl>, rather than feeling trapped by its constant demands.
+      </span>
+    ),
+  },
+  {
+    key: "a10",
+    node: (
+      <span>
+        Sleep soundly at night, knowing your business <Hl>never misses a beat</Hl>, even when you
+        are.
+      </span>
+    ),
+  },
 ];
 
 const FOR = [
-  "You run an established service business with consistent calls and leads.",
-  "You're tired of watching valuable opportunities disappear due to missed calls or slow follow-ups.",
-  "You want to scale your business but feel constrained by the limits of human availability.",
-  "You value peace of mind and want to trust that your business runs efficiently even when you're not present.",
-  "You're looking for a comprehensive solution, not just another piece of software to figure out.",
-  "You understand the cost of a missed lead is far greater than the cost of capturing it.",
+  {
+    key: "f1",
+    node: (
+      <span>
+        You run an <Hl>established service business</Hl> with consistent calls and leads.
+      </span>
+    ),
+  },
+  {
+    key: "f2",
+    node: (
+      <span>
+        You're tired of watching valuable opportunities <Hl>disappear</Hl> due to missed calls or
+        slow follow-ups.
+      </span>
+    ),
+  },
+  {
+    key: "f3",
+    node: (
+      <span>
+        You want to scale your business but feel constrained by the{" "}
+        <Hl>limits of human availability</Hl>.
+      </span>
+    ),
+  },
+  {
+    key: "f4",
+    node: (
+      <span>
+        You value <Hl>peace of mind</Hl> and want to trust that your business runs efficiently even
+        when you're not present.
+      </span>
+    ),
+  },
+  {
+    key: "f5",
+    node: (
+      <span>
+        You're looking for a <Hl>comprehensive solution</Hl>, not just another piece of software to
+        figure out.
+      </span>
+    ),
+  },
+  {
+    key: "f6",
+    node: (
+      <span>
+        You understand the <Hl>cost of a missed lead</Hl> is far greater than the cost of capturing
+        it.
+      </span>
+    ),
+  },
 ];
 
 const NOT_FOR = [
-  "Businesses that are just starting out and don't yet have consistent demand.",
-  "Owners who prefer to personally handle every single customer interaction 24/7.",
-  "Companies looking for a quick fix without integrating a long-term system.",
-  "Those unwilling to adapt current processes to leverage advanced AI capabilities.",
+  { key: "n1", node: "Businesses that are just starting out and don't yet have consistent demand." },
+  {
+    key: "n2",
+    node: "Owners who prefer to personally handle every single customer interaction 24/7.",
+  },
+  { key: "n3", node: "Companies looking for a quick fix without integrating a long-term system." },
+  {
+    key: "n4",
+    node: "Those unwilling to adapt current processes to leverage advanced AI capabilities.",
+  },
 ];
 
 const FAQS = [
   {
     q: "Will this replace my existing staff?",
-    a: "Our goal is to empower your team, not replace them. Vektiss handles the initial capture, qualification, and follow-up, freeing your staff to focus on high-value conversations and closing deals. It extends your capacity without adding immediate payroll.",
+    a: (
+      <>
+        Our goal is to <Hl>empower your team, not replace them</Hl>. Vektiss handles the initial
+        capture, qualification, and follow-up, freeing your staff to focus on high-value
+        conversations and closing deals. It <Hl>extends your capacity</Hl> without adding immediate
+        payroll.
+      </>
+    ),
   },
   {
     q: "Is this just another chatbot?",
-    a: "No. While it includes chat capabilities, Vektiss builds a full-spectrum AI communication system integrated across phone, text, and email. It's an intelligent, adaptive system that learns from your business, not a generic, scripted bot.",
+    a: (
+      <>
+        <Hl>No.</Hl> While it includes chat capabilities, Vektiss builds a{" "}
+        <Hl>full-spectrum AI communication system</Hl> integrated across phone, text, and email.
+        It's an intelligent, adaptive system that learns from your business, not a generic, scripted
+        bot.
+      </>
+    ),
   },
   {
     q: "How long does setup take and what's involved?",
-    a: "We handle everything. After an initial deep dive into your operations, our team custom-builds and integrates your AI system. We monitor, optimize, and provide ongoing support, ensuring seamless operation and continuous improvement.",
+    a: (
+      <>
+        <Hl>We handle everything.</Hl> After an initial deep dive into your operations, our team
+        custom-builds and integrates your AI system. We monitor, optimize, and provide{" "}
+        <Hl>ongoing support</Hl>, ensuring seamless operation and continuous improvement.
+      </>
+    ),
   },
 ];
 
@@ -136,17 +296,32 @@ const STEPS = [
   {
     n: "Step 1",
     t: 'Click "Apply Now" and tell us about your business.',
-    d: "Share some details about your current lead flow, challenges, and goals through our simple form.",
+    d: (
+      <>
+        Share some details about your <Hl>current lead flow</Hl>, challenges, and goals through our
+        simple form.
+      </>
+    ),
   },
   {
     n: "Step 2",
     t: "We'll schedule a personalized demo.",
-    d: "See firsthand how a custom Vektiss AI system can integrate with your operations and start capturing your missed opportunities.",
+    d: (
+      <>
+        See firsthand how a custom Vektiss AI system integrates with your operations and starts{" "}
+        <Hl>capturing your missed opportunities</Hl>.
+      </>
+    ),
   },
   {
     n: "Step 3",
     t: "Launch your custom AI system.",
-    d: "Begin experiencing the freedom and confidence of a business that never misses a lead, allowing you to scale without constant personal oversight.",
+    d: (
+      <>
+        Begin experiencing the freedom and confidence of a business that{" "}
+        <Hl>never misses a lead</Hl>, allowing you to scale without constant personal oversight.
+      </>
+    ),
   },
 ];
 
@@ -162,7 +337,7 @@ function Funnel() {
           <button
             type="button"
             onClick={openForm}
-            className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground"
+            className="btn-glow rounded-full px-5 py-2 text-sm font-semibold"
           >
             Apply Now
           </button>
@@ -174,8 +349,8 @@ function Funnel() {
         <div className="grid-bg absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 pt-20 pb-24 text-center">
           <p className="mx-auto max-w-2xl text-lg leading-relaxed font-medium text-foreground/85 sm:text-xl">
-            For established service businesses with consistent calls and leads who want the freedom
-            to step away from their business without worrying about missed opportunities.
+            For <Hl>established service businesses</Hl> with consistent calls and leads who want the
+            freedom to step away from their business without worrying about missed opportunities.
           </p>
           <h1 className="mt-8 text-5xl leading-[1.05] font-extrabold sm:text-7xl">
             Stop Feeling Trapped By Your Success:{" "}
@@ -197,9 +372,9 @@ function Funnel() {
             </div>
           </div>
           <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed font-medium text-foreground/90 sm:text-2xl">
-            Discover the custom AI communication system that answers calls 24/7, qualifies leads,
-            and books appointments, so your business keeps growing even when you're not personally
-            there to watch it.
+            Discover the custom AI communication system that{" "}
+            <Mark>answers calls 24/7, qualifies leads, and books appointments</Mark>, so your
+            business keeps growing even when you're not personally there to watch it.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <Cta onClick={openForm} />
@@ -213,8 +388,9 @@ function Funnel() {
       <Section eyebrow="The gilded cage">
         <p>
           You built this business from the ground up. You worked tirelessly to create demand, to get
-          the phone ringing, to see those leads come in. But lately, that success feels less like
-          freedom and more like a gilded cage. Every time you try to step away, even for a moment,
+          the phone ringing, to see those leads come in. But lately,{" "}
+          <Mark>that success feels less like freedom and more like a gilded cage</Mark>. Every time
+          you try to step away, even for a moment,
           the nagging worry sets in: "Who's calling? Did we miss that one? Is revenue slipping
           through the cracks while I'm gone?" You're doing everything right to generate
           opportunities, but the systems (or lack thereof) feel like they're holding you back,
@@ -222,8 +398,9 @@ function Funnel() {
         </p>
         <p>
           You know the demand is there. The calls are coming in. But you also know your team is
-          stretched thin, the office closes, and even the most dedicated person can't be available
-          24/7. So, you find yourself making an impossible choice: either constantly micromanage
+          stretched thin, the office closes, and even the most dedicated person{" "}
+          <Hl>can't be available 24/7</Hl>. So, you find yourself making an{" "}
+          <Hl>impossible choice</Hl>: either constantly micromanage
           every interaction, or accept that a percentage of those hard-earned opportunities will
           simply vanish. It's a frustrating cycle, where growth seems to create more chaos than
           confidence.
@@ -232,19 +409,21 @@ function Funnel() {
 
       <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tinted>
         <p>
-          The biggest myth in business growth is that demand automatically translates to revenue. It
-          doesn't. Not if your infrastructure isn't ready for it. You're probably assuming a serious
+          The biggest myth in business growth is that{" "}
+          <Uline>demand automatically translates to revenue</Uline>. <Hl>It doesn't.</Hl> Not if
+          your infrastructure isn't ready for it. You're probably assuming a serious
           lead will leave a voicemail, wait for a callback, or try again later. The harsh truth?
-          Most won't. They call the next business that answers immediately. You're treating every
-          missed call or slow follow-up as a "delayed opportunity," but the reality is, many of them
-          are lost opportunities, walking straight into your competitor's arms.
+          <Hl> Most won't.</Hl> They call the next business that answers immediately. You're
+          treating every missed call or slow follow-up as a "delayed opportunity," but the reality
+          is, many of them are{" "}
+          <Mark>lost opportunities walking straight into your competitor's arms.</Mark>
         </p>
         <p>
           You've invested in marketing, built a great team, and established your reputation. Yet,
-          your potential for growth is being capped, not by lack of demand, but by limitations in
-          human availability. Whether it's after-hours, weekends, or simply when your team is
-          swamped, every unanswered call or delayed response is a direct hit to your bottom line,
-          and more importantly, to your peace of mind.
+          your potential for growth is being capped, <Hl>not by lack of demand</Hl>, but by{" "}
+          <Hl>limitations in human availability</Hl>. Whether it's after-hours, weekends, or simply
+          when your team is swamped, every unanswered call or delayed response is a direct hit to
+          your bottom line, and more importantly, to your peace of mind.
         </p>
       </Section>
 
@@ -252,13 +431,15 @@ function Funnel() {
         <p>
           Most solutions out there give you tools and then expect you to become an expert in
           building and managing complex systems. They hand you the pieces and wish you luck. But
-          what you need isn't just another piece of software; you need a fully integrated, always-on
-          communication system that works for your business, not the other way around.
+          what you need isn't just another piece of software; you need a{" "}
+          <Uline>fully integrated, always-on communication system</Uline> that works for your
+          business, not the other way around.
         </p>
         <p>
-          Vektiss doesn't just provide software. We build, customize, and manage an AI communication
-          system tailored to how your business already operates. This isn't about replacing your
-          team; it's about empowering them and extending your reach far beyond human limitations. We
+          Vektiss doesn't just provide software. We{" "}
+          <Hl>build, customize, and manage</Hl> an AI communication system tailored to how your
+          business already operates. This isn't about replacing your team; it's about{" "}
+          <Mark>empowering them and extending your reach beyond human limitations</Mark>. We
           ensure your business is equipped to capture more serious opportunities without requiring
           you or your team to be available around the clock. This means your business finally aligns
           with the demand you've worked so hard to create, giving you the freedom to step away
@@ -355,9 +536,10 @@ function Funnel() {
           <div className="surface-card border-primary/30 p-8 text-center">
             <p className="eyebrow mb-4">The guarantee</p>
             <p className="text-xl leading-relaxed font-medium text-foreground/90">
-              We are confident in our ability to transform your lead capture. If, after 60 days of
-              full system implementation, you don't see a measurable improvement in lead capture or
-              response efficiency, we'll work with you until you do, or provide a full refund.
+              We are confident in our ability to transform your lead capture. If, after{" "}
+              <Hl>60 days</Hl> of full system implementation, you don't see a measurable improvement
+              in lead capture or response efficiency,{" "}
+              <Mark>we'll work with you until you do, or provide a full refund</Mark>.
             </p>
           </div>
         </div>
@@ -367,8 +549,9 @@ function Funnel() {
       <section className="relative overflow-hidden border-t border-border bg-ink">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center">
           <p className="text-2xl leading-relaxed font-semibold text-background sm:text-3xl">
-            Stop leaving money on the table. Every moment you wait is another high-value client
-            going to your competition.
+            Stop leaving money on the table. Every moment you wait is another{" "}
+            <span className="uline-hl text-background">high-value client</span> going to{" "}
+            <span className="font-bold text-primary">your competition</span>.
           </p>
           <div className="mt-8">
             <Cta onClick={openForm} />
@@ -384,12 +567,12 @@ function Funnel() {
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="text-xl leading-relaxed font-medium text-foreground/90">
             The true cost of inaction isn't just the leads you're losing today; it's the compounding
-            effect on your growth, your team's morale, and your personal freedom. If you do nothing,
-            you risk staying trapped in the endless cycle of oversight, always wondering how much
-            money is being lost while you're not personally watching. Vektiss offers a path to truly
-            enjoying the business you built, knowing it's equipped to handle every opportunity,
-            every call, every lead, 24/7. Don't let your biggest asset—your demand—become your
-            biggest burden.
+            effect on your growth, your team's morale, and <Hl>your personal freedom</Hl>. If you do
+            nothing, you risk staying trapped in the endless cycle of oversight, always wondering
+            how much money is being lost while you're not personally watching. Vektiss offers a path
+            to truly enjoying the business you built, knowing it's equipped to handle{" "}
+            <Hl>every opportunity, every call, every lead, 24/7</Hl>. Don't let{" "}
+            <Mark>your biggest asset—your demand—become your biggest burden</Mark>.
           </p>
           <div className="mt-10 text-center">
             <Cta onClick={openForm} />

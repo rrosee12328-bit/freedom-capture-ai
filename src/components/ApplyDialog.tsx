@@ -313,7 +313,7 @@ export function ApplyDialog({
                 <button
                   type="button"
                   onClick={submit}
-                  className="rounded-full bg-primary px-7 py-3 text-base font-semibold text-primary-foreground shadow-[var(--shadow-cta)] transition-transform hover:-translate-y-0.5"
+                  className="btn-glow rounded-full px-7 py-3 text-base font-semibold"
                 >
                   Apply for a Vektiss Voice Consultation →
                 </button>
