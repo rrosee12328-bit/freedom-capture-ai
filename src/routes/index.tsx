@@ -519,7 +519,7 @@ function Funnel() {
       <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <a href="/" aria-label="Vektiss home" className="flex items-center">
-            <img src={vektissLogo} alt="Vektiss" className="h-9 w-auto" />
+            <img src={vektissLogo} alt="Vektiss" className="h-8 w-auto" />
           </a>
           <button
             type="button"
