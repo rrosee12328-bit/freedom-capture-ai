@@ -307,15 +307,15 @@ export function ApplyDialog({
                   </label>
               </div>
 
-              {error ? <p className="text-base font-medium text-destructive">{error}</p> : null}
+              {error ? <p className="text-sm font-medium text-destructive sm:text-base">{error}</p> : null}
 
               <div className="flex justify-end">
                 <button
                   type="button"
                   onClick={submit}
-                  className="btn-glow rounded-full px-7 py-3 text-base font-semibold"
+                  className="btn-glow rounded-full px-5 py-2.5 text-sm font-semibold sm:px-7 sm:py-3 sm:text-base"
                 >
-                  Apply for a Vektiss Voice Consultation →
+                  Apply for a Consultation →
                 </button>
               </div>
             </>
