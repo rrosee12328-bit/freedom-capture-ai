@@ -543,7 +543,7 @@ function Funnel() {
               aria-hidden
             />
 
-            <h1 className="font-bricolage relative text-4xl font-extrabold leading-[1] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            <h1 className="font-bricolage relative overflow-visible text-4xl font-extrabold leading-[1] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem]">
               <span className="block">Stop Losing</span>
               <span className="relative block px-2 pb-10 pt-3 italic leading-[1.6] text-primary">
                 High-Value
