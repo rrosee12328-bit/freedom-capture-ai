@@ -96,6 +96,12 @@
   );
   --shadow-soft: 0 1px 2px oklch(0.2 0.02 260 / 0.06), 0 12px 40px -12px oklch(0.2 0.02 260 / 0.14);
   --shadow-cta: 0 10px 30px -10px color-mix(in oklab, var(--primary) 55%, transparent);
+  --highlight: color-mix(in oklab, var(--primary) 18%, transparent);
+  --underline-accent: color-mix(in oklab, var(--primary) 32%, transparent);
+  --shadow-glow:
+    0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 8px 24px -6px color-mix(in oklab, var(--primary) 55%, transparent),
+    0 18px 50px -12px color-mix(in oklab, var(--primary) 45%, transparent);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -192,4 +198,40 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-soft);
+}
+
+@utility mark-hl {
+  display: inline;
+  padding: 0.05em 0.28em;
+  margin: 0 -0.06em;
+  border-radius: 0.35em;
+  background-color: var(--highlight);
+  color: var(--foreground);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+@utility uline-hl {
+  display: inline;
+  background-image: linear-gradient(to top, var(--underline-accent) 0.38em, transparent 0.38em);
+  background-repeat: no-repeat;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+@utility btn-glow {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-glow);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--primary) 60%, transparent),
+      0 12px 30px -6px color-mix(in oklab, var(--primary) 70%, transparent),
+      0 24px 60px -12px color-mix(in oklab, var(--primary) 55%, transparent);
+  }
 }
