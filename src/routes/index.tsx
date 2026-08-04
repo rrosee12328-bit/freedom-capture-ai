@@ -936,7 +936,12 @@ function Funnel() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground sm:py-10 sm:text-base">
-        © {new Date().getFullYear()} Vektiss Technologies
+        <p>
+          © {new Date().getFullYear()} Vektiss Technologies ·{" "}
+          <Link to="/terms" className="underline underline-offset-4 hover:text-foreground">
+            Terms and Conditions
+          </Link>
+        </p>
       </footer>
     </main>
   );
