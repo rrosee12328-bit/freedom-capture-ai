@@ -567,11 +567,11 @@ function Funnel() {
         </div>
       </section>
 
-      <Section eyebrow="The gilded cage" title="You Built The Demand. Now It Owns You.">
+      <Section eyebrow="The moment it happens" title="You Just Checked Your Missed Calls.">
         <p className="dropcap lead-para">
-          You built this business from the ground up. You worked tirelessly to create demand, to get
-          the phone ringing, to see those leads come in. But lately,{" "}
-          <Mark>that success feels less like freedom and more like a gilded cage</Mark>.
+          You just checked your missed calls. Another high-value opportunity slipped through because
+          no one answered—or the follow-up was too slow. You're treating missed calls like delayed
+          opportunities, but most are <Hl>lost to your competitors</Hl>.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-3">
