@@ -148,18 +148,18 @@ function QualifierCard({
   mode: "for" | "not-for";
   eyebrow: string;
   title: string;
-  items: { key: string; node: React.ReactNode }[];
+  items: { key: string; icon: React.ReactNode; node: React.ReactNode }[];
 }) {
   const isFor = mode === "for";
   return (
     <div
-      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-8 sm:p-10 ${
+      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-6 sm:p-8 ${
         isFor
           ? "border-primary/20 bg-card shadow-[var(--shadow-soft)]"
           : "border-destructive/30 bg-ink text-background"
       }`}
     >
-      <div className="mb-8 flex items-start gap-4">
+      <div className="mb-6 flex items-start gap-4">
         <span
           aria-hidden
           className={`flex size-12 shrink-0 items-center justify-center rounded-full text-2xl font-bold ${
@@ -169,22 +169,29 @@ function QualifierCard({
           {isFor ? "✓" : "×"}
         </span>
         <div>
-          <p className={`eyebrow mb-1 ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
+          <p className={`eyebrow mb-1 ${isFor ? "" : "text-background/70"}`}>{eyebrow}</p>
           <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             {title}
           </h3>
         </div>
       </div>
-      <ul className="space-y-4">
+      <ul className="grid gap-3">
         {items.map((item) => (
-          <li key={item.key} className="flex items-start gap-4">
+          <li
+            key={item.key}
+            className={`flex items-start gap-4 rounded-2xl p-4 ${
+              isFor
+                ? "bg-secondary/40 border border-transparent hover:border-primary/20"
+                : "bg-background/5 border border-background/10 hover:border-background/20"
+            }`}
+          >
             <span
               aria-hidden
-              className={`mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
-                isFor ? "bg-accent text-accent-foreground" : "bg-background/20 text-background"
+              className={`mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl ${
+                isFor ? "bg-primary/10 text-primary" : "bg-background/10 text-background"
               }`}
             >
-              {isFor ? "✓" : "×"}
+              {item.icon}
             </span>
             <span className={`text-lg leading-snug font-medium ${isFor ? "text-foreground" : "text-background/90"}`}>
               {item.node}
