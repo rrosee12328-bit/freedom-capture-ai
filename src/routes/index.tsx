@@ -227,35 +227,35 @@ function QualifierCard({
   const isFor = mode === "for";
   return (
     <div
-      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-6 sm:p-8 ${
+      className={`relative overflow-hidden rounded-[var(--radius-2xl)] border p-5 sm:p-8 ${
         isFor
           ? "border-primary/20 bg-card shadow-[var(--shadow-soft)]"
           : "border-destructive/30 bg-ink text-background"
       }`}
     >
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <div className="mb-3 flex items-center gap-3">
           <span
             aria-hidden
             className={`h-px w-8 ${isFor ? "bg-primary" : "bg-background/40"}`}
           />
-          <p className={`eyebrow ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
+          <p className={`eyebrow text-xs sm:text-sm ${isFor ? "" : "text-background/60"}`}>{eyebrow}</p>
         </div>
-        <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">{title}</h3>
+        <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">{title}</h3>
       </div>
       <ul className={`grid ${isFor ? "divide-y divide-border" : "divide-y divide-background/10"}`}>
         {items.map((item, i) => (
-          <li key={item.key} className="flex items-start gap-5 py-5 first:pt-0 last:pb-0">
+          <li key={item.key} className="flex items-start gap-5 py-4 first:pt-0 last:pb-0 sm:py-5">
             <span
               aria-hidden
-              className={`mt-1 flex shrink-0 items-center gap-2 font-mono text-[0.7rem] tracking-widest ${
+              className={`mt-1 flex shrink-0 items-center gap-2 font-mono text-[0.65rem] tracking-widest sm:text-[0.7rem] ${
                 isFor ? "text-primary" : "text-background/40"
               }`}
             >
               {String(i + 1).padStart(2, "0")}
             </span>
             <span
-              className={`text-lg leading-snug font-medium ${
+              className={`text-base leading-snug font-medium sm:text-lg ${
                 isFor ? "text-foreground" : "text-background/85"
               }`}
             >
