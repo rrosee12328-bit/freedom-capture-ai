@@ -160,25 +160,25 @@ function Funnel() {
       <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="grid-bg absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-6 pt-20 pb-24 text-center">
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed font-medium text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-base leading-relaxed font-medium text-muted-foreground">
             For established service businesses with consistent calls and leads who want the freedom
             to step away from their business without worrying about missed opportunities.
           </p>
-          <h1 className="mt-8 text-4xl leading-[1.05] font-extrabold sm:text-6xl">
+          <h1 className="mt-8 text-5xl leading-[1.05] font-extrabold sm:text-7xl">
             Stop Feeling Trapped By Your Success:{" "}
             <span className="text-primary">
               How Established Service Businesses Capture Every Serious Lead
             </span>{" "}
             And Scale Confidently Without Constant Oversight
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
             Discover the custom AI communication system that answers calls 24/7, qualifies leads,
             and books appointments, so your business keeps growing even when you're not personally
             there to watch it.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <Cta />
-            <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase">
+            <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
               Managed implementation · Custom workflow design · Ongoing optimization
             </p>
           </div>
