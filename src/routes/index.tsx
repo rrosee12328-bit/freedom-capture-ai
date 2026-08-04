@@ -894,16 +894,16 @@ function Funnel() {
 
       {/* CTA */}
       <section className="relative overflow-hidden border-t border-border bg-ink">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <p className="text-2xl leading-relaxed font-semibold text-background sm:text-3xl">
+        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+          <p className="text-xl leading-relaxed font-semibold text-background sm:text-2xl lg:text-3xl">
             Stop leaving money on the table. Every moment you wait is another{" "}
             <span className="uline-hl text-background">high-value client</span> going to{" "}
             <span className="font-bold text-primary">your competition</span>.
           </p>
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <Cta onClick={openForm} />
           </div>
-          <p className="mt-6 text-lg text-background/70">
+          <p className="mt-4 text-base text-background/70 sm:mt-6 sm:text-lg">
             Don't let your hard-earned demand turn into missed opportunities.
           </p>
         </div>
