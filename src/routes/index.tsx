@@ -409,19 +409,21 @@ function Funnel() {
 
       <Section eyebrow="The problem" title="Here Is What Nobody Is Telling You" tinted>
         <p>
-          The biggest myth in business growth is that demand automatically translates to revenue. It
-          doesn't. Not if your infrastructure isn't ready for it. You're probably assuming a serious
+          The biggest myth in business growth is that{" "}
+          <Uline>demand automatically translates to revenue</Uline>. <Hl>It doesn't.</Hl> Not if
+          your infrastructure isn't ready for it. You're probably assuming a serious
           lead will leave a voicemail, wait for a callback, or try again later. The harsh truth?
-          Most won't. They call the next business that answers immediately. You're treating every
-          missed call or slow follow-up as a "delayed opportunity," but the reality is, many of them
-          are lost opportunities, walking straight into your competitor's arms.
+          <Hl> Most won't.</Hl> They call the next business that answers immediately. You're
+          treating every missed call or slow follow-up as a "delayed opportunity," but the reality
+          is, many of them are <Mark>lost opportunities walking straight into your competitor's
+          arms</Mark>.
         </p>
         <p>
           You've invested in marketing, built a great team, and established your reputation. Yet,
-          your potential for growth is being capped, not by lack of demand, but by limitations in
-          human availability. Whether it's after-hours, weekends, or simply when your team is
-          swamped, every unanswered call or delayed response is a direct hit to your bottom line,
-          and more importantly, to your peace of mind.
+          your potential for growth is being capped, <Hl>not by lack of demand</Hl>, but by{" "}
+          <Hl>limitations in human availability</Hl>. Whether it's after-hours, weekends, or simply
+          when your team is swamped, every unanswered call or delayed response is a direct hit to
+          your bottom line, and more importantly, to your peace of mind.
         </p>
       </Section>
 
@@ -429,13 +431,15 @@ function Funnel() {
         <p>
           Most solutions out there give you tools and then expect you to become an expert in
           building and managing complex systems. They hand you the pieces and wish you luck. But
-          what you need isn't just another piece of software; you need a fully integrated, always-on
-          communication system that works for your business, not the other way around.
+          what you need isn't just another piece of software; you need a{" "}
+          <Uline>fully integrated, always-on communication system</Uline> that works for your
+          business, not the other way around.
         </p>
         <p>
-          Vektiss doesn't just provide software. We build, customize, and manage an AI communication
-          system tailored to how your business already operates. This isn't about replacing your
-          team; it's about empowering them and extending your reach far beyond human limitations. We
+          Vektiss doesn't just provide software. We{" "}
+          <Hl>build, customize, and manage</Hl> an AI communication system tailored to how your
+          business already operates. This isn't about replacing your team; it's about{" "}
+          <Mark>empowering them and extending your reach beyond human limitations</Mark>. We
           ensure your business is equipped to capture more serious opportunities without requiring
           you or your team to be available around the clock. This means your business finally aligns
           with the demand you've worked so hard to create, giving you the freedom to step away
