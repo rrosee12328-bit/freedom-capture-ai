@@ -320,28 +320,28 @@ export function ApplyDialog({
               </div>
             </>
           ) : (
-            <div className="space-y-6 py-4 text-center">
+            <div className="space-y-5 py-3 text-center sm:space-y-6 sm:py-4">
               {status === "qualified" ? (
                 <>
-                  <h3 className="text-2xl font-bold">
+                  <h3 className="text-xl font-bold sm:text-2xl">
                     Your application looks like a potential fit for Vektiss Voice.
                   </h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     Choose a time below to speak with our team about your current call and lead
                     process.
                   </p>
                   <a
                     href={BOOKING_URL}
-                    className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-cta)]"
+                    className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-cta)] sm:px-8 sm:py-4 sm:text-base"
                   >
-                    Schedule Your Vektiss Voice Consultation →
+                    Schedule Your Consultation →
                   </a>
                 </>
               ) : null}
               {status === "review" ? (
                 <>
-                  <h3 className="text-2xl font-bold">Thank you for applying.</h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <h3 className="text-xl font-bold sm:text-2xl">Thank you for applying.</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     Our team will review your application and contact you if Vektiss Voice appears
                     to be the right fit for your business.
                   </p>
@@ -349,8 +349,8 @@ export function ApplyDialog({
               ) : null}
               {status === "not-qualified" ? (
                 <>
-                  <h3 className="text-2xl font-bold">Thank you for your interest in Vektiss Voice.</h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <h3 className="text-xl font-bold sm:text-2xl">Thank you for your interest in Vektiss Voice.</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
                     Based on your answers, a custom managed system may not be the right fit for your
                     business at this time. We have saved your information and may contact you if a
                     more suitable option becomes available.
