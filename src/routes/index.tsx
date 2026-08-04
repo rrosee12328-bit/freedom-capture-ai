@@ -553,21 +553,25 @@ function Funnel() {
         </div>
       </section>
 
-      <section>
-        <div className="mx-auto grid max-w-5xl gap-12 px-6 py-20 lg:grid-cols-2">
-          <div>
-            <p className="eyebrow mb-4">Who this is for</p>
-            <h2 className="mb-8 text-4xl font-bold">Who This Is For</h2>
-            <div className="[&_ul]:grid-cols-1">
-              <CheckList items={FOR} />
-            </div>
-          </div>
-          <div>
-            <p className="eyebrow mb-4">Who this is not for</p>
-            <h2 className="mb-8 text-4xl font-bold">Who This Is Not For</h2>
-            <div className="[&_ul]:grid-cols-1">
-              <CheckList items={NOT_FOR} tone="no" />
-            </div>
+      <section className="border-y border-border bg-secondary/60">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <p className="eyebrow mb-4 text-center">Qualification</p>
+          <h2 className="mx-auto mb-16 max-w-3xl text-center text-4xl font-bold leading-[1.05] sm:text-5xl">
+            Who This Is For — And Who Should Pass
+          </h2>
+          <div className="grid gap-8 lg:grid-cols-2">
+            <QualifierCard
+              mode="for"
+              eyebrow="You're a fit"
+              title="This Is For You If..."
+              items={FOR}
+            />
+            <QualifierCard
+              mode="not-for"
+              eyebrow="Not a fit"
+              title="This Is Not For You If..."
+              items={NOT_FOR}
+            />
           </div>
         </div>
       </section>
