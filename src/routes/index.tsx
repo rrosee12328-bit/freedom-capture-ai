@@ -777,9 +777,9 @@ function Funnel() {
       </Section>
 
       <section className="border-y border-border bg-secondary/60">
-        <div className="mx-auto max-w-5xl px-6 py-20">
-          <p className="eyebrow mb-4">After Vektiss</p>
-          <h2 className="mb-8 text-4xl font-bold sm:text-5xl">What Your Life Looks Like After</h2>
+        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <p className="eyebrow mb-3 text-xs sm:mb-4 sm:text-sm">After Vektiss</p>
+          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl lg:text-5xl">What Your Life Looks Like After</h2>
           <CheckList items={AFTER} />
         </div>
       </section>
