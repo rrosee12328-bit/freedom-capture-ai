@@ -2,17 +2,21 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Building2,
+  CalendarX,
   Clock,
   DollarSign,
   Layers,
   Lock,
+  Moon,
   PhoneMissed,
   ShieldCheck,
   Sprout,
   User,
+  Users,
   Zap,
 } from "lucide-react";
 import { ApplyDialog } from "@/components/ApplyDialog";
+import { Hl, Mark, Uline } from "@/components/Emphasis";
 import { Hl, Mark, Uline } from "@/components/Emphasis";
 
 const TITLE = "Vektiss Voice — Capture Every Serious Lead, 24/7";
