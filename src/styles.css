@@ -266,7 +266,11 @@
 
 @utility rule-accent {
   border-left: 3px solid color-mix(in oklab, var(--primary) 60%, transparent);
-  padding-left: 1.25rem;
+  padding-left: 1rem;
+
+  @media (min-width: 640px) {
+    padding-left: 1.25rem;
+  }
 }
 
 /* Inverted dark surface: re-maps semantic tokens for a whole subtree */
