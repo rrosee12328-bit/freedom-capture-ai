@@ -327,7 +327,7 @@ function AdminCRM() {
             <div>
               <h2 className="text-lg font-bold">All leads</h2>
               <p className="text-sm text-slate-500">
-                Click a row to see answers and manage follow-up.
+                Tap a lead to see answers and manage follow-up.
               </p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row">
@@ -352,7 +352,52 @@ function AdminCRM() {
               </select>
             </div>
           </div>
-          <div className="overflow-x-auto">
+          <div className="divide-y divide-slate-100 md:hidden">
+            {filtered.map((lead) => (
+              <button
+                type="button"
+                key={lead.id}
+                onClick={() => setSelected(lead)}
+                className="w-full p-4 text-left transition active:bg-blue-50"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <div className="truncate text-base font-bold">{lead.name}</div>
+                    <div className="mt-0.5 truncate text-sm text-slate-500">
+                      {lead.business_name}
+                    </div>
+                  </div>
+                  <ChevronRight className="mt-1 size-5 shrink-0 text-slate-400" />
+                </div>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <StatusBadge status={lead.qualification_status} />
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
+                    {lead.follow_up_status}
+                  </span>
+                  <span className="text-xs font-semibold text-slate-500">
+                    Score {lead.qualification_score}/23
+                  </span>
+                </div>
+                <div className="mt-4 grid grid-cols-2 gap-3 rounded-xl bg-slate-50 p-3">
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      Timeline
+                    </div>
+                    <div className="mt-1 text-sm font-semibold text-slate-700">{lead.timeline}</div>
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                      Submitted
+                    </div>
+                    <div className="mt-1 text-sm font-semibold text-slate-700">
+                      {new Date(lead.created_at).toLocaleDateString()}
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+          <div className="hidden overflow-x-auto md:block">
             <table className="w-full min-w-[980px] text-left text-sm">
               <thead className="bg-slate-50 text-xs uppercase tracking-wider text-slate-500">
                 <tr>
