@@ -1,6 +1,6 @@
 // Meta (Facebook) Pixel helpers.
 // Replace with your real Pixel ID from Events Manager.
-export const META_PIXEL_ID = "YOUR_PIXEL_ID";
+export const META_PIXEL_ID = "1873199537456348";
 
 declare global {
   interface Window {
