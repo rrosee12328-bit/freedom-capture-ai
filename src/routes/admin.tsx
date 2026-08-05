@@ -32,11 +32,13 @@ export const Route = createFileRoute("/admin")({
 
 function AdminDashboard() {
   const [session, setSession] = useState<Session | null>(null);
+  const [unlocked, setUnlocked] = useState(false);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    setUnlocked(window.sessionStorage.getItem("vektiss_admin_code") === "VEKTISS2026");
     if (!supabase) {
       setLoading(false);
       return;
@@ -77,6 +79,40 @@ function AdminDashboard() {
     if (result?.error) setError(result.error.message);
   }
 
+  if (!unlocked) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background px-5">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const code = String(new FormData(e.currentTarget).get("code")).trim().toUpperCase();
+            if (code === "VEKTISS2026") {
+              window.sessionStorage.setItem("vektiss_admin_code", "VEKTISS2026");
+              setUnlocked(true);
+              setError("");
+            } else {
+              setError("Incorrect access code.");
+            }
+          }}
+          className="w-full max-w-sm space-y-4 rounded-2xl border border-border bg-card p-6"
+        >
+          <h1 className="text-xl font-bold">Access code</h1>
+          {error ? <p className="text-sm text-destructive">{error}</p> : null}
+          <input
+            name="code"
+            type="password"
+            required
+            placeholder="Enter access code"
+            className="w-full rounded-lg border border-border bg-background p-3"
+          />
+          <button className="w-full rounded-lg bg-primary p-3 font-semibold text-primary-foreground">
+            Unlock
+          </button>
+        </form>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-background">
@@ -108,6 +144,7 @@ function AdminDashboard() {
               name="email"
               type="email"
               required
+              defaultValue="rrose@vektiss.com"
               placeholder="Admin email"
               className="w-full rounded-lg border border-border bg-background p-3"
             />
