@@ -182,3 +182,5 @@ npm run dev
 3. In Supabase Authentication, create only trusted admin users. Authenticated users can view leads at `/admin`; public visitors can submit leads but cannot read them.
 
 The Lovable deployment needs the same `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` environment variables. Never expose a Supabase service-role key in the app.
+
+Lead notification emails are sent by a database trigger through Resend. Store the send-only API key in Supabase Vault under the secret name `resend_api_key`; never commit it to the repository.
