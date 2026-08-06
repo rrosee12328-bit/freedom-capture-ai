@@ -1,6 +1,6 @@
 // Meta (Facebook) Pixel helpers.
 // Replace with your real Pixel ID from Events Manager.
-export const META_PIXEL_ID = "1873199537456348";
+export const META_PIXEL_IDS = ["1873199537456348", "1802552391187970"] as const;
 
 declare global {
   interface Window {
@@ -21,5 +21,5 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '${META_PIXEL_ID}');
+${META_PIXEL_IDS.map((id) => `fbq('init', '${id}');`).join("\n")}
 fbq('track', 'PageView');`;

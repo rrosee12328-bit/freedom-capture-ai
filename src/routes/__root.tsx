@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { META_PIXEL_ID, metaPixelScript } from "../lib/meta-pixel";
+import { META_PIXEL_IDS, metaPixelScript } from "../lib/meta-pixel";
 
 function NotFoundComponent() {
   return (
@@ -79,17 +79,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Vektiss Voice" },
-      { name: "description", content: "Vektiss Call Capture is an AI communication system that captures and qualifies leads 24/7." },
+      {
+        name: "description",
+        content:
+          "Vektiss Call Capture is an AI communication system that captures and qualifies leads 24/7.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Vektiss Voice" },
-      { property: "og:description", content: "Vektiss Call Capture is an AI communication system that captures and qualifies leads 24/7." },
+      {
+        property: "og:description",
+        content:
+          "Vektiss Call Capture is an AI communication system that captures and qualifies leads 24/7.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Vektiss Voice" },
-      { name: "twitter:description", content: "Vektiss Call Capture is an AI communication system that captures and qualifies leads 24/7." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/583c3478-6f5c-4900-b6f7-687fffac1ede/id-preview-63ef1d6c--1d3a67d1-8cbe-40c6-bdb0-a3aefdda3261.lovable.app-1785817703840.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/583c3478-6f5c-4900-b6f7-687fffac1ede/id-preview-63ef1d6c--1d3a67d1-8cbe-40c6-bdb0-a3aefdda3261.lovable.app-1785817703840.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Vektiss Call Capture is an AI communication system that captures and qualifies leads 24/7.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/583c3478-6f5c-4900-b6f7-687fffac1ede/id-preview-63ef1d6c--1d3a67d1-8cbe-40c6-bdb0-a3aefdda3261.lovable.app-1785817703840.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/583c3478-6f5c-4900-b6f7-687fffac1ede/id-preview-63ef1d6c--1d3a67d1-8cbe-40c6-bdb0-a3aefdda3261.lovable.app-1785817703840.png",
+      },
     ],
     links: [
       {
@@ -121,13 +141,16 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            alt=""
-            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
-          />
+          {META_PIXEL_IDS.map((id) => (
+            <img
+              key={id}
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              alt=""
+              src={`https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1`}
+            />
+          ))}
         </noscript>
         <Scripts />
       </body>
