@@ -249,7 +249,6 @@ export function ApplyDialog({
     const nextStatus =
       disqualified || score <= 6 ? "not-qualified" : score >= 12 ? "qualified" : "review";
     trackPixel("Lead");
-    if (nextStatus === "qualified") trackPixel("Schedule");
     setStatus(nextStatus);
   }
 
@@ -423,6 +422,7 @@ export function ApplyDialog({
                   </p>
                   <a
                     href={BOOKING_URL}
+                    onClick={() => trackPixel("Schedule")}
                     className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-cta)] sm:px-8 sm:py-4 sm:text-base"
                   >
                     Schedule Your Consultation →
