@@ -103,12 +103,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:image",
         content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/583c3478-6f5c-4900-b6f7-687fffac1ede/id-preview-63ef1d6c--1d3a67d1-8cbe-40c6-bdb0-a3aefdda3261.lovable.app-1785817703840.png",
+          "https://go.vektiss.com/__l5e/assets-v1/0a0261ff-198d-40ed-b697-b4b83236af3f/og-hero.png",
       },
       {
         name: "twitter:image",
         content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/583c3478-6f5c-4900-b6f7-687fffac1ede/id-preview-63ef1d6c--1d3a67d1-8cbe-40c6-bdb0-a3aefdda3261.lovable.app-1785817703840.png",
+          "https://go.vektiss.com/__l5e/assets-v1/0a0261ff-198d-40ed-b697-b4b83236af3f/og-hero.png",
       },
     ],
     links: [
