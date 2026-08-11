@@ -105,7 +105,7 @@ function Funnel() {
             </span>
             FOR ESTABLISHED SERVICE BUSINESSES WITH CONSISTENT CALLS
           </div>
-          <h1 className="mx-auto mt-7 max-w-5xl font-bricolage text-4xl leading-[.98] font-extrabold tracking-[-.055em] sm:text-6xl lg:text-7xl xl:text-[5.4rem]">
+          <h1 className="mx-auto mt-7 max-w-6xl font-display text-[2.5rem] leading-[1.02] font-extrabold tracking-[-.04em] sm:text-[3.75rem] sm:leading-[.98] lg:text-[4.25rem] xl:text-[4.5rem]">
             Your team can&apos;t answer every call.
             <span className="mt-2 block bg-gradient-to-r from-[#1287f7] to-[#0056c9] bg-clip-text text-transparent">
               Vektiss makes sure every opportunity gets handled.
