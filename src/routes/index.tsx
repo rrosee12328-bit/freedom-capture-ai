@@ -105,16 +105,15 @@ function Funnel() {
             </span>
             FOR ESTABLISHED SERVICE BUSINESSES WITH CONSISTENT CALLS
           </div>
-          <h1 className="mx-auto mt-7 max-w-6xl font-display text-[2.5rem] leading-[1.02] font-extrabold tracking-[-.04em] sm:text-[3.75rem] sm:leading-[.98] lg:text-[4.25rem] xl:text-[4.5rem]">
-            Your team can&apos;t answer every call.
+          <h1 className="mx-auto mt-7 max-w-7xl font-display text-[2.5rem] leading-[1.02] font-extrabold tracking-[-.04em] sm:text-[3.75rem] sm:leading-[.98] lg:text-[4rem] xl:text-[4.25rem]">
+            <span className="block">Your team can&apos;t answer every call.</span>
             <span className="mt-2 block bg-gradient-to-r from-[#1287f7] to-[#0056c9] bg-clip-text text-transparent">
-              Vektiss makes sure every opportunity gets handled.
+              That shouldn&apos;t cost you the customer.
             </span>
           </h1>
           <p className="mx-auto mt-7 max-w-3xl text-base leading-relaxed font-medium text-slate-600 sm:text-xl">
-            A fully managed 24/7 call system built around your business—answering customers,
-            capturing what they need, routing the right opportunities, and moving conversations
-            forward when your team can&apos;t pick up.
+            Vektiss Voice answers your business 24/7, captures what callers need, and moves the
+            right opportunities forward — even when your team can&apos;t pick up.
           </p>
 
           {/* VSL remains in its original hero position */}
