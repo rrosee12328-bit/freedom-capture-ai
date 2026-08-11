@@ -103,17 +103,19 @@ function Funnel() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-blue-400 opacity-70" />
               <span className="relative inline-flex size-2 rounded-full bg-[#1287f7]" />
             </span>
-            FOR ESTABLISHED SERVICE BUSINESSES WITH CONSISTENT CALLS
+            FOR ESTABLISHED SERVICE BUSINESSES WITH HIGH-VALUE CUSTOMERS
           </div>
-          <h1 className="mx-auto mt-7 max-w-7xl font-display text-[2.5rem] leading-[1.02] font-extrabold tracking-[-.04em] sm:text-[3.75rem] sm:leading-[.98] lg:text-[4rem] xl:text-[4.25rem]">
-            <span className="block">Your team can&apos;t answer every call.</span>
-            <span className="mt-2 block bg-gradient-to-r from-[#1287f7] to-[#0056c9] bg-clip-text text-transparent">
-              That shouldn&apos;t cost you the customer.
+          <h1 className="mx-auto mt-7 max-w-6xl font-display text-[2.4rem] leading-[1.02] font-extrabold tracking-[-.04em] sm:text-[3.5rem] sm:leading-[.98] lg:text-[4.25rem]">
+            <span className="block">
+              Turn the calls your team misses into booked opportunities — 24/7.
+            </span>
+            <span className="mt-3 block bg-gradient-to-r from-[#1287f7] to-[#0056c9] bg-clip-text text-[.72em] leading-[1.05] tracking-[-.03em] text-transparent">
+              Without hiring another receptionist.
             </span>
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl text-base leading-relaxed font-medium text-slate-600 sm:text-xl">
-            Vektiss Voice answers your business 24/7, captures what callers need, and moves the
-            right opportunities forward — even when your team can&apos;t pick up.
+          <p className="mx-auto mt-7 max-w-4xl text-base leading-relaxed font-medium text-slate-600 sm:text-xl">
+            Vektiss Voice answers, qualifies, follows up, and moves qualified callers to the next
+            step — even when your team is busy, closed, or unavailable.
           </p>
 
           {/* VSL remains in its original hero position */}
@@ -134,16 +136,11 @@ function Funnel() {
           </div>
 
           <div className="mt-8">
-            <BookingCta />
+            <BookingCta label="Put Vektiss on Your Phones Free for 7 Days" />
           </div>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-500 sm:text-sm">
-            {["24/7 coverage", "Built around your business", "Managed by Vektiss"].map((item) => (
-              <span key={item} className="flex items-center gap-2">
-                <CircleCheck className="size-4 text-[#1287f7]" />
-                {item}
-              </span>
-            ))}
-          </div>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed font-bold text-slate-600 sm:text-base">
+            Real calls. Real customers. See what Vektiss can capture before you pay.
+          </p>
         </div>
       </section>
 
