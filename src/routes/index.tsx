@@ -105,15 +105,28 @@ function Funnel() {
             </span>
             FOR ESTABLISHED SERVICE BUSINESSES WITH HIGH-VALUE CUSTOMERS
           </div>
-          <h1 className="mx-auto mt-7 max-w-6xl font-display text-[2.4rem] leading-[1.02] font-extrabold tracking-[-.04em] sm:text-[3.5rem] sm:leading-[.98] lg:text-[4.25rem]">
+          <h1 className="mx-auto mt-7 max-w-[22rem] text-left font-display text-[2.25rem] leading-[1.04] font-extrabold tracking-[-.04em] sm:max-w-6xl sm:text-center sm:text-[3.5rem] sm:leading-[.98] lg:text-[4.25rem]">
             <span className="block">
-              Turn the calls your team misses into booked opportunities — 24/7.
+              Turn the calls your team <span className="text-[#1287f7]">misses</span> into{" "}
+              <span className="relative inline-block text-[#1287f7]">
+                booked opportunities
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 h-1 w-full -rotate-1 rounded-full bg-blue-300/60"
+                />
+              </span>{" "}
+              <span className="whitespace-nowrap">
+                — <span className="text-[#1287f7]">24/7.</span>
+              </span>
             </span>
-            <span className="mt-3 block bg-gradient-to-r from-[#1287f7] to-[#0056c9] bg-clip-text text-[.72em] leading-[1.05] tracking-[-.03em] text-transparent">
-              Without hiring another receptionist.
+            <span className="mt-5 block text-[.56em] leading-tight tracking-[-.02em] text-slate-900 sm:mt-6">
+              <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2.5 shadow-sm sm:px-5">
+                <span aria-hidden className="size-2 shrink-0 rounded-full bg-[#1287f7]" />
+                Without hiring another receptionist.
+              </span>
             </span>
           </h1>
-          <p className="mx-auto mt-7 max-w-4xl text-base leading-relaxed font-medium text-slate-600 sm:text-xl">
+          <p className="mx-auto mt-7 max-w-[22rem] text-left text-base leading-relaxed font-medium text-slate-600 sm:max-w-4xl sm:text-center sm:text-xl">
             Vektiss Voice answers, qualifies, follows up, and moves qualified callers to the next
             step — even when your team is busy, closed, or unavailable.
           </p>
