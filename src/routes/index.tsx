@@ -105,7 +105,7 @@ function Funnel() {
             </span>
             FOR ESTABLISHED SERVICE BUSINESSES WITH HIGH-VALUE CUSTOMERS
           </div>
-          <h1 className="mx-auto mt-7 max-w-[22rem] text-left font-display text-[2.25rem] leading-[1.04] font-extrabold tracking-[-.04em] sm:max-w-6xl sm:text-center sm:text-[3.5rem] sm:leading-[.98] lg:text-[4.25rem]">
+          <h1 className="mx-auto mt-7 max-w-[22rem] text-center font-display text-[2.25rem] leading-[1.04] font-extrabold tracking-[-.04em] sm:max-w-6xl sm:text-[3.5rem] sm:leading-[.98] lg:text-[4.25rem]">
             <span className="block">
               Turn the calls your team <span className="text-[#1287f7]">misses</span> into{" "}
               <span className="relative inline-block text-[#1287f7]">
@@ -126,7 +126,7 @@ function Funnel() {
               </span>
             </span>
           </h1>
-          <p className="mx-auto mt-7 max-w-[22rem] text-left text-base leading-relaxed font-medium text-slate-600 sm:max-w-4xl sm:text-center sm:text-xl">
+          <p className="mx-auto mt-7 max-w-[22rem] text-center text-base leading-relaxed font-medium text-slate-600 sm:max-w-4xl sm:text-xl">
             Vektiss Voice answers, qualifies, follows up, and moves qualified callers to the next
             step — even when your team is busy, closed, or unavailable.
           </p>
