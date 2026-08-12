@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowRight,
   Bot,
@@ -18,11 +19,10 @@ import {
   Workflow,
   Zap,
 } from "lucide-react";
-import { trackPixel } from "@/lib/meta-pixel";
+import { LeadCaptureDialog } from "@/components/LeadCaptureDialog";
 import vektissLogo from "@/assets/vektiss-logo-cropped.webp";
 import phoneCutout from "@/assets/vektiss-phone-cutout.png";
 
-const BOOKING_URL = "https://calendly.com/vektiss-info/30-minute-vektiss-discovery";
 const TITLE = "Vektiss Voice — Every Opportunity Handled";
 const DESCRIPTION =
   "A fully managed 24/7 call system built around your business—answering customers, capturing what they need, and moving every opportunity to the next step.";
@@ -42,16 +42,18 @@ export const Route = createFileRoute("/")({
 });
 
 function BookingCta({
+  onClick,
   label = "Start Your 7-Day Free Trial",
   dark = false,
 }: {
+  onClick: () => void;
   label?: string;
   dark?: boolean;
 }) {
   return (
-    <a
-      href={BOOKING_URL}
-      onClick={() => trackPixel("Schedule")}
+    <button
+      type="button"
+      onClick={onClick}
       className={`group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-extrabold transition duration-200 sm:px-8 sm:py-4 sm:text-base ${
         dark
           ? "bg-white text-slate-950 shadow-[0_18px_50px_-18px_rgba(255,255,255,.55)] hover:-translate-y-0.5"
@@ -60,7 +62,7 @@ function BookingCta({
     >
       {label}
       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-    </a>
+    </button>
   );
 }
 
@@ -75,14 +77,18 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 }
 
 function Funnel() {
+  const [captureOpen, setCaptureOpen] = useState(false);
+  const openCapture = () => setCaptureOpen(true);
+
   return (
     <main className="min-h-screen overflow-hidden bg-white text-slate-950">
+      <LeadCaptureDialog open={captureOpen} onOpenChange={setCaptureOpen} />
       <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
           <a href="/" aria-label="Vektiss home">
             <img src={vektissLogo} alt="Vektiss" className="h-7 w-auto sm:h-8" />
           </a>
-          <BookingCta label="Book Your Trial" />
+          <BookingCta onClick={openCapture} label="Book Your Trial" />
         </div>
       </header>
 
@@ -142,7 +148,7 @@ function Funnel() {
           </div>
 
           <div className="mt-8">
-            <BookingCta label="Put Vektiss on Your Phones Free for 7 Days" />
+            <BookingCta onClick={openCapture} label="Put Vektiss on Your Phones Free for 7 Days" />
           </div>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed font-bold text-slate-600 sm:text-base">
             Real calls. Real customers. See what Vektiss can capture before you pay.
@@ -283,7 +289,7 @@ function Funnel() {
                 Vektiss connects the moment a customer calls to the action your business needs next.
               </p>
               <div className="mt-8 hidden lg:block">
-                <BookingCta label="See It in Your Business" />
+                <BookingCta onClick={openCapture} label="See It in Your Business" />
               </div>
             </div>
             <div className="relative rounded-3xl border border-blue-200 bg-white p-5 shadow-[0_30px_80px_-35px_rgba(18,135,247,.45)] sm:p-8">
@@ -439,7 +445,7 @@ function Funnel() {
                   operation. Experience it before deciding whether to keep it.
                 </p>
                 <div className="mt-8">
-                  <BookingCta />
+                  <BookingCta onClick={openCapture} />
                 </div>
               </div>
               <div className="grid gap-3">
@@ -518,7 +524,7 @@ function Funnel() {
             managed for you.
           </p>
           <div className="mt-9">
-            <BookingCta dark />
+            <BookingCta onClick={openCapture} dark />
           </div>
           <p className="mt-5 text-sm font-semibold text-blue-100">
             Experience it in your business before deciding whether to keep it.

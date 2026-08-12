@@ -36,19 +36,19 @@ type Lead = {
   name: string;
   email: string;
   phone: string;
-  business_name: string;
+  business_name: string | null;
   website: string | null;
-  business_type: string;
-  monthly_calls: string;
-  client_value: string;
-  challenge: string;
+  business_type: string | null;
+  monthly_calls: string | null;
+  client_value: string | null;
+  challenge: string | null;
   challenge_other: string | null;
-  timeline: string;
-  investment_readiness: string;
-  purchasing_authority: string;
-  consultation_commitment: string;
-  qualification_score: number;
-  qualification_status: string;
+  timeline: string | null;
+  investment_readiness: string | null;
+  purchasing_authority: string | null;
+  consultation_commitment: string | null;
+  qualification_score: number | null;
+  qualification_status: string | null;
   lead_source: string | null;
   utm_source: string | null;
   utm_campaign: string | null;
@@ -61,6 +61,7 @@ type Lead = {
 
 const WORKFLOW: Workflow[] = ["New", "Contacted", "Consultation Booked", "Won", "Lost", "Nurture"];
 const COLORS: Record<string, string> = {
+  "Calendar Lead": "#8b5cf6",
   Qualified: "#1287f7",
   "Needs Review": "#f59e0b",
   "Not Currently Qualified": "#94a3b8",
@@ -155,7 +156,11 @@ function AdminCRM() {
     () =>
       Object.keys(COLORS).map((name) => ({
         name,
-        value: leads.filter((l) => l.qualification_status === name).length,
+        value: leads.filter((lead) =>
+          name === "Calendar Lead"
+            ? lead.qualification_status === null
+            : lead.qualification_status === name,
+        ).length,
       })),
     [leads],
   );
@@ -364,7 +369,7 @@ function AdminCRM() {
                   <div className="min-w-0">
                     <div className="truncate text-base font-bold">{lead.name}</div>
                     <div className="mt-0.5 truncate text-sm text-slate-500">
-                      {lead.business_name}
+                      {lead.business_name ?? "Pre-calendar contact"}
                     </div>
                   </div>
                   <ChevronRight className="mt-1 size-5 shrink-0 text-slate-400" />
@@ -374,16 +379,20 @@ function AdminCRM() {
                   <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
                     {lead.follow_up_status}
                   </span>
-                  <span className="text-xs font-semibold text-slate-500">
-                    Score {lead.qualification_score}/23
-                  </span>
+                  {lead.qualification_score !== null ? (
+                    <span className="text-xs font-semibold text-slate-500">
+                      Score {lead.qualification_score}/23
+                    </span>
+                  ) : null}
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-3 rounded-xl bg-slate-50 p-3">
                   <div>
                     <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       Timeline
                     </div>
-                    <div className="mt-1 text-sm font-semibold text-slate-700">{lead.timeline}</div>
+                    <div className="mt-1 text-sm font-semibold text-slate-700">
+                      {lead.timeline ?? "Scheduling started"}
+                    </div>
                   </div>
                   <div>
                     <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
@@ -419,21 +428,25 @@ function AdminCRM() {
                     <td className="px-5 py-4">
                       <div className="font-bold">{lead.name}</div>
                       <div className="mt-0.5 text-slate-500">
-                        {lead.business_name} · {lead.email}
+                        {lead.business_name ?? "Pre-calendar contact"} · {lead.email}
                       </div>
                     </td>
                     <td className="px-4 py-4">
                       <StatusBadge status={lead.qualification_status} />
-                      <div className="mt-1 text-xs text-slate-500">
-                        Score {lead.qualification_score}/23
-                      </div>
+                      {lead.qualification_score !== null ? (
+                        <div className="mt-1 text-xs text-slate-500">
+                          Score {lead.qualification_score}/23
+                        </div>
+                      ) : null}
                     </td>
                     <td className="px-4 py-4">
                       <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-700">
                         {lead.follow_up_status}
                       </span>
                     </td>
-                    <td className="px-4 py-4 text-slate-600">{lead.timeline}</td>
+                    <td className="px-4 py-4 text-slate-600">
+                      {lead.timeline ?? "Scheduling started"}
+                    </td>
                     <td className="px-4 py-4 text-slate-600">
                       {new Date(lead.created_at).toLocaleDateString()}
                     </td>
@@ -507,14 +520,17 @@ function ChartCard({
     </div>
   );
 }
-function StatusBadge({ status }: { status: string }) {
+function StatusBadge({ status }: { status: string | null }) {
+  const label = status ?? "Calendar Lead";
   const style =
     status === "Qualified"
       ? "bg-blue-100 text-blue-700"
       : status === "Needs Review"
         ? "bg-amber-100 text-amber-700"
-        : "bg-slate-100 text-slate-600";
-  return <span className={`rounded-full px-3 py-1 text-xs font-bold ${style}`}>{status}</span>;
+        : status === null
+          ? "bg-violet-100 text-violet-700"
+          : "bg-slate-100 text-slate-600";
+  return <span className={`rounded-full px-3 py-1 text-xs font-bold ${style}`}>{label}</span>;
 }
 
 function LeadPanel({
@@ -552,9 +568,11 @@ function LeadPanel({
         <div className="space-y-6 p-6">
           <div className="flex flex-wrap gap-2">
             <StatusBadge status={lead.qualification_status} />
-            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold">
-              Score {lead.qualification_score}/23
-            </span>
+            {lead.qualification_score !== null ? (
+              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold">
+                Score {lead.qualification_score}/23
+              </span>
+            ) : null}
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <a
@@ -629,23 +647,42 @@ function LeadPanel({
           <PanelSection title="Contact & business">
             <Info label="Email" value={lead.email} />
             <Info label="Phone" value={lead.phone} />
-            <Info label="Business" value={lead.business_name} />
-            <Info label="Type" value={lead.business_type} />
+            <Info label="Business" value={lead.business_name ?? "Not collected"} />
+            <Info label="Type" value={lead.business_type ?? "Not collected"} />
             <Info label="Website" value={lead.website ?? "Not provided"} />
             <Info label="Source" value={lead.utm_source || lead.lead_source || "Direct"} />
           </PanelSection>
-          <PanelSection title="Qualification answers">
-            <Info label="Monthly calls/leads" value={lead.monthly_calls} />
-            <Info label="Typical client value" value={lead.client_value} />
-            <Info
-              label="Biggest challenge"
-              value={`${lead.challenge}${lead.challenge_other ? ` — ${lead.challenge_other}` : ""}`}
-            />
-            <Info label="Timeline" value={lead.timeline} />
-            <Info label="Investment readiness" value={lead.investment_readiness} />
-            <Info label="Purchasing authority" value={lead.purchasing_authority} />
-            <Info label="Consultation commitment" value={lead.consultation_commitment} />
-          </PanelSection>
+          {lead.qualification_status !== null ? (
+            <PanelSection title="Qualification answers">
+              <Info label="Monthly calls/leads" value={lead.monthly_calls ?? "Not provided"} />
+              <Info label="Typical client value" value={lead.client_value ?? "Not provided"} />
+              <Info
+                label="Biggest challenge"
+                value={`${lead.challenge ?? "Not provided"}${lead.challenge_other ? ` — ${lead.challenge_other}` : ""}`}
+              />
+              <Info label="Timeline" value={lead.timeline ?? "Not provided"} />
+              <Info
+                label="Investment readiness"
+                value={lead.investment_readiness ?? "Not provided"}
+              />
+              <Info
+                label="Purchasing authority"
+                value={lead.purchasing_authority ?? "Not provided"}
+              />
+              <Info
+                label="Consultation commitment"
+                value={lead.consultation_commitment ?? "Not provided"}
+              />
+            </PanelSection>
+          ) : (
+            <PanelSection title="Scheduling status">
+              <Info label="Status" value="Contact captured · Calendly opened" />
+              <p className="mt-3 text-sm leading-relaxed text-slate-500">
+                This visitor reached the calendar, but the CRM does not yet confirm that an
+                appointment was booked.
+              </p>
+            </PanelSection>
+          )}
           <PanelSection title="Follow-up notes">
             <textarea
               value={notes}
