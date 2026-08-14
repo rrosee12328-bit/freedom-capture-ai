@@ -1,11 +1,14 @@
 // Meta (Facebook) Pixel helpers.
 export const META_PIXEL_IDS = ["1873199537456348", "1802552391187970"] as const;
+export const PRIMARY_META_PIXEL_ID = "1802552391187970";
 
 export type MetaEventName = "Lead" | "Schedule";
 
 export type MarketingAttribution = {
-  fbp?: string;
-  fbc?: string;
+  landing_page_url: string;
+  referrer_url?: string | undefined;
+  fbp?: string | undefined;
+  fbc?: string | undefined;
   utm_source?: string | null;
   utm_medium?: string | null;
   utm_campaign?: string | null;
@@ -36,6 +39,8 @@ export function createMetaEventId(eventName: MetaEventName) {
 export function readMarketingAttribution(pageParams: URLSearchParams): MarketingAttribution {
   const fbclid = pageParams.get("fbclid");
   return {
+    landing_page_url: window.location.href,
+    referrer_url: document.referrer || undefined,
     fbp: cookie("_fbp"),
     fbc: cookie("_fbc") || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : undefined),
     utm_source: pageParams.get("utm_source"),
@@ -54,9 +59,7 @@ export function trackPixel(
   if (typeof window === "undefined" || typeof window.fbq !== "function") return;
 
   // The matching eventID is sent through the CAPI Edge Function for browser/server deduplication.
-  META_PIXEL_IDS.forEach((pixelId) => {
-    window.fbq?.("trackSingle", pixelId, event, params ?? {}, { eventID: eventId });
-  });
+  window.fbq("trackSingle", PRIMARY_META_PIXEL_ID, event, params ?? {}, { eventID: eventId });
 }
 
 export const metaPixelScript = `!function(f,b,e,v,n,t,s)

@@ -33,6 +33,9 @@ type BookingState = {
 
 type CalendlyMessage = {
   event?: string;
+  payload?: {
+    event?: { uri?: string };
+  };
 };
 
 declare global {
@@ -75,6 +78,8 @@ async function sendMetaCapiEvent(input: {
   phone: string;
   event_source_url: string;
   attribution: MarketingAttribution;
+  lead_id?: string | undefined;
+  calendly_event_uri?: string | undefined;
 }) {
   if (!supabase) return;
   const { error } = await supabase.functions.invoke("meta-capi", {
@@ -86,6 +91,8 @@ async function sendMetaCapiEvent(input: {
       event_source_url: input.event_source_url,
       fbp: input.attribution.fbp,
       fbc: input.attribution.fbc,
+      lead_id: input.lead_id,
+      calendly_event_uri: input.calendly_event_uri,
     },
   });
   if (error) console.error(`[meta-capi] ${input.event_name} delivery failed`, error);
@@ -129,15 +136,9 @@ export function LeadCaptureDialog({
         phone: booking.phone,
         event_source_url: window.location.href,
         attribution: booking.attribution,
+        lead_id: booking.leadId,
+        calendly_event_uri: event.data.payload?.event?.uri,
       });
-
-      if (supabase) {
-        const { error: updateError } = await supabase
-          .from("leads")
-          .update({ follow_up_status: "Consultation Booked" })
-          .eq("id", booking.leadId);
-        if (updateError) console.error("[crm] booked-call status update failed", updateError);
-      }
       setScheduled(true);
     }
 
@@ -177,36 +178,39 @@ export function LeadCaptureDialog({
 
     const pageParams = new URLSearchParams(window.location.search);
     const attribution = readMarketingAttribution(pageParams);
+    const leadId = crypto.randomUUID();
+    const leadEventId = createMetaEventId("Lead");
     setSubmitting(true);
     scheduleReported.current = false;
 
-    const { data: lead, error: insertError } = await supabase
-      .from("leads")
-      .insert({
-        name: cleanName,
-        email: cleanEmail,
-        phone: cleanPhone,
-        consent: true,
-        qualification_score: null,
-        qualification_status: null,
-        lead_source: "pre_calendly_form",
-        utm_source: attribution.utm_source,
-        utm_medium: attribution.utm_medium,
-        utm_campaign: attribution.utm_campaign,
-        utm_content: attribution.utm_content,
-        utm_term: attribution.utm_term,
-      })
-      .select("id")
-      .single();
+    const { error: insertError } = await supabase.from("leads").insert({
+      id: leadId,
+      name: cleanName,
+      email: cleanEmail,
+      phone: cleanPhone,
+      consent: true,
+      qualification_score: null,
+      qualification_status: null,
+      lead_source: "pre_calendly_form",
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      utm_content: attribution.utm_content,
+      utm_term: attribution.utm_term,
+      meta_lead_event_id: leadEventId,
+      landing_page_url: attribution.landing_page_url,
+      referrer_url: attribution.referrer_url,
+      meta_fbp: attribution.fbp,
+      meta_fbc: attribution.fbc,
+    });
 
-    if (insertError || !lead) {
+    if (insertError) {
       console.error("Pre-Calendly lead capture failed", insertError);
       setSubmitting(false);
       setError("We could not save your details. Please try again.");
       return;
     }
 
-    const leadEventId = createMetaEventId("Lead");
     trackPixel("Lead", leadEventId);
     void sendMetaCapiEvent({
       event_name: "Lead",
@@ -218,7 +222,7 @@ export function LeadCaptureDialog({
     });
 
     setBooking({
-      leadId: lead.id,
+      leadId,
       name: cleanName,
       email: cleanEmail,
       phone: cleanPhone,
@@ -229,7 +233,12 @@ export function LeadCaptureDialog({
   }
 
   return (
-    <Dialog open={open} onOpenChange={submitting ? undefined : onOpenChange}>
+    <Dialog
+      open={open}
+      onOpenChange={(nextOpen) => {
+        if (!submitting) onOpenChange(nextOpen);
+      }}
+    >
       <DialogContent className="max-h-[92vh] max-w-lg overflow-y-auto border-0 bg-white p-0 shadow-2xl">
         {scheduled ? (
           <div className="px-7 py-12 text-center">

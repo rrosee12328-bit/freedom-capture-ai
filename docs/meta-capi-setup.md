@@ -4,7 +4,7 @@ This repository now records an initial `Lead` event after the pre-Calendly CRM r
 
 ## Supabase changes
 
-**No database migration is included or required.** The existing `public.leads` schema and the existing pre-Calendly migration remain unchanged. On a confirmed booking, the application updates the existing lead’s `follow_up_status` to `Consultation Booked`.
+Run `supabase/migrations/20260814000000_add_meta_lead_attribution.sql` once. It stores the browser/server event IDs, Meta attribution, and confirmed Calendly booking details on the existing CRM lead. On confirmation, the Edge Function updates `follow_up_status` to `Consultation Booked` with its server-side service-role credential; the public browser does not receive update access.
 
 ## Required Edge Function secrets
 
@@ -15,6 +15,7 @@ Set these secrets in the connected Supabase project before deploying or invoking
 | `META_CAPI_PIXEL_ID`        | The Meta Pixel ID to receive server events. Use the pixel selected for campaign optimization. |
 | `META_CAPI_ACCESS_TOKEN`    | A Conversions API access token generated in Events Manager. Keep server-side only.            |
 | `META_CAPI_ALLOWED_ORIGINS` | Comma-separated deployed site origins, for example `https://go.vektiss.com`.                  |
+| `META_CAPI_TEST_EVENT_CODE` | Optional Test Events code. Remove it after validation.                                        |
 
 ## Deployment and validation
 
