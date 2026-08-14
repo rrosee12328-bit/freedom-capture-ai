@@ -1,6 +1,17 @@
 // Meta (Facebook) Pixel helpers.
-// Replace with your real Pixel ID from Events Manager.
 export const META_PIXEL_IDS = ["1873199537456348", "1802552391187970"] as const;
+
+export type MetaEventName = "Lead" | "Schedule";
+
+export type MarketingAttribution = {
+  fbp?: string;
+  fbc?: string;
+  utm_source?: string | null;
+  utm_medium?: string | null;
+  utm_campaign?: string | null;
+  utm_content?: string | null;
+  utm_term?: string | null;
+};
 
 declare global {
   interface Window {
@@ -8,9 +19,44 @@ declare global {
   }
 }
 
-export function trackPixel(event: string, params?: Record<string, unknown>) {
+function cookie(name: string) {
+  if (typeof document === "undefined") return undefined;
+  const prefix = `${name}=`;
+  return document.cookie
+    .split(";")
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(prefix))
+    ?.slice(prefix.length);
+}
+
+export function createMetaEventId(eventName: MetaEventName) {
+  return `${eventName.toLowerCase()}-${crypto.randomUUID()}`;
+}
+
+export function readMarketingAttribution(pageParams: URLSearchParams): MarketingAttribution {
+  const fbclid = pageParams.get("fbclid");
+  return {
+    fbp: cookie("_fbp"),
+    fbc: cookie("_fbc") || (fbclid ? `fb.1.${Date.now()}.${fbclid}` : undefined),
+    utm_source: pageParams.get("utm_source"),
+    utm_medium: pageParams.get("utm_medium"),
+    utm_campaign: pageParams.get("utm_campaign"),
+    utm_content: pageParams.get("utm_content"),
+    utm_term: pageParams.get("utm_term"),
+  };
+}
+
+export function trackPixel(
+  event: MetaEventName,
+  eventId: string,
+  params?: Record<string, unknown>,
+) {
   if (typeof window === "undefined" || typeof window.fbq !== "function") return;
-  window.fbq("track", event, params);
+
+  // The matching eventID is sent through the CAPI Edge Function for browser/server deduplication.
+  META_PIXEL_IDS.forEach((pixelId) => {
+    window.fbq?.("trackSingle", pixelId, event, params ?? {}, { eventID: eventId });
+  });
 }
 
 export const metaPixelScript = `!function(f,b,e,v,n,t,s)
